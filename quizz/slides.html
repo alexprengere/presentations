@@ -687,10 +687,138 @@ Find the value of the last statement.</p>
 <span class="comment"># D: None</span>
 </pre>
 </div>
+<div class="slide" id="id25">
+<h1>25</h1>
+<pre class="code python literal-block">
+<span class="name builtin pseudo">False</span> <span class="operator">==</span> <span class="name builtin pseudo">False</span> <span class="operator word">in</span> <span class="punctuation">[</span><span class="name builtin pseudo">False</span><span class="punctuation">]</span>
+
+<span class="comment"># A: True</span>
+<span class="comment"># B: False</span>
+<span class="comment"># C: an exception is raised</span>
+<span class="comment"># D: None</span>
+</pre>
+</div>
+<div class="slide" id="id26">
+<h1>26</h1>
+<pre class="code python literal-block">
+<span class="keyword">class</span> <span class="name class">Obj</span><span class="punctuation">(</span><span class="name builtin">object</span><span class="punctuation">):</span>
+    <span class="keyword">def</span> <span class="name function">__init__</span><span class="punctuation">(</span><span class="name builtin pseudo">self</span><span class="punctuation">):</span>
+        <span class="name builtin pseudo">self</span><span class="operator">.</span><span class="name">attr</span> <span class="operator">=</span> <span class="name builtin pseudo">None</span>
+    <span class="keyword">def</span> <span class="name function">__getattr__</span><span class="punctuation">(</span><span class="name builtin pseudo">self</span><span class="punctuation">,</span> <span class="name">name</span><span class="punctuation">):</span>
+        <span class="keyword">return</span> <span class="literal number integer">0</span>
+
+<span class="name">o</span> <span class="operator">=</span> <span class="name">Obj</span><span class="punctuation">()</span>
+<span class="punctuation">(</span><span class="name">o</span><span class="operator">.</span><span class="name">titi</span><span class="punctuation">,</span> <span class="name">o</span><span class="operator">.</span><span class="name">attr</span><span class="punctuation">)</span>
+<span class="comment"># A: (None, 0)</span>
+<span class="comment"># B: (0, None)</span>
+<span class="comment"># C: (0, 0)</span>
+<span class="comment"># D: an exception is raised</span>
+</pre>
+</div>
+<div class="slide" id="id27">
+<h1>27</h1>
+<pre class="code python literal-block">
+<span class="keyword">class</span> <span class="name class">Obj</span><span class="punctuation">(</span><span class="name builtin">object</span><span class="punctuation">):</span>
+    <span class="keyword">def</span> <span class="name function">__init__</span><span class="punctuation">(</span><span class="name builtin pseudo">self</span><span class="punctuation">):</span>
+        <span class="name builtin pseudo">self</span><span class="operator">.</span><span class="name">attr</span> <span class="operator">=</span> <span class="name builtin pseudo">None</span>
+    <span class="keyword">def</span> <span class="name function">__getattribute__</span><span class="punctuation">(</span><span class="name builtin pseudo">self</span><span class="punctuation">,</span> <span class="name">name</span><span class="punctuation">):</span>
+        <span class="keyword">return</span> <span class="literal number integer">0</span>
+
+<span class="name">o</span> <span class="operator">=</span> <span class="name">Obj</span><span class="punctuation">()</span>
+<span class="punctuation">(</span><span class="name">o</span><span class="operator">.</span><span class="name">titi</span><span class="punctuation">,</span> <span class="name">o</span><span class="operator">.</span><span class="name">attr</span><span class="punctuation">)</span>
+<span class="comment"># A: (None, 0)</span>
+<span class="comment"># B: (0, None)</span>
+<span class="comment"># C: (0, 0)</span>
+<span class="comment"># D: an exception is raised</span>
+</pre>
+</div>
+<div class="slide" id="id28">
+<h1>28</h1>
+<pre class="code python literal-block">
+<span class="keyword">class</span> <span class="name class">Obj</span><span class="punctuation">(</span><span class="name builtin">object</span><span class="punctuation">):</span>
+    <span class="keyword">def</span> <span class="name function">__init__</span><span class="punctuation">(</span><span class="name builtin pseudo">self</span><span class="punctuation">):</span>
+        <span class="name builtin pseudo">self</span><span class="operator">.</span><span class="name">attr</span> <span class="operator">=</span> <span class="name builtin pseudo">None</span>
+    <span class="keyword">def</span> <span class="name function">__getattribute__</span><span class="punctuation">(</span><span class="name builtin pseudo">self</span><span class="punctuation">,</span> <span class="name">name</span><span class="punctuation">):</span>
+        <span class="keyword">return</span> <span class="name builtin">object</span><span class="operator">.</span><span class="name">__getattribute__</span><span class="punctuation">(</span><span class="name">name</span><span class="punctuation">)</span>
+
+<span class="name">o</span> <span class="operator">=</span> <span class="name">Obj</span><span class="punctuation">()</span>
+<span class="punctuation">(</span><span class="name">o</span><span class="operator">.</span><span class="name">titi</span><span class="punctuation">,</span> <span class="name">o</span><span class="operator">.</span><span class="name">attr</span><span class="punctuation">)</span>
+<span class="comment"># A: (None, 0)</span>
+<span class="comment"># B: (0, None)</span>
+<span class="comment"># C: (0, 0)</span>
+<span class="comment"># D: an exception is raised</span>
+</pre>
+</div>
+<div class="slide" id="id29">
+<h1>29</h1>
+<pre class="code python literal-block">
+<span class="name">s</span> <span class="operator">=</span> <span class="name builtin">set</span><span class="punctuation">([</span><span class="literal number integer">1</span><span class="punctuation">,</span> <span class="name builtin pseudo">None</span><span class="punctuation">,</span> <span class="punctuation">[],</span> <span class="punctuation">()])</span>
+<span class="literal number integer">1</span> <span class="operator word">in</span> <span class="name">s</span>
+
+<span class="comment"># A: True</span>
+<span class="comment"># B: False</span>
+<span class="comment"># C: None</span>
+<span class="comment"># D: an exception is raised</span>
+</pre>
+</div>
+<div class="slide" id="id30">
+<h1>30</h1>
+<pre class="code python literal-block">
+<span class="name">l</span> <span class="operator">=</span> <span class="punctuation">[</span><span class="literal number integer">1</span><span class="punctuation">,</span> <span class="literal number integer">2</span><span class="punctuation">,</span> <span class="literal number integer">3</span><span class="punctuation">,</span> <span class="literal number integer">4</span><span class="punctuation">,</span> <span class="literal number integer">5</span><span class="punctuation">]</span>
+<span class="name">l</span><span class="punctuation">[:</span><span class="literal number integer">3</span><span class="punctuation">]</span> <span class="operator">+</span> <span class="name">l</span><span class="punctuation">[</span><span class="literal number integer">3</span><span class="punctuation">:</span><span class="operator">-</span><span class="literal number integer">1</span><span class="punctuation">]</span>
+
+<span class="comment"># A: [1, 2, 4, 5]</span>
+<span class="comment"># B: [1, 2, 3, 5]</span>
+<span class="comment"># C: [1, 2, 3, 4]</span>
+<span class="comment"># D: [1, 2, 3, 4, 5]</span>
+</pre>
+</div>
+<div class="slide" id="id31">
+<h1>31</h1>
+<pre class="code python literal-block">
+<span class="name">a</span> <span class="operator">=</span> <span class="name builtin">set</span><span class="punctuation">([</span><span class="literal number integer">1</span><span class="punctuation">,</span> <span class="literal number integer">2</span><span class="punctuation">,</span> <span class="literal number integer">3</span><span class="punctuation">])</span>
+<span class="name">b</span> <span class="operator">=</span> <span class="name builtin">set</span><span class="punctuation">([</span><span class="literal number integer">4</span><span class="punctuation">,</span> <span class="literal number integer">5</span><span class="punctuation">])</span>
+<span class="name">c</span> <span class="operator">=</span> <span class="name builtin">set</span><span class="punctuation">([</span><span class="literal number integer">1</span><span class="punctuation">,</span> <span class="literal number integer">5</span><span class="punctuation">])</span>
+<span class="name">a</span> <span class="operator">|</span> <span class="name">b</span> <span class="operator">&amp;</span> <span class="name">c</span>
+
+<span class="comment"># A: set([1, 5])</span>
+<span class="comment"># B: set([1, 2, 3, 5])</span>
+<span class="comment"># C: [1, 2, 3, 5]</span>
+<span class="comment"># D: an exception is raised</span>
+</pre>
+</div>
+<div class="slide" id="id32">
+<h1>32</h1>
+<pre class="code python literal-block">
+<span class="name">f</span> <span class="operator">=</span> <span class="keyword">lambda</span> <span class="punctuation">(</span><span class="name">a</span><span class="punctuation">,</span> <span class="name">b</span><span class="punctuation">):</span> <span class="name builtin pseudo">NotImplemented</span>
+<span class="name">f</span><span class="punctuation">(</span><span class="literal number integer">1</span><span class="punctuation">,</span> <span class="literal number integer">2</span><span class="punctuation">)</span>
+
+<span class="comment"># A: None</span>
+<span class="comment"># B: NotImplemented</span>
+<span class="comment"># C: (1, 2)</span>
+<span class="comment"># D: an exception is raised</span>
+</pre>
+</div>
 <div class="slide" id="end">
 <h1>End</h1>
 </div>
-<div class="slide" id="id25">
+<div class="slide" id="id33">
+<h1>1</h1>
+<pre class="code python literal-block">
+<span class="keyword">def</span> <span class="name function">f</span><span class="punctuation">(</span><span class="name">a</span><span class="operator">=</span><span class="punctuation">[]):</span>
+    <span class="name">a</span><span class="operator">.</span><span class="name">append</span><span class="punctuation">(</span><span class="literal number integer">1</span><span class="punctuation">)</span>
+    <span class="keyword">return</span> <span class="name">a</span>
+
+<span class="name">f</span><span class="punctuation">([</span><span class="literal number integer">2</span><span class="punctuation">,</span> <span class="literal number integer">3</span><span class="punctuation">])</span>
+<span class="name">f</span><span class="punctuation">()</span>
+<span class="name">f</span><span class="punctuation">()</span>
+<span class="comment"># A: []</span>
+<span class="comment"># B: [2, 3, 1, 1]</span>
+<span class="comment"># C: [1]</span>
+<span class="comment"># D: [1, 1]</span>
+</pre>
+</div>
+<div class="slide" id="id34">
 <h1>1</h1>
 <pre class="code python literal-block">
 <span class="keyword">def</span> <span class="name function">f</span><span class="punctuation">(</span><span class="name">a</span><span class="operator">=</span><span class="punctuation">[]):</span>
@@ -706,7 +834,19 @@ Find the value of the last statement.</p>
 <span class="operator">&gt;</span> <span class="name">D</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="literal number integer">1</span><span class="punctuation">,</span> <span class="literal number integer">1</span><span class="punctuation">]</span>
 </pre>
 </div>
-<div class="slide" id="id26">
+<div class="slide" id="id35">
+<h1>2</h1>
+<pre class="code python literal-block">
+<span class="name">a</span> <span class="operator">=</span> <span class="name">b</span> <span class="operator">=</span> <span class="punctuation">[]</span>
+<span class="name">a</span><span class="operator">.</span><span class="name">append</span><span class="punctuation">(</span><span class="literal number integer">1</span><span class="punctuation">)</span>
+<span class="name">b</span>
+<span class="comment"># A: []</span>
+<span class="comment"># B: [1]</span>
+<span class="comment"># C: an exception is raised</span>
+<span class="comment"># D: None</span>
+</pre>
+</div>
+<div class="slide" id="id36">
 <h1>2</h1>
 <pre class="code python literal-block">
 <span class="name">a</span> <span class="operator">=</span> <span class="name">b</span> <span class="operator">=</span> <span class="punctuation">[]</span>
@@ -718,7 +858,19 @@ Find the value of the last statement.</p>
 <span class="comment"># D: None</span>
 </pre>
 </div>
-<div class="slide" id="id27">
+<div class="slide" id="id37">
+<h1>3</h1>
+<pre class="code python literal-block">
+<span class="name">a</span> <span class="operator">=</span> <span class="name">b</span> <span class="operator">=</span> <span class="punctuation">[]</span>
+<span class="name">a</span> <span class="operator">=</span> <span class="name">a</span> <span class="operator">+</span> <span class="punctuation">[</span><span class="literal number integer">1</span><span class="punctuation">]</span>
+<span class="name">b</span>
+<span class="comment"># A: []</span>
+<span class="comment"># B: [1]</span>
+<span class="comment"># C: an exception is raised</span>
+<span class="comment"># D: None</span>
+</pre>
+</div>
+<div class="slide" id="id38">
 <h1>3</h1>
 <pre class="code python literal-block">
 <span class="name">a</span> <span class="operator">=</span> <span class="name">b</span> <span class="operator">=</span> <span class="punctuation">[]</span>
@@ -730,7 +882,19 @@ Find the value of the last statement.</p>
 <span class="comment"># D: None</span>
 </pre>
 </div>
-<div class="slide" id="id28">
+<div class="slide" id="id39">
+<h1>4</h1>
+<pre class="code python literal-block">
+<span class="name">a</span> <span class="operator">=</span> <span class="name">b</span> <span class="operator">=</span> <span class="punctuation">[]</span>
+<span class="name">a</span> <span class="operator">+=</span> <span class="punctuation">[</span><span class="literal number integer">1</span><span class="punctuation">]</span>
+<span class="name">b</span>
+<span class="comment"># A: []</span>
+<span class="comment"># B: [1]</span>
+<span class="comment"># C: an exception is raised</span>
+<span class="comment"># D: None</span>
+</pre>
+</div>
+<div class="slide" id="id40">
 <h1>4</h1>
 <pre class="code python literal-block">
 <span class="name">a</span> <span class="operator">=</span> <span class="name">b</span> <span class="operator">=</span> <span class="punctuation">[]</span>
@@ -742,7 +906,23 @@ Find the value of the last statement.</p>
 <span class="comment"># D: None</span>
 </pre>
 </div>
-<div class="slide" id="id29">
+<div class="slide" id="id41">
+<h1>5</h1>
+<pre class="code python literal-block">
+<span class="name">a</span> <span class="operator">=</span> <span class="punctuation">[]</span>
+
+<span class="keyword">def</span> <span class="name function">f</span><span class="punctuation">():</span>
+    <span class="name">a</span><span class="operator">.</span><span class="name">append</span><span class="punctuation">(</span><span class="literal number integer">1</span><span class="punctuation">)</span>
+
+<span class="name">f</span><span class="punctuation">()</span>
+<span class="name">a</span>
+<span class="comment"># A: []</span>
+<span class="comment"># B: [1]</span>
+<span class="comment"># C: an exception is raised</span>
+<span class="comment"># D: None</span>
+</pre>
+</div>
+<div class="slide" id="id42">
 <h1>5</h1>
 <pre class="code python literal-block">
 <span class="name">a</span> <span class="operator">=</span> <span class="punctuation">[]</span>
@@ -758,7 +938,23 @@ Find the value of the last statement.</p>
 <span class="comment"># D: None</span>
 </pre>
 </div>
-<div class="slide" id="id30">
+<div class="slide" id="id43">
+<h1>6</h1>
+<pre class="code python literal-block">
+<span class="name">a</span> <span class="operator">=</span> <span class="literal number integer">0</span>
+
+<span class="keyword">def</span> <span class="name function">f</span><span class="punctuation">():</span>
+    <span class="name">a</span> <span class="operator">=</span> <span class="literal number integer">1</span>
+
+<span class="name">f</span><span class="punctuation">()</span>
+<span class="name">a</span>
+<span class="comment"># A: 0</span>
+<span class="comment"># B: 1</span>
+<span class="comment"># C: an exception is raised</span>
+<span class="comment"># D: None</span>
+</pre>
+</div>
+<div class="slide" id="id44">
 <h1>6</h1>
 <pre class="code python literal-block">
 <span class="name">a</span> <span class="operator">=</span> <span class="literal number integer">0</span>
@@ -774,7 +970,23 @@ Find the value of the last statement.</p>
 <span class="comment"># D: None</span>
 </pre>
 </div>
-<div class="slide" id="id31">
+<div class="slide" id="id45">
+<h1>7</h1>
+<pre class="code python literal-block">
+<span class="name">a</span> <span class="operator">=</span> <span class="literal number integer">0</span>
+
+<span class="keyword">def</span> <span class="name function">f</span><span class="punctuation">():</span>
+    <span class="name">a</span> <span class="operator">+=</span> <span class="literal number integer">1</span>
+
+<span class="name">f</span><span class="punctuation">()</span>
+<span class="name">a</span>
+<span class="comment"># A: 0</span>
+<span class="comment"># B: 1</span>
+<span class="comment"># C: an exception is raised</span>
+<span class="comment"># D: None</span>
+</pre>
+</div>
+<div class="slide" id="id46">
 <h1>7</h1>
 <pre class="code python literal-block">
 <span class="name">a</span> <span class="operator">=</span> <span class="literal number integer">0</span>
@@ -790,7 +1002,23 @@ Find the value of the last statement.</p>
 <span class="comment"># D: None</span>
 </pre>
 </div>
-<div class="slide" id="id32">
+<div class="slide" id="id47">
+<h1>8</h1>
+<pre class="code python literal-block">
+<span class="keyword">class</span> <span class="name class">A</span><span class="punctuation">(</span><span class="name builtin">object</span><span class="punctuation">):</span>
+    <span class="keyword">pass</span>
+
+<span class="name">a</span> <span class="operator">=</span> <span class="name">A</span><span class="punctuation">()</span>
+<span class="name">a</span><span class="operator">.</span><span class="name">attribute</span> <span class="operator">=</span> <span class="literal number integer">1</span>
+<span class="name">a</span><span class="operator">.</span><span class="name">attribute</span>
+
+<span class="comment"># A: 1</span>
+<span class="comment"># B: None</span>
+<span class="comment"># C: an exception is raised</span>
+<span class="comment"># D: 0</span>
+</pre>
+</div>
+<div class="slide" id="id48">
 <h1>8</h1>
 <pre class="code python literal-block">
 <span class="keyword">class</span> <span class="name class">A</span><span class="punctuation">(</span><span class="name builtin">object</span><span class="punctuation">):</span>
@@ -806,7 +1034,7 @@ Find the value of the last statement.</p>
 <span class="comment"># D: 0</span>
 </pre>
 </div>
-<div class="slide" id="id33">
+<div class="slide" id="id49">
 <h1>9</h1>
 <pre class="code python literal-block">
 <span class="keyword">class</span> <span class="name class">A</span><span class="punctuation">(</span><span class="name builtin">object</span><span class="punctuation">):</span>
@@ -816,13 +1044,40 @@ Find the value of the last statement.</p>
 <span class="name">a</span><span class="operator">.</span><span class="name">attribute</span> <span class="operator">=</span> <span class="literal number integer">1</span>
 <span class="name">a</span><span class="operator">.</span><span class="name">attribute</span>
 
-<span class="operator">&gt;</span> <span class="name">A</span><span class="punctuation">:</span> <span class="literal number integer">1</span>
+<span class="comment"># A: 1</span>
 <span class="comment"># B: None</span>
 <span class="comment"># C: an exception is raised</span>
 <span class="comment"># D: 0</span>
 </pre>
 </div>
-<div class="slide" id="id34">
+<div class="slide" id="id50">
+<h1>9</h1>
+<pre class="code python literal-block">
+<span class="keyword">class</span> <span class="name class">A</span><span class="punctuation">(</span><span class="name builtin">object</span><span class="punctuation">):</span>
+    <span class="name">__slots__</span> <span class="operator">=</span> <span class="punctuation">[]</span>
+
+<span class="name">a</span> <span class="operator">=</span> <span class="name">A</span><span class="punctuation">()</span>
+<span class="name">a</span><span class="operator">.</span><span class="name">attribute</span> <span class="operator">=</span> <span class="literal number integer">1</span>
+<span class="name">a</span><span class="operator">.</span><span class="name">attribute</span>
+
+<span class="comment"># A: 1</span>
+<span class="comment"># B: None</span>
+<span class="operator">&gt;</span> <span class="name">C</span><span class="punctuation">:</span> <span class="name">an</span> <span class="name">exception</span> <span class="operator word">is</span> <span class="name">raised</span>
+<span class="comment"># D: 0</span>
+</pre>
+</div>
+<div class="slide" id="id51">
+<h1>10</h1>
+<pre class="code python literal-block">
+<span class="name builtin">all</span><span class="punctuation">([</span><span class="literal number integer">0</span><span class="punctuation">,</span> <span class="literal number integer">1</span><span class="punctuation">,</span> <span class="literal number integer">2</span><span class="punctuation">])</span>
+
+<span class="comment"># A: [0, 1, 2]</span>
+<span class="comment"># B: False</span>
+<span class="comment"># C: True</span>
+<span class="comment"># D: []</span>
+</pre>
+</div>
+<div class="slide" id="id52">
 <h1>10</h1>
 <pre class="code python literal-block">
 <span class="name builtin">all</span><span class="punctuation">([</span><span class="literal number integer">0</span><span class="punctuation">,</span> <span class="literal number integer">1</span><span class="punctuation">,</span> <span class="literal number integer">2</span><span class="punctuation">])</span>
@@ -833,7 +1088,18 @@ Find the value of the last statement.</p>
 <span class="comment"># D: []</span>
 </pre>
 </div>
-<div class="slide" id="id35">
+<div class="slide" id="id53">
+<h1>11</h1>
+<pre class="code python literal-block">
+<span class="name builtin">any</span><span class="punctuation">([])</span>
+
+<span class="comment"># A: []</span>
+<span class="comment"># B: False</span>
+<span class="comment"># C: True</span>
+<span class="comment"># D: an exception is raised</span>
+</pre>
+</div>
+<div class="slide" id="id54">
 <h1>11</h1>
 <pre class="code python literal-block">
 <span class="name builtin">any</span><span class="punctuation">([])</span>
@@ -844,7 +1110,18 @@ Find the value of the last statement.</p>
 <span class="comment"># D: an exception is raised</span>
 </pre>
 </div>
-<div class="slide" id="id36">
+<div class="slide" id="id55">
+<h1>12</h1>
+<pre class="code python literal-block">
+<span class="literal number integer">1</span> <span class="operator word">or</span> <span class="literal number integer">2</span> <span class="operator word">and</span> <span class="literal number integer">3</span>
+
+<span class="comment"># A: 1</span>
+<span class="comment"># B: 3</span>
+<span class="comment"># C: True</span>
+<span class="comment"># D: False</span>
+</pre>
+</div>
+<div class="slide" id="id56">
 <h1>12</h1>
 <pre class="code python literal-block">
 <span class="literal number integer">1</span> <span class="operator word">or</span> <span class="literal number integer">2</span> <span class="operator word">and</span> <span class="literal number integer">3</span>
@@ -855,7 +1132,18 @@ Find the value of the last statement.</p>
 <span class="comment"># D: False</span>
 </pre>
 </div>
-<div class="slide" id="id37">
+<div class="slide" id="id57">
+<h1>13</h1>
+<pre class="code python literal-block">
+<span class="literal string">r'\ntest'</span><span class="operator">.</span><span class="name">strip</span><span class="punctuation">()</span>
+
+<span class="comment"># A: 'test'</span>
+<span class="comment"># B: '\ntest'</span>
+<span class="comment"># C: '\\ntest'</span>
+<span class="comment"># D: r'\\ntest'</span>
+</pre>
+</div>
+<div class="slide" id="id58">
 <h1>13</h1>
 <pre class="code python literal-block">
 <span class="literal string">r'\ntest'</span><span class="operator">.</span><span class="name">strip</span><span class="punctuation">()</span>
@@ -866,7 +1154,18 @@ Find the value of the last statement.</p>
 <span class="comment"># D: r'\\ntest'</span>
 </pre>
 </div>
-<div class="slide" id="id38">
+<div class="slide" id="id59">
+<h1>14</h1>
+<pre class="code python literal-block">
+<span class="punctuation">[</span><span class="name">i</span> <span class="keyword">for</span> <span class="name">i</span> <span class="operator word">in</span> <span class="name">a</span> <span class="keyword">for</span> <span class="name">a</span> <span class="operator word">in</span> <span class="punctuation">[[</span><span class="literal number integer">1</span><span class="punctuation">],</span> <span class="punctuation">[</span><span class="literal number integer">2</span><span class="punctuation">]]]</span>
+
+<span class="comment"># A: [1, 2]</span>
+<span class="comment"># B: [2, 1]</span>
+<span class="comment"># C: an exception is raised</span>
+<span class="comment"># D: []</span>
+</pre>
+</div>
+<div class="slide" id="id60">
 <h1>14</h1>
 <pre class="code python literal-block">
 <span class="punctuation">[</span><span class="name">i</span> <span class="keyword">for</span> <span class="name">i</span> <span class="operator word">in</span> <span class="name">a</span> <span class="keyword">for</span> <span class="name">a</span> <span class="operator word">in</span> <span class="punctuation">[[</span><span class="literal number integer">1</span><span class="punctuation">],</span> <span class="punctuation">[</span><span class="literal number integer">2</span><span class="punctuation">]]]</span>
@@ -877,7 +1176,19 @@ Find the value of the last statement.</p>
 <span class="comment"># D: []</span>
 </pre>
 </div>
-<div class="slide" id="id39">
+<div class="slide" id="id61">
+<h1>15</h1>
+<pre class="code python literal-block">
+<span class="name">a</span> <span class="operator">=</span> <span class="punctuation">{</span><span class="literal number integer">1</span><span class="punctuation">:</span> <span class="literal number integer">2</span><span class="punctuation">}</span>
+<span class="name">a</span><span class="operator">.</span><span class="name">get</span><span class="punctuation">(</span><span class="literal number float">1.0</span><span class="punctuation">,</span> <span class="literal number integer">3</span><span class="punctuation">)</span>
+
+<span class="comment"># A: 2</span>
+<span class="comment"># B: 3</span>
+<span class="comment"># C: an exception is raised</span>
+<span class="comment"># D: None</span>
+</pre>
+</div>
+<div class="slide" id="id62">
 <h1>15</h1>
 <pre class="code python literal-block">
 <span class="name">a</span> <span class="operator">=</span> <span class="punctuation">{</span><span class="literal number integer">1</span><span class="punctuation">:</span> <span class="literal number integer">2</span><span class="punctuation">}</span>
@@ -889,7 +1200,20 @@ Find the value of the last statement.</p>
 <span class="comment"># D: None</span>
 </pre>
 </div>
-<div class="slide" id="id40">
+<div class="slide" id="id63">
+<h1>16</h1>
+<pre class="code python literal-block">
+<span class="keyword namespace">import</span> <span class="name namespace">itertools</span>
+
+<span class="punctuation">[</span><span class="name">a</span> <span class="keyword">for</span> <span class="name">a</span> <span class="operator word">in</span> <span class="name">itertools</span><span class="operator">.</span><span class="name">chain</span><span class="punctuation">([</span><span class="literal number integer">1</span><span class="punctuation">,</span> <span class="literal number integer">2</span><span class="punctuation">],</span> <span class="punctuation">(</span><span class="literal number integer">3</span><span class="punctuation">,))]</span>
+
+<span class="comment"># A: [1, 2, 3]</span>
+<span class="comment"># B: [[1, 2], [3]]</span>
+<span class="comment"># C: [[1, 2], (3)]</span>
+<span class="comment"># D: an exception is raised</span>
+</pre>
+</div>
+<div class="slide" id="id64">
 <h1>16</h1>
 <pre class="code python literal-block">
 <span class="keyword namespace">import</span> <span class="name namespace">itertools</span>
@@ -902,7 +1226,18 @@ Find the value of the last statement.</p>
 <span class="comment"># D: an exception is raised</span>
 </pre>
 </div>
-<div class="slide" id="id41">
+<div class="slide" id="id65">
+<h1>17</h1>
+<pre class="code python literal-block">
+<span class="name builtin">getattr</span><span class="punctuation">(</span><span class="literal string">'1'</span><span class="punctuation">,</span> <span class="literal string">'isdigit'</span><span class="punctuation">)</span>
+
+<span class="comment"># A: True</span>
+<span class="comment"># B: False</span>
+<span class="comment"># C: &lt;function&gt;</span>
+<span class="comment"># D: an exception is raised</span>
+</pre>
+</div>
+<div class="slide" id="id66">
 <h1>17</h1>
 <pre class="code python literal-block">
 <span class="name builtin">getattr</span><span class="punctuation">(</span><span class="literal string">'1'</span><span class="punctuation">,</span> <span class="literal string">'isdigit'</span><span class="punctuation">)</span>
@@ -913,7 +1248,17 @@ Find the value of the last statement.</p>
 <span class="comment"># D: an exception is raised</span>
 </pre>
 </div>
-<div class="slide" id="id42">
+<div class="slide" id="id67">
+<h1>18</h1>
+<pre class="code python literal-block">
+<span class="name builtin">isinstance</span><span class="punctuation">(</span><span class="literal number integer">1</span><span class="punctuation">,</span> <span class="punctuation">(</span><span class="name builtin">float</span><span class="punctuation">,</span> <span class="name builtin">str</span><span class="punctuation">))</span>
+<span class="comment"># A: True</span>
+<span class="comment"># B: False</span>
+<span class="comment"># C: 1</span>
+<span class="comment"># D: an exception is raised</span>
+</pre>
+</div>
+<div class="slide" id="id68">
 <h1>18</h1>
 <pre class="code python literal-block">
 <span class="name builtin">isinstance</span><span class="punctuation">(</span><span class="literal number integer">1</span><span class="punctuation">,</span> <span class="punctuation">(</span><span class="name builtin">float</span><span class="punctuation">,</span> <span class="name builtin">str</span><span class="punctuation">))</span>
@@ -923,7 +1268,18 @@ Find the value of the last statement.</p>
 <span class="comment"># D: an exception is raised</span>
 </pre>
 </div>
-<div class="slide" id="id43">
+<div class="slide" id="id69">
+<h1>19</h1>
+<pre class="code python literal-block">
+<span class="literal string">'test'</span><span class="operator">.</span><span class="name">startswith</span><span class="punctuation">((</span><span class="literal string">'T'</span><span class="punctuation">,</span> <span class="literal string">'t'</span><span class="punctuation">))</span>
+
+<span class="comment"># A: True</span>
+<span class="comment"># B: False</span>
+<span class="comment"># C: 'test'</span>
+<span class="comment"># D: an exception is raised</span>
+</pre>
+</div>
+<div class="slide" id="id70">
 <h1>19</h1>
 <pre class="code python literal-block">
 <span class="literal string">'test'</span><span class="operator">.</span><span class="name">startswith</span><span class="punctuation">((</span><span class="literal string">'T'</span><span class="punctuation">,</span> <span class="literal string">'t'</span><span class="punctuation">))</span>
@@ -934,7 +1290,20 @@ Find the value of the last statement.</p>
 <span class="comment"># D: an exception is raised</span>
 </pre>
 </div>
-<div class="slide" id="id44">
+<div class="slide" id="id71">
+<h1>20</h1>
+<pre class="code python literal-block">
+<span class="name">temp</span> <span class="operator">=</span> <span class="literal number integer">0</span>
+<span class="name">a</span> <span class="operator">=</span> <span class="literal string">'hot'</span> <span class="keyword">if</span> <span class="name">temp</span> <span class="operator">&gt;</span> <span class="literal number integer">25</span> <span class="keyword">else</span> <span class="literal string">'cold'</span>
+<span class="name">a</span>
+
+<span class="comment"># A: True</span>
+<span class="comment"># B: False</span>
+<span class="comment"># C: 0</span>
+<span class="comment"># D: 'cold'</span>
+</pre>
+</div>
+<div class="slide" id="id72">
 <h1>20</h1>
 <pre class="code python literal-block">
 <span class="name">temp</span> <span class="operator">=</span> <span class="literal number integer">0</span>
@@ -947,7 +1316,18 @@ Find the value of the last statement.</p>
 <span class="operator">&gt;</span> <span class="name">D</span><span class="punctuation">:</span> <span class="literal string">'cold'</span>
 </pre>
 </div>
-<div class="slide" id="id45">
+<div class="slide" id="id73">
+<h1>21</h1>
+<pre class="code python literal-block">
+<span class="name builtin">next</span><span class="punctuation">(</span><span class="name builtin">enumerate</span><span class="punctuation">([</span><span class="literal string">'A'</span><span class="punctuation">,</span> <span class="literal string">'B'</span><span class="punctuation">],</span> <span class="name">start</span><span class="operator">=</span><span class="literal number integer">1</span><span class="punctuation">))[</span><span class="literal number integer">0</span><span class="punctuation">]</span>
+
+<span class="comment"># A: 'A'</span>
+<span class="comment"># B: 'B'</span>
+<span class="comment"># C: 0</span>
+<span class="comment"># D: 1</span>
+</pre>
+</div>
+<div class="slide" id="id74">
 <h1>21</h1>
 <pre class="code python literal-block">
 <span class="name builtin">next</span><span class="punctuation">(</span><span class="name builtin">enumerate</span><span class="punctuation">([</span><span class="literal string">'A'</span><span class="punctuation">,</span> <span class="literal string">'B'</span><span class="punctuation">],</span> <span class="name">start</span><span class="operator">=</span><span class="literal number integer">1</span><span class="punctuation">))[</span><span class="literal number integer">0</span><span class="punctuation">]</span>
@@ -958,7 +1338,18 @@ Find the value of the last statement.</p>
 <span class="operator">&gt;</span> <span class="name">D</span><span class="punctuation">:</span> <span class="literal number integer">1</span>
 </pre>
 </div>
-<div class="slide" id="id46">
+<div class="slide" id="id75">
+<h1>22</h1>
+<pre class="code python literal-block">
+<span class="name builtin">next</span><span class="punctuation">(</span><span class="name builtin">iter</span><span class="punctuation">([</span><span class="literal number integer">2</span><span class="punctuation">,</span> <span class="literal number integer">3</span><span class="punctuation">],</span> <span class="literal number integer">2</span><span class="punctuation">))</span>
+
+<span class="comment"># A: 2</span>
+<span class="comment"># B: 3</span>
+<span class="comment"># C: an exception is raised</span>
+<span class="comment"># D: None</span>
+</pre>
+</div>
+<div class="slide" id="id76">
 <h1>22</h1>
 <pre class="code python literal-block">
 <span class="name builtin">next</span><span class="punctuation">(</span><span class="name builtin">iter</span><span class="punctuation">([</span><span class="literal number integer">2</span><span class="punctuation">,</span> <span class="literal number integer">3</span><span class="punctuation">],</span> <span class="literal number integer">2</span><span class="punctuation">))</span>
@@ -969,7 +1360,24 @@ Find the value of the last statement.</p>
 <span class="comment"># D: None</span>
 </pre>
 </div>
-<div class="slide" id="id47">
+<div class="slide" id="id77">
+<h1>23</h1>
+<pre class="code python literal-block">
+<span class="keyword">class</span> <span class="name class">A</span><span class="punctuation">(</span><span class="name builtin">object</span><span class="punctuation">):</span>
+    <span class="keyword">def</span> <span class="name function">__init__</span><span class="punctuation">(</span><span class="name builtin pseudo">self</span><span class="punctuation">,</span> <span class="name">value</span><span class="punctuation">):</span>
+        <span class="name builtin pseudo">self</span><span class="operator">.</span><span class="name">value</span> <span class="operator">=</span> <span class="name">value</span>
+    <span class="keyword">def</span> <span class="name function">__format__</span><span class="punctuation">(</span><span class="name builtin pseudo">self</span><span class="punctuation">,</span> <span class="name">fmt</span><span class="punctuation">):</span>
+        <span class="keyword">return</span> <span class="name">fmt</span>
+
+<span class="literal string">'{0:short}'</span><span class="operator">.</span><span class="name">format</span><span class="punctuation">(</span><span class="name">A</span><span class="punctuation">(</span><span class="literal number integer">1</span><span class="punctuation">))</span>
+
+<span class="comment"># A: 'short'</span>
+<span class="comment"># B: '1'</span>
+<span class="comment"># C: an exception is raised</span>
+<span class="comment"># D: '&lt;object&gt;'</span>
+</pre>
+</div>
+<div class="slide" id="id78">
 <h1>23</h1>
 <pre class="code python literal-block">
 <span class="keyword">class</span> <span class="name class">A</span><span class="punctuation">(</span><span class="name builtin">object</span><span class="punctuation">):</span>
@@ -986,7 +1394,19 @@ Find the value of the last statement.</p>
 <span class="comment"># D: '&lt;object&gt;'</span>
 </pre>
 </div>
-<div class="slide" id="id48">
+<div class="slide" id="id79">
+<h1>24</h1>
+<pre class="code python literal-block">
+<span class="name">a</span> <span class="operator">=</span> <span class="punctuation">(</span><span class="name">i</span> <span class="keyword">for</span> <span class="name">i</span> <span class="operator word">in</span> <span class="name builtin">range</span><span class="punctuation">(</span><span class="literal number integer">10</span><span class="punctuation">))</span>
+<span class="name">a</span><span class="punctuation">[</span><span class="literal number integer">0</span><span class="punctuation">]</span>
+
+<span class="comment"># A: 0</span>
+<span class="comment"># B: 1</span>
+<span class="comment"># C: an exception is raised</span>
+<span class="comment"># D: None</span>
+</pre>
+</div>
+<div class="slide" id="id80">
 <h1>24</h1>
 <pre class="code python literal-block">
 <span class="name">a</span> <span class="operator">=</span> <span class="punctuation">(</span><span class="name">i</span> <span class="keyword">for</span> <span class="name">i</span> <span class="operator word">in</span> <span class="name builtin">range</span><span class="punctuation">(</span><span class="literal number integer">10</span><span class="punctuation">))</span>
@@ -996,6 +1416,230 @@ Find the value of the last statement.</p>
 <span class="comment"># B: 1</span>
 <span class="operator">&gt;</span> <span class="name">C</span><span class="punctuation">:</span> <span class="name">an</span> <span class="name">exception</span> <span class="operator word">is</span> <span class="name">raised</span>
 <span class="comment"># D: None</span>
+</pre>
+</div>
+<div class="slide" id="id81">
+<h1>25</h1>
+<pre class="code python literal-block">
+<span class="name builtin pseudo">False</span> <span class="operator">==</span> <span class="name builtin pseudo">False</span> <span class="operator word">in</span> <span class="punctuation">[</span><span class="name builtin pseudo">False</span><span class="punctuation">]</span>
+
+<span class="comment"># A: True</span>
+<span class="comment"># B: False</span>
+<span class="comment"># C: an exception is raised</span>
+<span class="comment"># D: None</span>
+</pre>
+</div>
+<div class="slide" id="id82">
+<h1>25</h1>
+<pre class="code python literal-block">
+<span class="name builtin pseudo">False</span> <span class="operator">==</span> <span class="name builtin pseudo">False</span> <span class="operator word">in</span> <span class="punctuation">[</span><span class="name builtin pseudo">False</span><span class="punctuation">]</span>
+
+<span class="operator">&gt;</span> <span class="name">A</span><span class="punctuation">:</span> <span class="name builtin pseudo">True</span>
+<span class="comment"># B: False</span>
+<span class="comment"># C: an exception is raised</span>
+<span class="comment"># D: None</span>
+</pre>
+</div>
+<div class="slide" id="id83">
+<h1>26</h1>
+<pre class="code python literal-block">
+<span class="keyword">class</span> <span class="name class">Obj</span><span class="punctuation">(</span><span class="name builtin">object</span><span class="punctuation">):</span>
+    <span class="keyword">def</span> <span class="name function">__init__</span><span class="punctuation">(</span><span class="name builtin pseudo">self</span><span class="punctuation">):</span>
+        <span class="name builtin pseudo">self</span><span class="operator">.</span><span class="name">attr</span> <span class="operator">=</span> <span class="name builtin pseudo">None</span>
+    <span class="keyword">def</span> <span class="name function">__getattr__</span><span class="punctuation">(</span><span class="name builtin pseudo">self</span><span class="punctuation">,</span> <span class="name">name</span><span class="punctuation">):</span>
+        <span class="keyword">return</span> <span class="literal number integer">0</span>
+
+<span class="name">o</span> <span class="operator">=</span> <span class="name">Obj</span><span class="punctuation">()</span>
+<span class="punctuation">(</span><span class="name">o</span><span class="operator">.</span><span class="name">titi</span><span class="punctuation">,</span> <span class="name">o</span><span class="operator">.</span><span class="name">attr</span><span class="punctuation">)</span>
+<span class="comment"># A: (None, 0)</span>
+<span class="comment"># B: (0, None)</span>
+<span class="comment"># C: (0, 0)</span>
+<span class="comment"># D: an exception is raised</span>
+</pre>
+</div>
+<div class="slide" id="id84">
+<h1>26</h1>
+<pre class="code python literal-block">
+<span class="keyword">class</span> <span class="name class">Obj</span><span class="punctuation">(</span><span class="name builtin">object</span><span class="punctuation">):</span>
+    <span class="keyword">def</span> <span class="name function">__init__</span><span class="punctuation">(</span><span class="name builtin pseudo">self</span><span class="punctuation">):</span>
+        <span class="name builtin pseudo">self</span><span class="operator">.</span><span class="name">attr</span> <span class="operator">=</span> <span class="name builtin pseudo">None</span>
+    <span class="keyword">def</span> <span class="name function">__getattr__</span><span class="punctuation">(</span><span class="name builtin pseudo">self</span><span class="punctuation">,</span> <span class="name">name</span><span class="punctuation">):</span>
+        <span class="keyword">return</span> <span class="literal number integer">0</span>
+
+<span class="name">o</span> <span class="operator">=</span> <span class="name">Obj</span><span class="punctuation">()</span>
+<span class="punctuation">(</span><span class="name">o</span><span class="operator">.</span><span class="name">titi</span><span class="punctuation">,</span> <span class="name">o</span><span class="operator">.</span><span class="name">attr</span><span class="punctuation">)</span>
+<span class="comment"># A: (None, 0)</span>
+<span class="operator">&gt;</span> <span class="name">B</span><span class="punctuation">:</span> <span class="punctuation">(</span><span class="literal number integer">0</span><span class="punctuation">,</span> <span class="name builtin pseudo">None</span><span class="punctuation">)</span>
+<span class="comment"># C: (0, 0)</span>
+<span class="comment"># D: an exception is raised</span>
+</pre>
+</div>
+<div class="slide" id="id85">
+<h1>27</h1>
+<pre class="code python literal-block">
+<span class="keyword">class</span> <span class="name class">Obj</span><span class="punctuation">(</span><span class="name builtin">object</span><span class="punctuation">):</span>
+    <span class="keyword">def</span> <span class="name function">__init__</span><span class="punctuation">(</span><span class="name builtin pseudo">self</span><span class="punctuation">):</span>
+        <span class="name builtin pseudo">self</span><span class="operator">.</span><span class="name">attr</span> <span class="operator">=</span> <span class="name builtin pseudo">None</span>
+    <span class="keyword">def</span> <span class="name function">__getattribute__</span><span class="punctuation">(</span><span class="name builtin pseudo">self</span><span class="punctuation">,</span> <span class="name">name</span><span class="punctuation">):</span>
+        <span class="keyword">return</span> <span class="literal number integer">0</span>
+
+<span class="name">o</span> <span class="operator">=</span> <span class="name">Obj</span><span class="punctuation">()</span>
+<span class="punctuation">(</span><span class="name">o</span><span class="operator">.</span><span class="name">titi</span><span class="punctuation">,</span> <span class="name">o</span><span class="operator">.</span><span class="name">attr</span><span class="punctuation">)</span>
+<span class="comment"># A: (None, 0)</span>
+<span class="comment"># B: (0, None)</span>
+<span class="comment"># C: (0, 0)</span>
+<span class="comment"># D: an exception is raised</span>
+</pre>
+</div>
+<div class="slide" id="id86">
+<h1>27</h1>
+<pre class="code python literal-block">
+<span class="keyword">class</span> <span class="name class">Obj</span><span class="punctuation">(</span><span class="name builtin">object</span><span class="punctuation">):</span>
+    <span class="keyword">def</span> <span class="name function">__init__</span><span class="punctuation">(</span><span class="name builtin pseudo">self</span><span class="punctuation">):</span>
+        <span class="name builtin pseudo">self</span><span class="operator">.</span><span class="name">attr</span> <span class="operator">=</span> <span class="name builtin pseudo">None</span>
+    <span class="keyword">def</span> <span class="name function">__getattribute__</span><span class="punctuation">(</span><span class="name builtin pseudo">self</span><span class="punctuation">,</span> <span class="name">name</span><span class="punctuation">):</span>
+        <span class="keyword">return</span> <span class="literal number integer">0</span>
+
+<span class="name">o</span> <span class="operator">=</span> <span class="name">Obj</span><span class="punctuation">()</span>
+<span class="punctuation">(</span><span class="name">o</span><span class="operator">.</span><span class="name">titi</span><span class="punctuation">,</span> <span class="name">o</span><span class="operator">.</span><span class="name">attr</span><span class="punctuation">)</span>
+<span class="comment"># A: (None, 0)</span>
+<span class="comment"># B: (0, None)</span>
+<span class="operator">&gt;</span> <span class="name">C</span><span class="punctuation">:</span> <span class="punctuation">(</span><span class="literal number integer">0</span><span class="punctuation">,</span> <span class="literal number integer">0</span><span class="punctuation">)</span>
+<span class="comment"># D: an exception is raised</span>
+</pre>
+</div>
+<div class="slide" id="id87">
+<h1>28</h1>
+<pre class="code python literal-block">
+<span class="keyword">class</span> <span class="name class">Obj</span><span class="punctuation">(</span><span class="name builtin">object</span><span class="punctuation">):</span>
+    <span class="keyword">def</span> <span class="name function">__init__</span><span class="punctuation">(</span><span class="name builtin pseudo">self</span><span class="punctuation">):</span>
+        <span class="name builtin pseudo">self</span><span class="operator">.</span><span class="name">attr</span> <span class="operator">=</span> <span class="name builtin pseudo">None</span>
+    <span class="keyword">def</span> <span class="name function">__getattribute__</span><span class="punctuation">(</span><span class="name builtin pseudo">self</span><span class="punctuation">,</span> <span class="name">name</span><span class="punctuation">):</span>
+        <span class="keyword">return</span> <span class="name builtin">object</span><span class="operator">.</span><span class="name">__getattribute__</span><span class="punctuation">(</span><span class="name">name</span><span class="punctuation">)</span>
+
+<span class="name">o</span> <span class="operator">=</span> <span class="name">Obj</span><span class="punctuation">()</span>
+<span class="punctuation">(</span><span class="name">o</span><span class="operator">.</span><span class="name">titi</span><span class="punctuation">,</span> <span class="name">o</span><span class="operator">.</span><span class="name">attr</span><span class="punctuation">)</span>
+<span class="comment"># A: (None, 0)</span>
+<span class="comment"># B: (0, None)</span>
+<span class="comment"># C: (0, 0)</span>
+<span class="comment"># D: an exception is raised</span>
+</pre>
+</div>
+<div class="slide" id="id88">
+<h1>28</h1>
+<pre class="code python literal-block">
+<span class="keyword">class</span> <span class="name class">Obj</span><span class="punctuation">(</span><span class="name builtin">object</span><span class="punctuation">):</span>
+    <span class="keyword">def</span> <span class="name function">__init__</span><span class="punctuation">(</span><span class="name builtin pseudo">self</span><span class="punctuation">):</span>
+        <span class="name builtin pseudo">self</span><span class="operator">.</span><span class="name">attr</span> <span class="operator">=</span> <span class="name builtin pseudo">None</span>
+    <span class="keyword">def</span> <span class="name function">__getattribute__</span><span class="punctuation">(</span><span class="name builtin pseudo">self</span><span class="punctuation">,</span> <span class="name">name</span><span class="punctuation">):</span>
+        <span class="keyword">return</span> <span class="name builtin">object</span><span class="operator">.</span><span class="name">__getattribute__</span><span class="punctuation">(</span><span class="name">name</span><span class="punctuation">)</span>
+
+<span class="name">o</span> <span class="operator">=</span> <span class="name">Obj</span><span class="punctuation">()</span>
+<span class="punctuation">(</span><span class="name">o</span><span class="operator">.</span><span class="name">titi</span><span class="punctuation">,</span> <span class="name">o</span><span class="operator">.</span><span class="name">attr</span><span class="punctuation">)</span>
+<span class="comment"># A: (None, 0)</span>
+<span class="comment"># B: (0, None)</span>
+<span class="comment"># C: (0, 0)</span>
+<span class="operator">&gt;</span> <span class="name">D</span><span class="punctuation">:</span> <span class="name">an</span> <span class="name">exception</span> <span class="operator word">is</span> <span class="name">raised</span>
+</pre>
+</div>
+<div class="slide" id="id89">
+<h1>29</h1>
+<pre class="code python literal-block">
+<span class="name">s</span> <span class="operator">=</span> <span class="name builtin">set</span><span class="punctuation">([</span><span class="literal number integer">1</span><span class="punctuation">,</span> <span class="name builtin pseudo">None</span><span class="punctuation">,</span> <span class="punctuation">[],</span> <span class="punctuation">()])</span>
+<span class="literal number integer">1</span> <span class="operator word">in</span> <span class="name">s</span>
+
+<span class="comment"># A: True</span>
+<span class="comment"># B: False</span>
+<span class="comment"># C: None</span>
+<span class="comment"># D: an exception is raised</span>
+</pre>
+</div>
+<div class="slide" id="id90">
+<h1>29</h1>
+<pre class="code python literal-block">
+<span class="name">s</span> <span class="operator">=</span> <span class="name builtin">set</span><span class="punctuation">([</span><span class="literal number integer">1</span><span class="punctuation">,</span> <span class="name builtin pseudo">None</span><span class="punctuation">,</span> <span class="punctuation">[],</span> <span class="punctuation">()])</span>
+<span class="literal number integer">1</span> <span class="operator word">in</span> <span class="name">s</span>
+
+<span class="comment"># A: True</span>
+<span class="comment"># B: False</span>
+<span class="comment"># C: None</span>
+<span class="operator">&gt;</span> <span class="name">D</span><span class="punctuation">:</span> <span class="name">an</span> <span class="name">exception</span> <span class="operator word">is</span> <span class="name">raised</span>
+</pre>
+</div>
+<div class="slide" id="id91">
+<h1>30</h1>
+<pre class="code python literal-block">
+<span class="name">l</span> <span class="operator">=</span> <span class="punctuation">[</span><span class="literal number integer">1</span><span class="punctuation">,</span> <span class="literal number integer">2</span><span class="punctuation">,</span> <span class="literal number integer">3</span><span class="punctuation">,</span> <span class="literal number integer">4</span><span class="punctuation">,</span> <span class="literal number integer">5</span><span class="punctuation">]</span>
+<span class="name">l</span><span class="punctuation">[:</span><span class="literal number integer">3</span><span class="punctuation">]</span> <span class="operator">+</span> <span class="name">l</span><span class="punctuation">[</span><span class="literal number integer">3</span><span class="punctuation">:</span><span class="operator">-</span><span class="literal number integer">1</span><span class="punctuation">]</span>
+
+<span class="comment"># A: [1, 2, 4, 5]</span>
+<span class="comment"># B: [1, 2, 3, 5]</span>
+<span class="comment"># C: [1, 2, 3, 4]</span>
+<span class="comment"># D: [1, 2, 3, 4, 5]</span>
+</pre>
+</div>
+<div class="slide" id="id92">
+<h1>30</h1>
+<pre class="code python literal-block">
+<span class="name">l</span> <span class="operator">=</span> <span class="punctuation">[</span><span class="literal number integer">1</span><span class="punctuation">,</span> <span class="literal number integer">2</span><span class="punctuation">,</span> <span class="literal number integer">3</span><span class="punctuation">,</span> <span class="literal number integer">4</span><span class="punctuation">,</span> <span class="literal number integer">5</span><span class="punctuation">]</span>
+<span class="name">l</span><span class="punctuation">[:</span><span class="literal number integer">3</span><span class="punctuation">]</span> <span class="operator">+</span> <span class="name">l</span><span class="punctuation">[</span><span class="literal number integer">3</span><span class="punctuation">:</span><span class="operator">-</span><span class="literal number integer">1</span><span class="punctuation">]</span>
+
+<span class="comment"># A: [1, 2, 4, 5]</span>
+<span class="comment"># B: [1, 2, 3, 5]</span>
+<span class="operator">&gt;</span> <span class="name">C</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="literal number integer">1</span><span class="punctuation">,</span> <span class="literal number integer">2</span><span class="punctuation">,</span> <span class="literal number integer">3</span><span class="punctuation">,</span> <span class="literal number integer">4</span><span class="punctuation">]</span>
+<span class="comment"># D: [1, 2, 3, 4, 5]</span>
+</pre>
+</div>
+<div class="slide" id="id93">
+<h1>31</h1>
+<pre class="code python literal-block">
+<span class="name">a</span> <span class="operator">=</span> <span class="name builtin">set</span><span class="punctuation">([</span><span class="literal number integer">1</span><span class="punctuation">,</span> <span class="literal number integer">2</span><span class="punctuation">,</span> <span class="literal number integer">3</span><span class="punctuation">])</span>
+<span class="name">b</span> <span class="operator">=</span> <span class="name builtin">set</span><span class="punctuation">([</span><span class="literal number integer">4</span><span class="punctuation">,</span> <span class="literal number integer">5</span><span class="punctuation">])</span>
+<span class="name">c</span> <span class="operator">=</span> <span class="name builtin">set</span><span class="punctuation">([</span><span class="literal number integer">1</span><span class="punctuation">,</span> <span class="literal number integer">5</span><span class="punctuation">])</span>
+<span class="name">a</span> <span class="operator">|</span> <span class="name">b</span> <span class="operator">&amp;</span> <span class="name">c</span>
+
+<span class="comment"># A: set([1, 5])</span>
+<span class="comment"># B: set([1, 2, 3, 5])</span>
+<span class="comment"># C: [1, 2, 3, 5]</span>
+<span class="comment"># D: an exception is raised</span>
+</pre>
+</div>
+<div class="slide" id="id94">
+<h1>31</h1>
+<pre class="code python literal-block">
+<span class="name">a</span> <span class="operator">=</span> <span class="name builtin">set</span><span class="punctuation">([</span><span class="literal number integer">1</span><span class="punctuation">,</span> <span class="literal number integer">2</span><span class="punctuation">,</span> <span class="literal number integer">3</span><span class="punctuation">])</span>
+<span class="name">b</span> <span class="operator">=</span> <span class="name builtin">set</span><span class="punctuation">([</span><span class="literal number integer">4</span><span class="punctuation">,</span> <span class="literal number integer">5</span><span class="punctuation">])</span>
+<span class="name">c</span> <span class="operator">=</span> <span class="name builtin">set</span><span class="punctuation">([</span><span class="literal number integer">1</span><span class="punctuation">,</span> <span class="literal number integer">5</span><span class="punctuation">])</span>
+<span class="name">a</span> <span class="operator">|</span> <span class="name">b</span> <span class="operator">&amp;</span> <span class="name">c</span>
+
+<span class="comment"># A: set([1, 5])</span>
+<span class="operator">&gt;</span> <span class="name">B</span><span class="punctuation">:</span> <span class="name builtin">set</span><span class="punctuation">([</span><span class="literal number integer">1</span><span class="punctuation">,</span> <span class="literal number integer">2</span><span class="punctuation">,</span> <span class="literal number integer">3</span><span class="punctuation">,</span> <span class="literal number integer">5</span><span class="punctuation">])</span>
+<span class="comment"># C: [1, 2, 3, 5]</span>
+<span class="comment"># D: an exception is raised</span>
+</pre>
+</div>
+<div class="slide" id="id95">
+<h1>32</h1>
+<pre class="code python literal-block">
+<span class="name">f</span> <span class="operator">=</span> <span class="keyword">lambda</span> <span class="punctuation">(</span><span class="name">a</span><span class="punctuation">,</span> <span class="name">b</span><span class="punctuation">):</span> <span class="name builtin pseudo">NotImplemented</span>
+<span class="name">f</span><span class="punctuation">(</span><span class="literal number integer">1</span><span class="punctuation">,</span> <span class="literal number integer">2</span><span class="punctuation">)</span>
+
+<span class="comment"># A: None</span>
+<span class="comment"># B: NotImplemented</span>
+<span class="comment"># C: (1, 2)</span>
+<span class="comment"># D: an exception is raised</span>
+</pre>
+</div>
+<div class="slide" id="id96">
+<h1>32</h1>
+<pre class="code python literal-block">
+<span class="name">f</span> <span class="operator">=</span> <span class="keyword">lambda</span> <span class="punctuation">(</span><span class="name">a</span><span class="punctuation">,</span> <span class="name">b</span><span class="punctuation">):</span> <span class="name builtin pseudo">NotImplemented</span>
+<span class="name">f</span><span class="punctuation">(</span><span class="literal number integer">1</span><span class="punctuation">,</span> <span class="literal number integer">2</span><span class="punctuation">)</span>
+
+<span class="comment"># A: None</span>
+<span class="comment"># B: NotImplemented</span>
+<span class="comment"># C: (1, 2)</span>
+<span class="operator">&gt;</span> <span class="name">D</span><span class="punctuation">:</span> <span class="name">an</span> <span class="name">exception</span> <span class="operator word">is</span> <span class="name">raised</span>
 </pre>
 </div>
 </div>
