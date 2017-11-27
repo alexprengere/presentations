@@ -7,9 +7,11 @@ Python Quizz
 Summary
 -------
 
-No phones ;)
-No laptops ;)
 Find the value of the last statement.
+
+The code may raise exceptions, but never syntax errors, so do not look for missing colons ;)
+
+Assume the code is Python2.6+, but the answers would be the same with Python3.
 
 --
 1
