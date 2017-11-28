@@ -3,8 +3,6 @@
 Document and test your Python code, even with pyspark
 =====================================================
 
-+ 12/02/2016
-
 -------
 Summary
 -------
