@@ -243,7 +243,10 @@ Assume the code is Python3.8a3, but the answers would be the same with Python2.
 
 .. code-block:: python
 
-    a = object()
+    class A():
+        pass
+
+    a = A()
     a.attribute = 1
     a.attribute
 
@@ -258,7 +261,10 @@ Assume the code is Python3.8a3, but the answers would be the same with Python2.
 
 .. code-block:: python
 
-    a = object()
+    class A():
+        pass
+
+    a = A()
     a.attribute = 1
     a.attribute
 
