@@ -1,7 +1,7 @@
 
 TARGETS = slides.html
 
-RSTS5 = rst2s5
+RSTS5 = rst2s5.py
 RM = rm
 
 #RSTFLAGS = --theme=small-black

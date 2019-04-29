@@ -3,14 +3,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="generator" content="Docutils 0.12: http://docutils.sourceforge.net/" />
+<meta name="generator" content="Docutils 0.14: http://docutils.sourceforge.net/" />
 <meta name="version" content="S5 1.1" />
 <title>Python Quizz</title>
 <style type="text/css">
 
 /*
 :Author: David Goodger (goodger@python.org)
-:Id: $Id: html4css1.css 7614 2013-02-21 15:55:51Z milde $
+:Id: $Id: html4css1.css 7952 2016-07-26 18:15:59Z milde $
 :Copyright: This stylesheet has been placed in the public domain.
 
 Default cascading style sheet for the HTML output of Docutils.
@@ -37,6 +37,14 @@ table.borderless td, table.borderless th {
 
 .hidden {
   display: none }
+
+.subscript {
+  vertical-align: sub;
+  font-size: smaller }
+
+.superscript {
+  vertical-align: super;
+  font-size: smaller }
 
 a.toc-backref {
   text-decoration: none ;
@@ -162,18 +170,23 @@ h2.subtitle {
 hr.docutils {
   width: 75% }
 
-img.align-left, .figure.align-left, object.align-left {
+img.align-left, .figure.align-left, object.align-left, table.align-left {
   clear: left ;
   float: left ;
   margin-right: 1em }
 
-img.align-right, .figure.align-right, object.align-right {
+img.align-right, .figure.align-right, object.align-right, table.align-right {
   clear: right ;
   float: right ;
   margin-left: 1em }
 
 img.align-center, .figure.align-center, object.align-center {
   display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+table.align-center {
   margin-left: auto;
   margin-right: auto;
 }
@@ -194,6 +207,15 @@ div.align-right {
 
 /* div.align-center * { */
 /*   text-align: left } */
+
+.align-top    {
+  vertical-align: top }
+
+.align-middle {
+  vertical-align: middle }
+
+.align-bottom {
+  vertical-align: bottom }
 
 ol.simple, ul.simple {
   margin-bottom: 1em }
@@ -389,10 +411,10 @@ ul.auto-toc {
 <span class="name">f</span><span class="punctuation">([</span><span class="literal number integer">2</span><span class="punctuation">,</span> <span class="literal number integer">3</span><span class="punctuation">])</span>
 <span class="name">f</span><span class="punctuation">()</span>
 <span class="name">f</span><span class="punctuation">()</span>
-<span class="comment"># A: []</span>
-<span class="comment"># B: [2, 3, 1, 1]</span>
-<span class="comment"># C: [1]</span>
-<span class="comment"># D: [1, 1]</span>
+<span class="comment single"># A: []</span>
+<span class="comment single"># B: [2, 3, 1, 1]</span>
+<span class="comment single"># C: [1]</span>
+<span class="comment single"># D: [1, 1]</span>
 </pre>
 </div>
 <div class="slide" id="id2">
@@ -401,10 +423,10 @@ ul.auto-toc {
 <span class="name">a</span> <span class="operator">=</span> <span class="name">b</span> <span class="operator">=</span> <span class="punctuation">[]</span>
 <span class="name">a</span><span class="operator">.</span><span class="name">append</span><span class="punctuation">(</span><span class="literal number integer">1</span><span class="punctuation">)</span>
 <span class="name">b</span>
-<span class="comment"># A: []</span>
-<span class="comment"># B: [1]</span>
-<span class="comment"># C: an exception is raised</span>
-<span class="comment"># D: None</span>
+<span class="comment single"># A: []</span>
+<span class="comment single"># B: [1]</span>
+<span class="comment single"># C: an exception is raised</span>
+<span class="comment single"># D: None</span>
 </pre>
 </div>
 <div class="slide" id="id3">
@@ -413,10 +435,10 @@ ul.auto-toc {
 <span class="name">a</span> <span class="operator">=</span> <span class="name">b</span> <span class="operator">=</span> <span class="punctuation">[]</span>
 <span class="name">a</span> <span class="operator">=</span> <span class="name">a</span> <span class="operator">+</span> <span class="punctuation">[</span><span class="literal number integer">1</span><span class="punctuation">]</span>
 <span class="name">b</span>
-<span class="comment"># A: []</span>
-<span class="comment"># B: [1]</span>
-<span class="comment"># C: an exception is raised</span>
-<span class="comment"># D: None</span>
+<span class="comment single"># A: []</span>
+<span class="comment single"># B: [1]</span>
+<span class="comment single"># C: an exception is raised</span>
+<span class="comment single"># D: None</span>
 </pre>
 </div>
 <div class="slide" id="id4">
@@ -425,10 +447,10 @@ ul.auto-toc {
 <span class="name">a</span> <span class="operator">=</span> <span class="name">b</span> <span class="operator">=</span> <span class="punctuation">[]</span>
 <span class="name">a</span> <span class="operator">+=</span> <span class="punctuation">[</span><span class="literal number integer">1</span><span class="punctuation">]</span>
 <span class="name">b</span>
-<span class="comment"># A: []</span>
-<span class="comment"># B: [1]</span>
-<span class="comment"># C: an exception is raised</span>
-<span class="comment"># D: None</span>
+<span class="comment single"># A: []</span>
+<span class="comment single"># B: [1]</span>
+<span class="comment single"># C: an exception is raised</span>
+<span class="comment single"># D: None</span>
 </pre>
 </div>
 <div class="slide" id="id5">
@@ -441,10 +463,10 @@ ul.auto-toc {
 
 <span class="name">f</span><span class="punctuation">()</span>
 <span class="name">a</span>
-<span class="comment"># A: []</span>
-<span class="comment"># B: [1]</span>
-<span class="comment"># C: an exception is raised</span>
-<span class="comment"># D: None</span>
+<span class="comment single"># A: []</span>
+<span class="comment single"># B: [1]</span>
+<span class="comment single"># C: an exception is raised</span>
+<span class="comment single"># D: None</span>
 </pre>
 </div>
 <div class="slide" id="id6">
@@ -457,10 +479,10 @@ ul.auto-toc {
 
 <span class="name">f</span><span class="punctuation">()</span>
 <span class="name">a</span>
-<span class="comment"># A: 0</span>
-<span class="comment"># B: 1</span>
-<span class="comment"># C: an exception is raised</span>
-<span class="comment"># D: None</span>
+<span class="comment single"># A: 0</span>
+<span class="comment single"># B: 1</span>
+<span class="comment single"># C: an exception is raised</span>
+<span class="comment single"># D: None</span>
 </pre>
 </div>
 <div class="slide" id="id7">
@@ -473,10 +495,10 @@ ul.auto-toc {
 
 <span class="name">f</span><span class="punctuation">()</span>
 <span class="name">a</span>
-<span class="comment"># A: 0</span>
-<span class="comment"># B: 1</span>
-<span class="comment"># C: an exception is raised</span>
-<span class="comment"># D: None</span>
+<span class="comment single"># A: 0</span>
+<span class="comment single"># B: 1</span>
+<span class="comment single"># C: an exception is raised</span>
+<span class="comment single"># D: None</span>
 </pre>
 </div>
 <div class="slide" id="id8">
@@ -489,26 +511,26 @@ ul.auto-toc {
 <span class="name">a</span><span class="operator">.</span><span class="name">attribute</span> <span class="operator">=</span> <span class="literal number integer">1</span>
 <span class="name">a</span><span class="operator">.</span><span class="name">attribute</span>
 
-<span class="comment"># A: 1</span>
-<span class="comment"># B: None</span>
-<span class="comment"># C: an exception is raised</span>
-<span class="comment"># D: 0</span>
+<span class="comment single"># A: 1</span>
+<span class="comment single"># B: None</span>
+<span class="comment single"># C: an exception is raised</span>
+<span class="comment single"># D: 0</span>
 </pre>
 </div>
 <div class="slide" id="id9">
 <h1>9</h1>
 <pre class="code python literal-block">
 <span class="keyword">class</span> <span class="name class">A</span><span class="punctuation">(</span><span class="name builtin">object</span><span class="punctuation">):</span>
-    <span class="name">__slots__</span> <span class="operator">=</span> <span class="punctuation">[]</span>
+    <span class="name variable magic">__slots__</span> <span class="operator">=</span> <span class="punctuation">[]</span>
 
 <span class="name">a</span> <span class="operator">=</span> <span class="name">A</span><span class="punctuation">()</span>
 <span class="name">a</span><span class="operator">.</span><span class="name">attribute</span> <span class="operator">=</span> <span class="literal number integer">1</span>
 <span class="name">a</span><span class="operator">.</span><span class="name">attribute</span>
 
-<span class="comment"># A: 1</span>
-<span class="comment"># B: None</span>
-<span class="comment"># C: an exception is raised</span>
-<span class="comment"># D: 0</span>
+<span class="comment single"># A: 1</span>
+<span class="comment single"># B: None</span>
+<span class="comment single"># C: an exception is raised</span>
+<span class="comment single"># D: 0</span>
 </pre>
 </div>
 <div class="slide" id="id10">
@@ -516,10 +538,10 @@ ul.auto-toc {
 <pre class="code python literal-block">
 <span class="name builtin">all</span><span class="punctuation">([</span><span class="literal number integer">0</span><span class="punctuation">,</span> <span class="literal number integer">1</span><span class="punctuation">,</span> <span class="literal number integer">2</span><span class="punctuation">])</span>
 
-<span class="comment"># A: [0, 1, 2]</span>
-<span class="comment"># B: False</span>
-<span class="comment"># C: True</span>
-<span class="comment"># D: []</span>
+<span class="comment single"># A: [0, 1, 2]</span>
+<span class="comment single"># B: False</span>
+<span class="comment single"># C: True</span>
+<span class="comment single"># D: []</span>
 </pre>
 </div>
 <div class="slide" id="id11">
@@ -527,10 +549,10 @@ ul.auto-toc {
 <pre class="code python literal-block">
 <span class="name builtin">any</span><span class="punctuation">([])</span>
 
-<span class="comment"># A: []</span>
-<span class="comment"># B: False</span>
-<span class="comment"># C: True</span>
-<span class="comment"># D: an exception is raised</span>
+<span class="comment single"># A: []</span>
+<span class="comment single"># B: False</span>
+<span class="comment single"># C: True</span>
+<span class="comment single"># D: an exception is raised</span>
 </pre>
 </div>
 <div class="slide" id="id12">
@@ -538,21 +560,21 @@ ul.auto-toc {
 <pre class="code python literal-block">
 <span class="literal number integer">1</span> <span class="operator word">or</span> <span class="literal number integer">2</span> <span class="operator word">and</span> <span class="literal number integer">3</span>
 
-<span class="comment"># A: 1</span>
-<span class="comment"># B: 3</span>
-<span class="comment"># C: True</span>
-<span class="comment"># D: False</span>
+<span class="comment single"># A: 1</span>
+<span class="comment single"># B: 3</span>
+<span class="comment single"># C: True</span>
+<span class="comment single"># D: False</span>
 </pre>
 </div>
 <div class="slide" id="id13">
 <h1>13</h1>
 <pre class="code python literal-block">
-<span class="literal string">r'\ntest'</span><span class="operator">.</span><span class="name">strip</span><span class="punctuation">()</span>
+<span class="literal string affix">r</span><span class="literal string single">'\ntest'</span><span class="operator">.</span><span class="name">strip</span><span class="punctuation">()</span>
 
-<span class="comment"># A: 'test'</span>
-<span class="comment"># B: '\ntest'</span>
-<span class="comment"># C: '\\ntest'</span>
-<span class="comment"># D: r'\\ntest'</span>
+<span class="comment single"># A: 'test'</span>
+<span class="comment single"># B: '\ntest'</span>
+<span class="comment single"># C: '\\ntest'</span>
+<span class="comment single"># D: r'\\ntest'</span>
 </pre>
 </div>
 <div class="slide" id="id14">
@@ -560,10 +582,10 @@ ul.auto-toc {
 <pre class="code python literal-block">
 <span class="punctuation">[</span><span class="name">i</span> <span class="keyword">for</span> <span class="name">i</span> <span class="operator word">in</span> <span class="name">a</span> <span class="keyword">for</span> <span class="name">a</span> <span class="operator word">in</span> <span class="punctuation">[[</span><span class="literal number integer">1</span><span class="punctuation">],</span> <span class="punctuation">[</span><span class="literal number integer">2</span><span class="punctuation">]]]</span>
 
-<span class="comment"># A: [1, 2]</span>
-<span class="comment"># B: [2, 1]</span>
-<span class="comment"># C: an exception is raised</span>
-<span class="comment"># D: []</span>
+<span class="comment single"># A: [1, 2]</span>
+<span class="comment single"># B: [2, 1]</span>
+<span class="comment single"># C: an exception is raised</span>
+<span class="comment single"># D: []</span>
 </pre>
 </div>
 <div class="slide" id="id15">
@@ -572,10 +594,10 @@ ul.auto-toc {
 <span class="name">a</span> <span class="operator">=</span> <span class="punctuation">{</span><span class="literal number integer">1</span><span class="punctuation">:</span> <span class="literal number integer">2</span><span class="punctuation">}</span>
 <span class="name">a</span><span class="operator">.</span><span class="name">get</span><span class="punctuation">(</span><span class="literal number float">1.0</span><span class="punctuation">,</span> <span class="literal number integer">3</span><span class="punctuation">)</span>
 
-<span class="comment"># A: 2</span>
-<span class="comment"># B: 3</span>
-<span class="comment"># C: an exception is raised</span>
-<span class="comment"># D: None</span>
+<span class="comment single"># A: 2</span>
+<span class="comment single"># B: 3</span>
+<span class="comment single"># C: an exception is raised</span>
+<span class="comment single"># D: None</span>
 </pre>
 </div>
 <div class="slide" id="id16">
@@ -585,66 +607,66 @@ ul.auto-toc {
 
 <span class="punctuation">[</span><span class="name">a</span> <span class="keyword">for</span> <span class="name">a</span> <span class="operator word">in</span> <span class="name">itertools</span><span class="operator">.</span><span class="name">chain</span><span class="punctuation">([</span><span class="literal number integer">1</span><span class="punctuation">,</span> <span class="literal number integer">2</span><span class="punctuation">],</span> <span class="punctuation">(</span><span class="literal number integer">3</span><span class="punctuation">,))]</span>
 
-<span class="comment"># A: [1, 2, 3]</span>
-<span class="comment"># B: [[1, 2], [3]]</span>
-<span class="comment"># C: [[1, 2], (3)]</span>
-<span class="comment"># D: an exception is raised</span>
+<span class="comment single"># A: [1, 2, 3]</span>
+<span class="comment single"># B: [[1, 2], [3]]</span>
+<span class="comment single"># C: [[1, 2], (3)]</span>
+<span class="comment single"># D: an exception is raised</span>
 </pre>
 </div>
 <div class="slide" id="id17">
 <h1>17</h1>
 <pre class="code python literal-block">
-<span class="name builtin">getattr</span><span class="punctuation">(</span><span class="literal string">'1'</span><span class="punctuation">,</span> <span class="literal string">'isdigit'</span><span class="punctuation">)</span>
+<span class="name builtin">getattr</span><span class="punctuation">(</span><span class="literal string single">'1'</span><span class="punctuation">,</span> <span class="literal string single">'isdigit'</span><span class="punctuation">)</span>
 
-<span class="comment"># A: True</span>
-<span class="comment"># B: False</span>
-<span class="comment"># C: &lt;function&gt;</span>
-<span class="comment"># D: an exception is raised</span>
+<span class="comment single"># A: True</span>
+<span class="comment single"># B: False</span>
+<span class="comment single"># C: &lt;function&gt;</span>
+<span class="comment single"># D: an exception is raised</span>
 </pre>
 </div>
 <div class="slide" id="id18">
 <h1>18</h1>
 <pre class="code python literal-block">
 <span class="name builtin">isinstance</span><span class="punctuation">(</span><span class="literal number integer">1</span><span class="punctuation">,</span> <span class="punctuation">(</span><span class="name builtin">float</span><span class="punctuation">,</span> <span class="name builtin">str</span><span class="punctuation">))</span>
-<span class="comment"># A: True</span>
-<span class="comment"># B: False</span>
-<span class="comment"># C: 1</span>
-<span class="comment"># D: an exception is raised</span>
+<span class="comment single"># A: True</span>
+<span class="comment single"># B: False</span>
+<span class="comment single"># C: 1</span>
+<span class="comment single"># D: an exception is raised</span>
 </pre>
 </div>
 <div class="slide" id="id19">
 <h1>19</h1>
 <pre class="code python literal-block">
-<span class="literal string">'test'</span><span class="operator">.</span><span class="name">startswith</span><span class="punctuation">((</span><span class="literal string">'T'</span><span class="punctuation">,</span> <span class="literal string">'t'</span><span class="punctuation">))</span>
+<span class="literal string single">'test'</span><span class="operator">.</span><span class="name">startswith</span><span class="punctuation">((</span><span class="literal string single">'T'</span><span class="punctuation">,</span> <span class="literal string single">'t'</span><span class="punctuation">))</span>
 
-<span class="comment"># A: True</span>
-<span class="comment"># B: False</span>
-<span class="comment"># C: 'test'</span>
-<span class="comment"># D: an exception is raised</span>
+<span class="comment single"># A: True</span>
+<span class="comment single"># B: False</span>
+<span class="comment single"># C: 'test'</span>
+<span class="comment single"># D: an exception is raised</span>
 </pre>
 </div>
 <div class="slide" id="id20">
 <h1>20</h1>
 <pre class="code python literal-block">
 <span class="name">temp</span> <span class="operator">=</span> <span class="literal number integer">0</span>
-<span class="name">a</span> <span class="operator">=</span> <span class="literal string">'hot'</span> <span class="keyword">if</span> <span class="name">temp</span> <span class="operator">&gt;</span> <span class="literal number integer">25</span> <span class="keyword">else</span> <span class="literal string">'cold'</span>
+<span class="name">a</span> <span class="operator">=</span> <span class="literal string single">'hot'</span> <span class="keyword">if</span> <span class="name">temp</span> <span class="operator">&gt;</span> <span class="literal number integer">25</span> <span class="keyword">else</span> <span class="literal string single">'cold'</span>
 <span class="name">a</span>
 
-<span class="comment"># A: True</span>
-<span class="comment"># B: False</span>
-<span class="comment"># C: 0</span>
-<span class="comment"># D: 'cold'</span>
+<span class="comment single"># A: True</span>
+<span class="comment single"># B: False</span>
+<span class="comment single"># C: 0</span>
+<span class="comment single"># D: 'cold'</span>
 </pre>
 </div>
 <div class="slide" id="id21">
 <h1>21</h1>
 <pre class="code python literal-block">
-<span class="name builtin">next</span><span class="punctuation">(</span><span class="name builtin">enumerate</span><span class="punctuation">([</span><span class="literal string">'A'</span><span class="punctuation">,</span> <span class="literal string">'B'</span><span class="punctuation">],</span> <span class="name">start</span><span class="operator">=</span><span class="literal number integer">1</span><span class="punctuation">))[</span><span class="literal number integer">0</span><span class="punctuation">]</span>
+<span class="name builtin">next</span><span class="punctuation">(</span><span class="name builtin">enumerate</span><span class="punctuation">([</span><span class="literal string single">'A'</span><span class="punctuation">,</span> <span class="literal string single">'B'</span><span class="punctuation">],</span> <span class="name">start</span><span class="operator">=</span><span class="literal number integer">1</span><span class="punctuation">))[</span><span class="literal number integer">0</span><span class="punctuation">]</span>
 
-<span class="comment"># A: 'A'</span>
-<span class="comment"># B: 'B'</span>
-<span class="comment"># C: 0</span>
-<span class="comment"># D: 1</span>
+<span class="comment single"># A: 'A'</span>
+<span class="comment single"># B: 'B'</span>
+<span class="comment single"># C: 0</span>
+<span class="comment single"># D: 1</span>
 </pre>
 </div>
 <div class="slide" id="id22">
@@ -652,27 +674,27 @@ ul.auto-toc {
 <pre class="code python literal-block">
 <span class="name builtin">next</span><span class="punctuation">(</span><span class="name builtin">iter</span><span class="punctuation">([</span><span class="literal number integer">2</span><span class="punctuation">,</span> <span class="literal number integer">3</span><span class="punctuation">],</span> <span class="literal number integer">2</span><span class="punctuation">))</span>
 
-<span class="comment"># A: 2</span>
-<span class="comment"># B: 3</span>
-<span class="comment"># C: an exception is raised</span>
-<span class="comment"># D: None</span>
+<span class="comment single"># A: 2</span>
+<span class="comment single"># B: 3</span>
+<span class="comment single"># C: an exception is raised</span>
+<span class="comment single"># D: None</span>
 </pre>
 </div>
 <div class="slide" id="id23">
 <h1>23</h1>
 <pre class="code python literal-block">
 <span class="keyword">class</span> <span class="name class">A</span><span class="punctuation">(</span><span class="name builtin">object</span><span class="punctuation">):</span>
-    <span class="keyword">def</span> <span class="name function">__init__</span><span class="punctuation">(</span><span class="name builtin pseudo">self</span><span class="punctuation">,</span> <span class="name">value</span><span class="punctuation">):</span>
+    <span class="keyword">def</span> <span class="name function magic">__init__</span><span class="punctuation">(</span><span class="name builtin pseudo">self</span><span class="punctuation">,</span> <span class="name">value</span><span class="punctuation">):</span>
         <span class="name builtin pseudo">self</span><span class="operator">.</span><span class="name">value</span> <span class="operator">=</span> <span class="name">value</span>
     <span class="keyword">def</span> <span class="name function">__format__</span><span class="punctuation">(</span><span class="name builtin pseudo">self</span><span class="punctuation">,</span> <span class="name">fmt</span><span class="punctuation">):</span>
         <span class="keyword">return</span> <span class="name">fmt</span>
 
-<span class="literal string">'{0:short}'</span><span class="operator">.</span><span class="name">format</span><span class="punctuation">(</span><span class="name">A</span><span class="punctuation">(</span><span class="literal number integer">1</span><span class="punctuation">))</span>
+<span class="literal string single">'{0:short}'</span><span class="operator">.</span><span class="name">format</span><span class="punctuation">(</span><span class="name">A</span><span class="punctuation">(</span><span class="literal number integer">1</span><span class="punctuation">))</span>
 
-<span class="comment"># A: 'short'</span>
-<span class="comment"># B: '1'</span>
-<span class="comment"># C: an exception is raised</span>
-<span class="comment"># D: '&lt;object&gt;'</span>
+<span class="comment single"># A: 'short'</span>
+<span class="comment single"># B: '1'</span>
+<span class="comment single"># C: an exception is raised</span>
+<span class="comment single"># D: '&lt;object&gt;'</span>
 </pre>
 </div>
 <div class="slide" id="id24">
@@ -681,10 +703,10 @@ ul.auto-toc {
 <span class="name">a</span> <span class="operator">=</span> <span class="punctuation">(</span><span class="name">i</span> <span class="keyword">for</span> <span class="name">i</span> <span class="operator word">in</span> <span class="name builtin">range</span><span class="punctuation">(</span><span class="literal number integer">10</span><span class="punctuation">))</span>
 <span class="name">a</span><span class="punctuation">[</span><span class="literal number integer">0</span><span class="punctuation">]</span>
 
-<span class="comment"># A: 0</span>
-<span class="comment"># B: 1</span>
-<span class="comment"># C: an exception is raised</span>
-<span class="comment"># D: None</span>
+<span class="comment single"># A: 0</span>
+<span class="comment single"># B: 1</span>
+<span class="comment single"># C: an exception is raised</span>
+<span class="comment single"># D: None</span>
 </pre>
 </div>
 <div class="slide" id="id25">
@@ -692,61 +714,61 @@ ul.auto-toc {
 <pre class="code python literal-block">
 <span class="name builtin pseudo">False</span> <span class="operator">==</span> <span class="name builtin pseudo">False</span> <span class="operator word">in</span> <span class="punctuation">[</span><span class="name builtin pseudo">False</span><span class="punctuation">]</span>
 
-<span class="comment"># A: True</span>
-<span class="comment"># B: False</span>
-<span class="comment"># C: an exception is raised</span>
-<span class="comment"># D: None</span>
+<span class="comment single"># A: True</span>
+<span class="comment single"># B: False</span>
+<span class="comment single"># C: an exception is raised</span>
+<span class="comment single"># D: None</span>
 </pre>
 </div>
 <div class="slide" id="id26">
 <h1>26</h1>
 <pre class="code python literal-block">
 <span class="keyword">class</span> <span class="name class">Obj</span><span class="punctuation">(</span><span class="name builtin">object</span><span class="punctuation">):</span>
-    <span class="keyword">def</span> <span class="name function">__init__</span><span class="punctuation">(</span><span class="name builtin pseudo">self</span><span class="punctuation">):</span>
+    <span class="keyword">def</span> <span class="name function magic">__init__</span><span class="punctuation">(</span><span class="name builtin pseudo">self</span><span class="punctuation">):</span>
         <span class="name builtin pseudo">self</span><span class="operator">.</span><span class="name">attr</span> <span class="operator">=</span> <span class="name builtin pseudo">None</span>
-    <span class="keyword">def</span> <span class="name function">__getattr__</span><span class="punctuation">(</span><span class="name builtin pseudo">self</span><span class="punctuation">,</span> <span class="name">name</span><span class="punctuation">):</span>
+    <span class="keyword">def</span> <span class="name function magic">__getattr__</span><span class="punctuation">(</span><span class="name builtin pseudo">self</span><span class="punctuation">,</span> <span class="name">name</span><span class="punctuation">):</span>
         <span class="keyword">return</span> <span class="literal number integer">0</span>
 
 <span class="name">o</span> <span class="operator">=</span> <span class="name">Obj</span><span class="punctuation">()</span>
 <span class="punctuation">(</span><span class="name">o</span><span class="operator">.</span><span class="name">titi</span><span class="punctuation">,</span> <span class="name">o</span><span class="operator">.</span><span class="name">attr</span><span class="punctuation">)</span>
-<span class="comment"># A: (None, 0)</span>
-<span class="comment"># B: (0, None)</span>
-<span class="comment"># C: (0, 0)</span>
-<span class="comment"># D: an exception is raised</span>
+<span class="comment single"># A: (None, 0)</span>
+<span class="comment single"># B: (0, None)</span>
+<span class="comment single"># C: (0, 0)</span>
+<span class="comment single"># D: an exception is raised</span>
 </pre>
 </div>
 <div class="slide" id="id27">
 <h1>27</h1>
 <pre class="code python literal-block">
 <span class="keyword">class</span> <span class="name class">Obj</span><span class="punctuation">(</span><span class="name builtin">object</span><span class="punctuation">):</span>
-    <span class="keyword">def</span> <span class="name function">__init__</span><span class="punctuation">(</span><span class="name builtin pseudo">self</span><span class="punctuation">):</span>
+    <span class="keyword">def</span> <span class="name function magic">__init__</span><span class="punctuation">(</span><span class="name builtin pseudo">self</span><span class="punctuation">):</span>
         <span class="name builtin pseudo">self</span><span class="operator">.</span><span class="name">attr</span> <span class="operator">=</span> <span class="name builtin pseudo">None</span>
-    <span class="keyword">def</span> <span class="name function">__getattribute__</span><span class="punctuation">(</span><span class="name builtin pseudo">self</span><span class="punctuation">,</span> <span class="name">name</span><span class="punctuation">):</span>
+    <span class="keyword">def</span> <span class="name function magic">__getattribute__</span><span class="punctuation">(</span><span class="name builtin pseudo">self</span><span class="punctuation">,</span> <span class="name">name</span><span class="punctuation">):</span>
         <span class="keyword">return</span> <span class="literal number integer">0</span>
 
 <span class="name">o</span> <span class="operator">=</span> <span class="name">Obj</span><span class="punctuation">()</span>
 <span class="punctuation">(</span><span class="name">o</span><span class="operator">.</span><span class="name">titi</span><span class="punctuation">,</span> <span class="name">o</span><span class="operator">.</span><span class="name">attr</span><span class="punctuation">)</span>
-<span class="comment"># A: (None, 0)</span>
-<span class="comment"># B: (0, None)</span>
-<span class="comment"># C: (0, 0)</span>
-<span class="comment"># D: an exception is raised</span>
+<span class="comment single"># A: (None, 0)</span>
+<span class="comment single"># B: (0, None)</span>
+<span class="comment single"># C: (0, 0)</span>
+<span class="comment single"># D: an exception is raised</span>
 </pre>
 </div>
 <div class="slide" id="id28">
 <h1>28</h1>
 <pre class="code python literal-block">
 <span class="keyword">class</span> <span class="name class">Obj</span><span class="punctuation">(</span><span class="name builtin">object</span><span class="punctuation">):</span>
-    <span class="keyword">def</span> <span class="name function">__init__</span><span class="punctuation">(</span><span class="name builtin pseudo">self</span><span class="punctuation">):</span>
+    <span class="keyword">def</span> <span class="name function magic">__init__</span><span class="punctuation">(</span><span class="name builtin pseudo">self</span><span class="punctuation">):</span>
         <span class="name builtin pseudo">self</span><span class="operator">.</span><span class="name">attr</span> <span class="operator">=</span> <span class="name builtin pseudo">None</span>
-    <span class="keyword">def</span> <span class="name function">__getattribute__</span><span class="punctuation">(</span><span class="name builtin pseudo">self</span><span class="punctuation">,</span> <span class="name">name</span><span class="punctuation">):</span>
-        <span class="keyword">return</span> <span class="name builtin">object</span><span class="operator">.</span><span class="name">__getattribute__</span><span class="punctuation">(</span><span class="name">name</span><span class="punctuation">)</span>
+    <span class="keyword">def</span> <span class="name function magic">__getattribute__</span><span class="punctuation">(</span><span class="name builtin pseudo">self</span><span class="punctuation">,</span> <span class="name">name</span><span class="punctuation">):</span>
+        <span class="keyword">return</span> <span class="name builtin">object</span><span class="operator">.</span><span class="name function magic">__getattribute__</span><span class="punctuation">(</span><span class="name">name</span><span class="punctuation">)</span>
 
 <span class="name">o</span> <span class="operator">=</span> <span class="name">Obj</span><span class="punctuation">()</span>
 <span class="punctuation">(</span><span class="name">o</span><span class="operator">.</span><span class="name">titi</span><span class="punctuation">,</span> <span class="name">o</span><span class="operator">.</span><span class="name">attr</span><span class="punctuation">)</span>
-<span class="comment"># A: (None, 0)</span>
-<span class="comment"># B: (0, None)</span>
-<span class="comment"># C: (0, 0)</span>
-<span class="comment"># D: an exception is raised</span>
+<span class="comment single"># A: (None, 0)</span>
+<span class="comment single"># B: (0, None)</span>
+<span class="comment single"># C: (0, 0)</span>
+<span class="comment single"># D: an exception is raised</span>
 </pre>
 </div>
 <div class="slide" id="id29">
@@ -755,10 +777,10 @@ ul.auto-toc {
 <span class="name">s</span> <span class="operator">=</span> <span class="name builtin">set</span><span class="punctuation">([</span><span class="literal number integer">1</span><span class="punctuation">,</span> <span class="name builtin pseudo">None</span><span class="punctuation">,</span> <span class="punctuation">[],</span> <span class="punctuation">()])</span>
 <span class="literal number integer">1</span> <span class="operator word">in</span> <span class="name">s</span>
 
-<span class="comment"># A: True</span>
-<span class="comment"># B: False</span>
-<span class="comment"># C: None</span>
-<span class="comment"># D: an exception is raised</span>
+<span class="comment single"># A: True</span>
+<span class="comment single"># B: False</span>
+<span class="comment single"># C: None</span>
+<span class="comment single"># D: an exception is raised</span>
 </pre>
 </div>
 <div class="slide" id="id30">
@@ -767,10 +789,10 @@ ul.auto-toc {
 <span class="name">l</span> <span class="operator">=</span> <span class="punctuation">[</span><span class="literal number integer">1</span><span class="punctuation">,</span> <span class="literal number integer">2</span><span class="punctuation">,</span> <span class="literal number integer">3</span><span class="punctuation">,</span> <span class="literal number integer">4</span><span class="punctuation">,</span> <span class="literal number integer">5</span><span class="punctuation">]</span>
 <span class="name">l</span><span class="punctuation">[:</span><span class="literal number integer">3</span><span class="punctuation">]</span> <span class="operator">+</span> <span class="name">l</span><span class="punctuation">[</span><span class="literal number integer">3</span><span class="punctuation">:</span><span class="operator">-</span><span class="literal number integer">1</span><span class="punctuation">]</span>
 
-<span class="comment"># A: [1, 2, 4, 5]</span>
-<span class="comment"># B: [1, 2, 3, 5]</span>
-<span class="comment"># C: [1, 2, 3, 4]</span>
-<span class="comment"># D: [1, 2, 3, 4, 5]</span>
+<span class="comment single"># A: [1, 2, 4, 5]</span>
+<span class="comment single"># B: [1, 2, 3, 5]</span>
+<span class="comment single"># C: [1, 2, 3, 4]</span>
+<span class="comment single"># D: [1, 2, 3, 4, 5]</span>
 </pre>
 </div>
 <div class="slide" id="id31">
@@ -781,10 +803,10 @@ ul.auto-toc {
 <span class="name">c</span> <span class="operator">=</span> <span class="name builtin">set</span><span class="punctuation">([</span><span class="literal number integer">1</span><span class="punctuation">,</span> <span class="literal number integer">5</span><span class="punctuation">])</span>
 <span class="name">a</span> <span class="operator">|</span> <span class="name">b</span> <span class="operator">&amp;</span> <span class="name">c</span>
 
-<span class="comment"># A: set([1, 5])</span>
-<span class="comment"># B: set([1, 2, 3, 5])</span>
-<span class="comment"># C: [1, 2, 3, 5]</span>
-<span class="comment"># D: an exception is raised</span>
+<span class="comment single"># A: set([1, 5])</span>
+<span class="comment single"># B: set([1, 2, 3, 5])</span>
+<span class="comment single"># C: [1, 2, 3, 5]</span>
+<span class="comment single"># D: an exception is raised</span>
 </pre>
 </div>
 <div class="slide" id="id32">
@@ -793,10 +815,10 @@ ul.auto-toc {
 <span class="name">f</span> <span class="operator">=</span> <span class="keyword">lambda</span> <span class="punctuation">(</span><span class="name">a</span><span class="punctuation">,</span> <span class="name">b</span><span class="punctuation">):</span> <span class="name builtin pseudo">NotImplemented</span>
 <span class="name">f</span><span class="punctuation">(</span><span class="literal number integer">1</span><span class="punctuation">,</span> <span class="literal number integer">2</span><span class="punctuation">)</span>
 
-<span class="comment"># A: None</span>
-<span class="comment"># B: NotImplemented</span>
-<span class="comment"># C: (1, 2)</span>
-<span class="comment"># D: an exception is raised</span>
+<span class="comment single"># A: None</span>
+<span class="comment single"># B: NotImplemented</span>
+<span class="comment single"># C: (1, 2)</span>
+<span class="comment single"># D: an exception is raised</span>
 </pre>
 </div>
 <div class="slide" id="end">
@@ -812,10 +834,10 @@ ul.auto-toc {
 <span class="name">f</span><span class="punctuation">([</span><span class="literal number integer">2</span><span class="punctuation">,</span> <span class="literal number integer">3</span><span class="punctuation">])</span>
 <span class="name">f</span><span class="punctuation">()</span>
 <span class="name">f</span><span class="punctuation">()</span>
-<span class="comment"># A: []</span>
-<span class="comment"># B: [2, 3, 1, 1]</span>
-<span class="comment"># C: [1]</span>
-<span class="comment"># D: [1, 1]</span>
+<span class="comment single"># A: []</span>
+<span class="comment single"># B: [2, 3, 1, 1]</span>
+<span class="comment single"># C: [1]</span>
+<span class="comment single"># D: [1, 1]</span>
 </pre>
 </div>
 <div class="slide" id="id34">
@@ -828,9 +850,9 @@ ul.auto-toc {
 <span class="name">f</span><span class="punctuation">([</span><span class="literal number integer">2</span><span class="punctuation">,</span> <span class="literal number integer">3</span><span class="punctuation">])</span>
 <span class="name">f</span><span class="punctuation">()</span>
 <span class="name">f</span><span class="punctuation">()</span>
-<span class="comment"># A: []</span>
-<span class="comment"># B: [2, 3, 1, 1]</span>
-<span class="comment"># C: [1]</span>
+<span class="comment single"># A: []</span>
+<span class="comment single"># B: [2, 3, 1, 1]</span>
+<span class="comment single"># C: [1]</span>
 <span class="operator">&gt;</span> <span class="name">D</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="literal number integer">1</span><span class="punctuation">,</span> <span class="literal number integer">1</span><span class="punctuation">]</span>
 </pre>
 </div>
@@ -840,10 +862,10 @@ ul.auto-toc {
 <span class="name">a</span> <span class="operator">=</span> <span class="name">b</span> <span class="operator">=</span> <span class="punctuation">[]</span>
 <span class="name">a</span><span class="operator">.</span><span class="name">append</span><span class="punctuation">(</span><span class="literal number integer">1</span><span class="punctuation">)</span>
 <span class="name">b</span>
-<span class="comment"># A: []</span>
-<span class="comment"># B: [1]</span>
-<span class="comment"># C: an exception is raised</span>
-<span class="comment"># D: None</span>
+<span class="comment single"># A: []</span>
+<span class="comment single"># B: [1]</span>
+<span class="comment single"># C: an exception is raised</span>
+<span class="comment single"># D: None</span>
 </pre>
 </div>
 <div class="slide" id="id36">
@@ -852,10 +874,10 @@ ul.auto-toc {
 <span class="name">a</span> <span class="operator">=</span> <span class="name">b</span> <span class="operator">=</span> <span class="punctuation">[]</span>
 <span class="name">a</span><span class="operator">.</span><span class="name">append</span><span class="punctuation">(</span><span class="literal number integer">1</span><span class="punctuation">)</span>
 <span class="name">b</span>
-<span class="comment"># A: []</span>
+<span class="comment single"># A: []</span>
 <span class="operator">&gt;</span> <span class="name">B</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="literal number integer">1</span><span class="punctuation">]</span>
-<span class="comment"># C: an exception is raised</span>
-<span class="comment"># D: None</span>
+<span class="comment single"># C: an exception is raised</span>
+<span class="comment single"># D: None</span>
 </pre>
 </div>
 <div class="slide" id="id37">
@@ -864,10 +886,10 @@ ul.auto-toc {
 <span class="name">a</span> <span class="operator">=</span> <span class="name">b</span> <span class="operator">=</span> <span class="punctuation">[]</span>
 <span class="name">a</span> <span class="operator">=</span> <span class="name">a</span> <span class="operator">+</span> <span class="punctuation">[</span><span class="literal number integer">1</span><span class="punctuation">]</span>
 <span class="name">b</span>
-<span class="comment"># A: []</span>
-<span class="comment"># B: [1]</span>
-<span class="comment"># C: an exception is raised</span>
-<span class="comment"># D: None</span>
+<span class="comment single"># A: []</span>
+<span class="comment single"># B: [1]</span>
+<span class="comment single"># C: an exception is raised</span>
+<span class="comment single"># D: None</span>
 </pre>
 </div>
 <div class="slide" id="id38">
@@ -877,9 +899,9 @@ ul.auto-toc {
 <span class="name">a</span> <span class="operator">=</span> <span class="name">a</span> <span class="operator">+</span> <span class="punctuation">[</span><span class="literal number integer">1</span><span class="punctuation">]</span>
 <span class="name">b</span>
 <span class="operator">&gt;</span> <span class="name">A</span><span class="punctuation">:</span> <span class="punctuation">[]</span>
-<span class="comment"># B: [1]</span>
-<span class="comment"># C: an exception is raised</span>
-<span class="comment"># D: None</span>
+<span class="comment single"># B: [1]</span>
+<span class="comment single"># C: an exception is raised</span>
+<span class="comment single"># D: None</span>
 </pre>
 </div>
 <div class="slide" id="id39">
@@ -888,10 +910,10 @@ ul.auto-toc {
 <span class="name">a</span> <span class="operator">=</span> <span class="name">b</span> <span class="operator">=</span> <span class="punctuation">[]</span>
 <span class="name">a</span> <span class="operator">+=</span> <span class="punctuation">[</span><span class="literal number integer">1</span><span class="punctuation">]</span>
 <span class="name">b</span>
-<span class="comment"># A: []</span>
-<span class="comment"># B: [1]</span>
-<span class="comment"># C: an exception is raised</span>
-<span class="comment"># D: None</span>
+<span class="comment single"># A: []</span>
+<span class="comment single"># B: [1]</span>
+<span class="comment single"># C: an exception is raised</span>
+<span class="comment single"># D: None</span>
 </pre>
 </div>
 <div class="slide" id="id40">
@@ -900,10 +922,10 @@ ul.auto-toc {
 <span class="name">a</span> <span class="operator">=</span> <span class="name">b</span> <span class="operator">=</span> <span class="punctuation">[]</span>
 <span class="name">a</span> <span class="operator">+=</span> <span class="punctuation">[</span><span class="literal number integer">1</span><span class="punctuation">]</span>
 <span class="name">b</span>
-<span class="comment"># A: []</span>
+<span class="comment single"># A: []</span>
 <span class="operator">&gt;</span> <span class="name">B</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="literal number integer">1</span><span class="punctuation">]</span>
-<span class="comment"># C: an exception is raised</span>
-<span class="comment"># D: None</span>
+<span class="comment single"># C: an exception is raised</span>
+<span class="comment single"># D: None</span>
 </pre>
 </div>
 <div class="slide" id="id41">
@@ -916,10 +938,10 @@ ul.auto-toc {
 
 <span class="name">f</span><span class="punctuation">()</span>
 <span class="name">a</span>
-<span class="comment"># A: []</span>
-<span class="comment"># B: [1]</span>
-<span class="comment"># C: an exception is raised</span>
-<span class="comment"># D: None</span>
+<span class="comment single"># A: []</span>
+<span class="comment single"># B: [1]</span>
+<span class="comment single"># C: an exception is raised</span>
+<span class="comment single"># D: None</span>
 </pre>
 </div>
 <div class="slide" id="id42">
@@ -932,10 +954,10 @@ ul.auto-toc {
 
 <span class="name">f</span><span class="punctuation">()</span>
 <span class="name">a</span>
-<span class="comment"># A: []</span>
+<span class="comment single"># A: []</span>
 <span class="operator">&gt;</span> <span class="name">B</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="literal number integer">1</span><span class="punctuation">]</span>
-<span class="comment"># C: an exception is raised</span>
-<span class="comment"># D: None</span>
+<span class="comment single"># C: an exception is raised</span>
+<span class="comment single"># D: None</span>
 </pre>
 </div>
 <div class="slide" id="id43">
@@ -948,10 +970,10 @@ ul.auto-toc {
 
 <span class="name">f</span><span class="punctuation">()</span>
 <span class="name">a</span>
-<span class="comment"># A: 0</span>
-<span class="comment"># B: 1</span>
-<span class="comment"># C: an exception is raised</span>
-<span class="comment"># D: None</span>
+<span class="comment single"># A: 0</span>
+<span class="comment single"># B: 1</span>
+<span class="comment single"># C: an exception is raised</span>
+<span class="comment single"># D: None</span>
 </pre>
 </div>
 <div class="slide" id="id44">
@@ -965,9 +987,9 @@ ul.auto-toc {
 <span class="name">f</span><span class="punctuation">()</span>
 <span class="name">a</span>
 <span class="operator">&gt;</span> <span class="name">A</span><span class="punctuation">:</span> <span class="literal number integer">0</span>
-<span class="comment"># B: 1</span>
-<span class="comment"># C: an exception is raised</span>
-<span class="comment"># D: None</span>
+<span class="comment single"># B: 1</span>
+<span class="comment single"># C: an exception is raised</span>
+<span class="comment single"># D: None</span>
 </pre>
 </div>
 <div class="slide" id="id45">
@@ -980,10 +1002,10 @@ ul.auto-toc {
 
 <span class="name">f</span><span class="punctuation">()</span>
 <span class="name">a</span>
-<span class="comment"># A: 0</span>
-<span class="comment"># B: 1</span>
-<span class="comment"># C: an exception is raised</span>
-<span class="comment"># D: None</span>
+<span class="comment single"># A: 0</span>
+<span class="comment single"># B: 1</span>
+<span class="comment single"># C: an exception is raised</span>
+<span class="comment single"># D: None</span>
 </pre>
 </div>
 <div class="slide" id="id46">
@@ -996,10 +1018,10 @@ ul.auto-toc {
 
 <span class="name">f</span><span class="punctuation">()</span>
 <span class="name">a</span>
-<span class="comment"># A: 0</span>
-<span class="comment"># B: 1</span>
+<span class="comment single"># A: 0</span>
+<span class="comment single"># B: 1</span>
 <span class="operator">&gt;</span> <span class="name">C</span><span class="punctuation">:</span> <span class="name">an</span> <span class="name">exception</span> <span class="operator word">is</span> <span class="name">raised</span>
-<span class="comment"># D: None</span>
+<span class="comment single"># D: None</span>
 </pre>
 </div>
 <div class="slide" id="id47">
@@ -1012,10 +1034,10 @@ ul.auto-toc {
 <span class="name">a</span><span class="operator">.</span><span class="name">attribute</span> <span class="operator">=</span> <span class="literal number integer">1</span>
 <span class="name">a</span><span class="operator">.</span><span class="name">attribute</span>
 
-<span class="comment"># A: 1</span>
-<span class="comment"># B: None</span>
-<span class="comment"># C: an exception is raised</span>
-<span class="comment"># D: 0</span>
+<span class="comment single"># A: 1</span>
+<span class="comment single"># B: None</span>
+<span class="comment single"># C: an exception is raised</span>
+<span class="comment single"># D: 0</span>
 </pre>
 </div>
 <div class="slide" id="id48">
@@ -1029,41 +1051,41 @@ ul.auto-toc {
 <span class="name">a</span><span class="operator">.</span><span class="name">attribute</span>
 
 <span class="operator">&gt;</span> <span class="name">A</span><span class="punctuation">:</span> <span class="literal number integer">1</span>
-<span class="comment"># B: None</span>
-<span class="comment"># C: an exception is raised</span>
-<span class="comment"># D: 0</span>
+<span class="comment single"># B: None</span>
+<span class="comment single"># C: an exception is raised</span>
+<span class="comment single"># D: 0</span>
 </pre>
 </div>
 <div class="slide" id="id49">
 <h1>9</h1>
 <pre class="code python literal-block">
 <span class="keyword">class</span> <span class="name class">A</span><span class="punctuation">(</span><span class="name builtin">object</span><span class="punctuation">):</span>
-    <span class="name">__slots__</span> <span class="operator">=</span> <span class="punctuation">[]</span>
+    <span class="name variable magic">__slots__</span> <span class="operator">=</span> <span class="punctuation">[]</span>
 
 <span class="name">a</span> <span class="operator">=</span> <span class="name">A</span><span class="punctuation">()</span>
 <span class="name">a</span><span class="operator">.</span><span class="name">attribute</span> <span class="operator">=</span> <span class="literal number integer">1</span>
 <span class="name">a</span><span class="operator">.</span><span class="name">attribute</span>
 
-<span class="comment"># A: 1</span>
-<span class="comment"># B: None</span>
-<span class="comment"># C: an exception is raised</span>
-<span class="comment"># D: 0</span>
+<span class="comment single"># A: 1</span>
+<span class="comment single"># B: None</span>
+<span class="comment single"># C: an exception is raised</span>
+<span class="comment single"># D: 0</span>
 </pre>
 </div>
 <div class="slide" id="id50">
 <h1>9</h1>
 <pre class="code python literal-block">
 <span class="keyword">class</span> <span class="name class">A</span><span class="punctuation">(</span><span class="name builtin">object</span><span class="punctuation">):</span>
-    <span class="name">__slots__</span> <span class="operator">=</span> <span class="punctuation">[]</span>
+    <span class="name variable magic">__slots__</span> <span class="operator">=</span> <span class="punctuation">[]</span>
 
 <span class="name">a</span> <span class="operator">=</span> <span class="name">A</span><span class="punctuation">()</span>
 <span class="name">a</span><span class="operator">.</span><span class="name">attribute</span> <span class="operator">=</span> <span class="literal number integer">1</span>
 <span class="name">a</span><span class="operator">.</span><span class="name">attribute</span>
 
-<span class="comment"># A: 1</span>
-<span class="comment"># B: None</span>
+<span class="comment single"># A: 1</span>
+<span class="comment single"># B: None</span>
 <span class="operator">&gt;</span> <span class="name">C</span><span class="punctuation">:</span> <span class="name">an</span> <span class="name">exception</span> <span class="operator word">is</span> <span class="name">raised</span>
-<span class="comment"># D: 0</span>
+<span class="comment single"># D: 0</span>
 </pre>
 </div>
 <div class="slide" id="id51">
@@ -1071,10 +1093,10 @@ ul.auto-toc {
 <pre class="code python literal-block">
 <span class="name builtin">all</span><span class="punctuation">([</span><span class="literal number integer">0</span><span class="punctuation">,</span> <span class="literal number integer">1</span><span class="punctuation">,</span> <span class="literal number integer">2</span><span class="punctuation">])</span>
 
-<span class="comment"># A: [0, 1, 2]</span>
-<span class="comment"># B: False</span>
-<span class="comment"># C: True</span>
-<span class="comment"># D: []</span>
+<span class="comment single"># A: [0, 1, 2]</span>
+<span class="comment single"># B: False</span>
+<span class="comment single"># C: True</span>
+<span class="comment single"># D: []</span>
 </pre>
 </div>
 <div class="slide" id="id52">
@@ -1082,10 +1104,10 @@ ul.auto-toc {
 <pre class="code python literal-block">
 <span class="name builtin">all</span><span class="punctuation">([</span><span class="literal number integer">0</span><span class="punctuation">,</span> <span class="literal number integer">1</span><span class="punctuation">,</span> <span class="literal number integer">2</span><span class="punctuation">])</span>
 
-<span class="comment"># A: [0, 1, 2]</span>
+<span class="comment single"># A: [0, 1, 2]</span>
 <span class="operator">&gt;</span> <span class="name">B</span><span class="punctuation">:</span> <span class="name builtin pseudo">False</span>
-<span class="comment"># C: True</span>
-<span class="comment"># D: []</span>
+<span class="comment single"># C: True</span>
+<span class="comment single"># D: []</span>
 </pre>
 </div>
 <div class="slide" id="id53">
@@ -1093,10 +1115,10 @@ ul.auto-toc {
 <pre class="code python literal-block">
 <span class="name builtin">any</span><span class="punctuation">([])</span>
 
-<span class="comment"># A: []</span>
-<span class="comment"># B: False</span>
-<span class="comment"># C: True</span>
-<span class="comment"># D: an exception is raised</span>
+<span class="comment single"># A: []</span>
+<span class="comment single"># B: False</span>
+<span class="comment single"># C: True</span>
+<span class="comment single"># D: an exception is raised</span>
 </pre>
 </div>
 <div class="slide" id="id54">
@@ -1104,10 +1126,10 @@ ul.auto-toc {
 <pre class="code python literal-block">
 <span class="name builtin">any</span><span class="punctuation">([])</span>
 
-<span class="comment"># A: []</span>
+<span class="comment single"># A: []</span>
 <span class="operator">&gt;</span> <span class="name">B</span><span class="punctuation">:</span> <span class="name builtin pseudo">False</span>
-<span class="comment"># C: True</span>
-<span class="comment"># D: an exception is raised</span>
+<span class="comment single"># C: True</span>
+<span class="comment single"># D: an exception is raised</span>
 </pre>
 </div>
 <div class="slide" id="id55">
@@ -1115,10 +1137,10 @@ ul.auto-toc {
 <pre class="code python literal-block">
 <span class="literal number integer">1</span> <span class="operator word">or</span> <span class="literal number integer">2</span> <span class="operator word">and</span> <span class="literal number integer">3</span>
 
-<span class="comment"># A: 1</span>
-<span class="comment"># B: 3</span>
-<span class="comment"># C: True</span>
-<span class="comment"># D: False</span>
+<span class="comment single"># A: 1</span>
+<span class="comment single"># B: 3</span>
+<span class="comment single"># C: True</span>
+<span class="comment single"># D: False</span>
 </pre>
 </div>
 <div class="slide" id="id56">
@@ -1127,31 +1149,31 @@ ul.auto-toc {
 <span class="literal number integer">1</span> <span class="operator word">or</span> <span class="literal number integer">2</span> <span class="operator word">and</span> <span class="literal number integer">3</span>
 
 <span class="operator">&gt;</span> <span class="name">A</span><span class="punctuation">:</span> <span class="literal number integer">1</span>
-<span class="comment"># B: 3</span>
-<span class="comment"># C: True</span>
-<span class="comment"># D: False</span>
+<span class="comment single"># B: 3</span>
+<span class="comment single"># C: True</span>
+<span class="comment single"># D: False</span>
 </pre>
 </div>
 <div class="slide" id="id57">
 <h1>13</h1>
 <pre class="code python literal-block">
-<span class="literal string">r'\ntest'</span><span class="operator">.</span><span class="name">strip</span><span class="punctuation">()</span>
+<span class="literal string affix">r</span><span class="literal string single">'\ntest'</span><span class="operator">.</span><span class="name">strip</span><span class="punctuation">()</span>
 
-<span class="comment"># A: 'test'</span>
-<span class="comment"># B: '\ntest'</span>
-<span class="comment"># C: '\\ntest'</span>
-<span class="comment"># D: r'\\ntest'</span>
+<span class="comment single"># A: 'test'</span>
+<span class="comment single"># B: '\ntest'</span>
+<span class="comment single"># C: '\\ntest'</span>
+<span class="comment single"># D: r'\\ntest'</span>
 </pre>
 </div>
 <div class="slide" id="id58">
 <h1>13</h1>
 <pre class="code python literal-block">
-<span class="literal string">r'\ntest'</span><span class="operator">.</span><span class="name">strip</span><span class="punctuation">()</span>
+<span class="literal string affix">r</span><span class="literal string single">'\ntest'</span><span class="operator">.</span><span class="name">strip</span><span class="punctuation">()</span>
 
-<span class="comment"># A: 'test'</span>
-<span class="comment"># B: '\ntest'</span>
-<span class="operator">&gt;</span> <span class="name">C</span><span class="punctuation">:</span> <span class="literal string">'</span><span class="literal string escape">\\</span><span class="literal string">ntest'</span>
-<span class="comment"># D: r'\\ntest'</span>
+<span class="comment single"># A: 'test'</span>
+<span class="comment single"># B: '\ntest'</span>
+<span class="operator">&gt;</span> <span class="name">C</span><span class="punctuation">:</span> <span class="literal string single">'</span><span class="literal string escape">\\</span><span class="literal string single">ntest'</span>
+<span class="comment single"># D: r'\\ntest'</span>
 </pre>
 </div>
 <div class="slide" id="id59">
@@ -1159,10 +1181,10 @@ ul.auto-toc {
 <pre class="code python literal-block">
 <span class="punctuation">[</span><span class="name">i</span> <span class="keyword">for</span> <span class="name">i</span> <span class="operator word">in</span> <span class="name">a</span> <span class="keyword">for</span> <span class="name">a</span> <span class="operator word">in</span> <span class="punctuation">[[</span><span class="literal number integer">1</span><span class="punctuation">],</span> <span class="punctuation">[</span><span class="literal number integer">2</span><span class="punctuation">]]]</span>
 
-<span class="comment"># A: [1, 2]</span>
-<span class="comment"># B: [2, 1]</span>
-<span class="comment"># C: an exception is raised</span>
-<span class="comment"># D: []</span>
+<span class="comment single"># A: [1, 2]</span>
+<span class="comment single"># B: [2, 1]</span>
+<span class="comment single"># C: an exception is raised</span>
+<span class="comment single"># D: []</span>
 </pre>
 </div>
 <div class="slide" id="id60">
@@ -1170,10 +1192,10 @@ ul.auto-toc {
 <pre class="code python literal-block">
 <span class="punctuation">[</span><span class="name">i</span> <span class="keyword">for</span> <span class="name">i</span> <span class="operator word">in</span> <span class="name">a</span> <span class="keyword">for</span> <span class="name">a</span> <span class="operator word">in</span> <span class="punctuation">[[</span><span class="literal number integer">1</span><span class="punctuation">],</span> <span class="punctuation">[</span><span class="literal number integer">2</span><span class="punctuation">]]]</span>
 
-<span class="comment"># A: [1, 2]</span>
-<span class="comment"># B: [2, 1]</span>
+<span class="comment single"># A: [1, 2]</span>
+<span class="comment single"># B: [2, 1]</span>
 <span class="operator">&gt;</span> <span class="name">C</span><span class="punctuation">:</span> <span class="name">an</span> <span class="name">exception</span> <span class="operator word">is</span> <span class="name">raised</span>
-<span class="comment"># D: []</span>
+<span class="comment single"># D: []</span>
 </pre>
 </div>
 <div class="slide" id="id61">
@@ -1182,10 +1204,10 @@ ul.auto-toc {
 <span class="name">a</span> <span class="operator">=</span> <span class="punctuation">{</span><span class="literal number integer">1</span><span class="punctuation">:</span> <span class="literal number integer">2</span><span class="punctuation">}</span>
 <span class="name">a</span><span class="operator">.</span><span class="name">get</span><span class="punctuation">(</span><span class="literal number float">1.0</span><span class="punctuation">,</span> <span class="literal number integer">3</span><span class="punctuation">)</span>
 
-<span class="comment"># A: 2</span>
-<span class="comment"># B: 3</span>
-<span class="comment"># C: an exception is raised</span>
-<span class="comment"># D: None</span>
+<span class="comment single"># A: 2</span>
+<span class="comment single"># B: 3</span>
+<span class="comment single"># C: an exception is raised</span>
+<span class="comment single"># D: None</span>
 </pre>
 </div>
 <div class="slide" id="id62">
@@ -1195,9 +1217,9 @@ ul.auto-toc {
 <span class="name">a</span><span class="operator">.</span><span class="name">get</span><span class="punctuation">(</span><span class="literal number float">1.0</span><span class="punctuation">,</span> <span class="literal number integer">3</span><span class="punctuation">)</span>
 
 <span class="operator">&gt;</span> <span class="name">A</span><span class="punctuation">:</span> <span class="literal number integer">2</span>
-<span class="comment"># B: 3</span>
-<span class="comment"># C: an exception is raised</span>
-<span class="comment"># D: None</span>
+<span class="comment single"># B: 3</span>
+<span class="comment single"># C: an exception is raised</span>
+<span class="comment single"># D: None</span>
 </pre>
 </div>
 <div class="slide" id="id63">
@@ -1207,10 +1229,10 @@ ul.auto-toc {
 
 <span class="punctuation">[</span><span class="name">a</span> <span class="keyword">for</span> <span class="name">a</span> <span class="operator word">in</span> <span class="name">itertools</span><span class="operator">.</span><span class="name">chain</span><span class="punctuation">([</span><span class="literal number integer">1</span><span class="punctuation">,</span> <span class="literal number integer">2</span><span class="punctuation">],</span> <span class="punctuation">(</span><span class="literal number integer">3</span><span class="punctuation">,))]</span>
 
-<span class="comment"># A: [1, 2, 3]</span>
-<span class="comment"># B: [[1, 2], [3]]</span>
-<span class="comment"># C: [[1, 2], (3)]</span>
-<span class="comment"># D: an exception is raised</span>
+<span class="comment single"># A: [1, 2, 3]</span>
+<span class="comment single"># B: [[1, 2], [3]]</span>
+<span class="comment single"># C: [[1, 2], (3)]</span>
+<span class="comment single"># D: an exception is raised</span>
 </pre>
 </div>
 <div class="slide" id="id64">
@@ -1221,120 +1243,120 @@ ul.auto-toc {
 <span class="punctuation">[</span><span class="name">a</span> <span class="keyword">for</span> <span class="name">a</span> <span class="operator word">in</span> <span class="name">itertools</span><span class="operator">.</span><span class="name">chain</span><span class="punctuation">([</span><span class="literal number integer">1</span><span class="punctuation">,</span> <span class="literal number integer">2</span><span class="punctuation">],</span> <span class="punctuation">(</span><span class="literal number integer">3</span><span class="punctuation">,))]</span>
 
 <span class="operator">&gt;</span> <span class="name">A</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="literal number integer">1</span><span class="punctuation">,</span> <span class="literal number integer">2</span><span class="punctuation">,</span> <span class="literal number integer">3</span><span class="punctuation">]</span>
-<span class="comment"># B: [[1, 2], [3]]</span>
-<span class="comment"># C: [[1, 2], (3)]</span>
-<span class="comment"># D: an exception is raised</span>
+<span class="comment single"># B: [[1, 2], [3]]</span>
+<span class="comment single"># C: [[1, 2], (3)]</span>
+<span class="comment single"># D: an exception is raised</span>
 </pre>
 </div>
 <div class="slide" id="id65">
 <h1>17</h1>
 <pre class="code python literal-block">
-<span class="name builtin">getattr</span><span class="punctuation">(</span><span class="literal string">'1'</span><span class="punctuation">,</span> <span class="literal string">'isdigit'</span><span class="punctuation">)</span>
+<span class="name builtin">getattr</span><span class="punctuation">(</span><span class="literal string single">'1'</span><span class="punctuation">,</span> <span class="literal string single">'isdigit'</span><span class="punctuation">)</span>
 
-<span class="comment"># A: True</span>
-<span class="comment"># B: False</span>
-<span class="comment"># C: &lt;function&gt;</span>
-<span class="comment"># D: an exception is raised</span>
+<span class="comment single"># A: True</span>
+<span class="comment single"># B: False</span>
+<span class="comment single"># C: &lt;function&gt;</span>
+<span class="comment single"># D: an exception is raised</span>
 </pre>
 </div>
 <div class="slide" id="id66">
 <h1>17</h1>
 <pre class="code python literal-block">
-<span class="name builtin">getattr</span><span class="punctuation">(</span><span class="literal string">'1'</span><span class="punctuation">,</span> <span class="literal string">'isdigit'</span><span class="punctuation">)</span>
+<span class="name builtin">getattr</span><span class="punctuation">(</span><span class="literal string single">'1'</span><span class="punctuation">,</span> <span class="literal string single">'isdigit'</span><span class="punctuation">)</span>
 
-<span class="comment"># A: True</span>
-<span class="comment"># B: False</span>
+<span class="comment single"># A: True</span>
+<span class="comment single"># B: False</span>
 <span class="operator">&gt;</span> <span class="name">C</span><span class="punctuation">:</span> <span class="operator">&lt;</span><span class="name">function</span><span class="operator">&gt;</span>
-<span class="comment"># D: an exception is raised</span>
+<span class="comment single"># D: an exception is raised</span>
 </pre>
 </div>
 <div class="slide" id="id67">
 <h1>18</h1>
 <pre class="code python literal-block">
 <span class="name builtin">isinstance</span><span class="punctuation">(</span><span class="literal number integer">1</span><span class="punctuation">,</span> <span class="punctuation">(</span><span class="name builtin">float</span><span class="punctuation">,</span> <span class="name builtin">str</span><span class="punctuation">))</span>
-<span class="comment"># A: True</span>
-<span class="comment"># B: False</span>
-<span class="comment"># C: 1</span>
-<span class="comment"># D: an exception is raised</span>
+<span class="comment single"># A: True</span>
+<span class="comment single"># B: False</span>
+<span class="comment single"># C: 1</span>
+<span class="comment single"># D: an exception is raised</span>
 </pre>
 </div>
 <div class="slide" id="id68">
 <h1>18</h1>
 <pre class="code python literal-block">
 <span class="name builtin">isinstance</span><span class="punctuation">(</span><span class="literal number integer">1</span><span class="punctuation">,</span> <span class="punctuation">(</span><span class="name builtin">float</span><span class="punctuation">,</span> <span class="name builtin">str</span><span class="punctuation">))</span>
-<span class="comment"># A: True</span>
+<span class="comment single"># A: True</span>
 <span class="operator">&gt;</span> <span class="name">B</span><span class="punctuation">:</span> <span class="name builtin pseudo">False</span>
-<span class="comment"># C: 1</span>
-<span class="comment"># D: an exception is raised</span>
+<span class="comment single"># C: 1</span>
+<span class="comment single"># D: an exception is raised</span>
 </pre>
 </div>
 <div class="slide" id="id69">
 <h1>19</h1>
 <pre class="code python literal-block">
-<span class="literal string">'test'</span><span class="operator">.</span><span class="name">startswith</span><span class="punctuation">((</span><span class="literal string">'T'</span><span class="punctuation">,</span> <span class="literal string">'t'</span><span class="punctuation">))</span>
+<span class="literal string single">'test'</span><span class="operator">.</span><span class="name">startswith</span><span class="punctuation">((</span><span class="literal string single">'T'</span><span class="punctuation">,</span> <span class="literal string single">'t'</span><span class="punctuation">))</span>
 
-<span class="comment"># A: True</span>
-<span class="comment"># B: False</span>
-<span class="comment"># C: 'test'</span>
-<span class="comment"># D: an exception is raised</span>
+<span class="comment single"># A: True</span>
+<span class="comment single"># B: False</span>
+<span class="comment single"># C: 'test'</span>
+<span class="comment single"># D: an exception is raised</span>
 </pre>
 </div>
 <div class="slide" id="id70">
 <h1>19</h1>
 <pre class="code python literal-block">
-<span class="literal string">'test'</span><span class="operator">.</span><span class="name">startswith</span><span class="punctuation">((</span><span class="literal string">'T'</span><span class="punctuation">,</span> <span class="literal string">'t'</span><span class="punctuation">))</span>
+<span class="literal string single">'test'</span><span class="operator">.</span><span class="name">startswith</span><span class="punctuation">((</span><span class="literal string single">'T'</span><span class="punctuation">,</span> <span class="literal string single">'t'</span><span class="punctuation">))</span>
 
 <span class="operator">&gt;</span> <span class="name">A</span><span class="punctuation">:</span> <span class="name builtin pseudo">True</span>
-<span class="comment"># B: False</span>
-<span class="comment"># C: 'test'</span>
-<span class="comment"># D: an exception is raised</span>
+<span class="comment single"># B: False</span>
+<span class="comment single"># C: 'test'</span>
+<span class="comment single"># D: an exception is raised</span>
 </pre>
 </div>
 <div class="slide" id="id71">
 <h1>20</h1>
 <pre class="code python literal-block">
 <span class="name">temp</span> <span class="operator">=</span> <span class="literal number integer">0</span>
-<span class="name">a</span> <span class="operator">=</span> <span class="literal string">'hot'</span> <span class="keyword">if</span> <span class="name">temp</span> <span class="operator">&gt;</span> <span class="literal number integer">25</span> <span class="keyword">else</span> <span class="literal string">'cold'</span>
+<span class="name">a</span> <span class="operator">=</span> <span class="literal string single">'hot'</span> <span class="keyword">if</span> <span class="name">temp</span> <span class="operator">&gt;</span> <span class="literal number integer">25</span> <span class="keyword">else</span> <span class="literal string single">'cold'</span>
 <span class="name">a</span>
 
-<span class="comment"># A: True</span>
-<span class="comment"># B: False</span>
-<span class="comment"># C: 0</span>
-<span class="comment"># D: 'cold'</span>
+<span class="comment single"># A: True</span>
+<span class="comment single"># B: False</span>
+<span class="comment single"># C: 0</span>
+<span class="comment single"># D: 'cold'</span>
 </pre>
 </div>
 <div class="slide" id="id72">
 <h1>20</h1>
 <pre class="code python literal-block">
 <span class="name">temp</span> <span class="operator">=</span> <span class="literal number integer">0</span>
-<span class="name">a</span> <span class="operator">=</span> <span class="literal string">'hot'</span> <span class="keyword">if</span> <span class="name">temp</span> <span class="operator">&gt;</span> <span class="literal number integer">25</span> <span class="keyword">else</span> <span class="literal string">'cold'</span>
+<span class="name">a</span> <span class="operator">=</span> <span class="literal string single">'hot'</span> <span class="keyword">if</span> <span class="name">temp</span> <span class="operator">&gt;</span> <span class="literal number integer">25</span> <span class="keyword">else</span> <span class="literal string single">'cold'</span>
 <span class="name">a</span>
 
-<span class="comment"># A: True</span>
-<span class="comment"># B: False</span>
-<span class="comment"># C: 0</span>
-<span class="operator">&gt;</span> <span class="name">D</span><span class="punctuation">:</span> <span class="literal string">'cold'</span>
+<span class="comment single"># A: True</span>
+<span class="comment single"># B: False</span>
+<span class="comment single"># C: 0</span>
+<span class="operator">&gt;</span> <span class="name">D</span><span class="punctuation">:</span> <span class="literal string single">'cold'</span>
 </pre>
 </div>
 <div class="slide" id="id73">
 <h1>21</h1>
 <pre class="code python literal-block">
-<span class="name builtin">next</span><span class="punctuation">(</span><span class="name builtin">enumerate</span><span class="punctuation">([</span><span class="literal string">'A'</span><span class="punctuation">,</span> <span class="literal string">'B'</span><span class="punctuation">],</span> <span class="name">start</span><span class="operator">=</span><span class="literal number integer">1</span><span class="punctuation">))[</span><span class="literal number integer">0</span><span class="punctuation">]</span>
+<span class="name builtin">next</span><span class="punctuation">(</span><span class="name builtin">enumerate</span><span class="punctuation">([</span><span class="literal string single">'A'</span><span class="punctuation">,</span> <span class="literal string single">'B'</span><span class="punctuation">],</span> <span class="name">start</span><span class="operator">=</span><span class="literal number integer">1</span><span class="punctuation">))[</span><span class="literal number integer">0</span><span class="punctuation">]</span>
 
-<span class="comment"># A: 'A'</span>
-<span class="comment"># B: 'B'</span>
-<span class="comment"># C: 0</span>
-<span class="comment"># D: 1</span>
+<span class="comment single"># A: 'A'</span>
+<span class="comment single"># B: 'B'</span>
+<span class="comment single"># C: 0</span>
+<span class="comment single"># D: 1</span>
 </pre>
 </div>
 <div class="slide" id="id74">
 <h1>21</h1>
 <pre class="code python literal-block">
-<span class="name builtin">next</span><span class="punctuation">(</span><span class="name builtin">enumerate</span><span class="punctuation">([</span><span class="literal string">'A'</span><span class="punctuation">,</span> <span class="literal string">'B'</span><span class="punctuation">],</span> <span class="name">start</span><span class="operator">=</span><span class="literal number integer">1</span><span class="punctuation">))[</span><span class="literal number integer">0</span><span class="punctuation">]</span>
+<span class="name builtin">next</span><span class="punctuation">(</span><span class="name builtin">enumerate</span><span class="punctuation">([</span><span class="literal string single">'A'</span><span class="punctuation">,</span> <span class="literal string single">'B'</span><span class="punctuation">],</span> <span class="name">start</span><span class="operator">=</span><span class="literal number integer">1</span><span class="punctuation">))[</span><span class="literal number integer">0</span><span class="punctuation">]</span>
 
-<span class="comment"># A: 'A'</span>
-<span class="comment"># B: 'B'</span>
-<span class="comment"># C: 0</span>
+<span class="comment single"># A: 'A'</span>
+<span class="comment single"># B: 'B'</span>
+<span class="comment single"># C: 0</span>
 <span class="operator">&gt;</span> <span class="name">D</span><span class="punctuation">:</span> <span class="literal number integer">1</span>
 </pre>
 </div>
@@ -1343,10 +1365,10 @@ ul.auto-toc {
 <pre class="code python literal-block">
 <span class="name builtin">next</span><span class="punctuation">(</span><span class="name builtin">iter</span><span class="punctuation">([</span><span class="literal number integer">2</span><span class="punctuation">,</span> <span class="literal number integer">3</span><span class="punctuation">],</span> <span class="literal number integer">2</span><span class="punctuation">))</span>
 
-<span class="comment"># A: 2</span>
-<span class="comment"># B: 3</span>
-<span class="comment"># C: an exception is raised</span>
-<span class="comment"># D: None</span>
+<span class="comment single"># A: 2</span>
+<span class="comment single"># B: 3</span>
+<span class="comment single"># C: an exception is raised</span>
+<span class="comment single"># D: None</span>
 </pre>
 </div>
 <div class="slide" id="id76">
@@ -1354,44 +1376,44 @@ ul.auto-toc {
 <pre class="code python literal-block">
 <span class="name builtin">next</span><span class="punctuation">(</span><span class="name builtin">iter</span><span class="punctuation">([</span><span class="literal number integer">2</span><span class="punctuation">,</span> <span class="literal number integer">3</span><span class="punctuation">],</span> <span class="literal number integer">2</span><span class="punctuation">))</span>
 
-<span class="comment"># A: 2</span>
-<span class="comment"># B: 3</span>
+<span class="comment single"># A: 2</span>
+<span class="comment single"># B: 3</span>
 <span class="operator">&gt;</span> <span class="name">C</span><span class="punctuation">:</span> <span class="name">an</span> <span class="name">exception</span> <span class="operator word">is</span> <span class="name">raised</span>
-<span class="comment"># D: None</span>
+<span class="comment single"># D: None</span>
 </pre>
 </div>
 <div class="slide" id="id77">
 <h1>23</h1>
 <pre class="code python literal-block">
 <span class="keyword">class</span> <span class="name class">A</span><span class="punctuation">(</span><span class="name builtin">object</span><span class="punctuation">):</span>
-    <span class="keyword">def</span> <span class="name function">__init__</span><span class="punctuation">(</span><span class="name builtin pseudo">self</span><span class="punctuation">,</span> <span class="name">value</span><span class="punctuation">):</span>
+    <span class="keyword">def</span> <span class="name function magic">__init__</span><span class="punctuation">(</span><span class="name builtin pseudo">self</span><span class="punctuation">,</span> <span class="name">value</span><span class="punctuation">):</span>
         <span class="name builtin pseudo">self</span><span class="operator">.</span><span class="name">value</span> <span class="operator">=</span> <span class="name">value</span>
     <span class="keyword">def</span> <span class="name function">__format__</span><span class="punctuation">(</span><span class="name builtin pseudo">self</span><span class="punctuation">,</span> <span class="name">fmt</span><span class="punctuation">):</span>
         <span class="keyword">return</span> <span class="name">fmt</span>
 
-<span class="literal string">'{0:short}'</span><span class="operator">.</span><span class="name">format</span><span class="punctuation">(</span><span class="name">A</span><span class="punctuation">(</span><span class="literal number integer">1</span><span class="punctuation">))</span>
+<span class="literal string single">'{0:short}'</span><span class="operator">.</span><span class="name">format</span><span class="punctuation">(</span><span class="name">A</span><span class="punctuation">(</span><span class="literal number integer">1</span><span class="punctuation">))</span>
 
-<span class="comment"># A: 'short'</span>
-<span class="comment"># B: '1'</span>
-<span class="comment"># C: an exception is raised</span>
-<span class="comment"># D: '&lt;object&gt;'</span>
+<span class="comment single"># A: 'short'</span>
+<span class="comment single"># B: '1'</span>
+<span class="comment single"># C: an exception is raised</span>
+<span class="comment single"># D: '&lt;object&gt;'</span>
 </pre>
 </div>
 <div class="slide" id="id78">
 <h1>23</h1>
 <pre class="code python literal-block">
 <span class="keyword">class</span> <span class="name class">A</span><span class="punctuation">(</span><span class="name builtin">object</span><span class="punctuation">):</span>
-    <span class="keyword">def</span> <span class="name function">__init__</span><span class="punctuation">(</span><span class="name builtin pseudo">self</span><span class="punctuation">,</span> <span class="name">value</span><span class="punctuation">):</span>
+    <span class="keyword">def</span> <span class="name function magic">__init__</span><span class="punctuation">(</span><span class="name builtin pseudo">self</span><span class="punctuation">,</span> <span class="name">value</span><span class="punctuation">):</span>
         <span class="name builtin pseudo">self</span><span class="operator">.</span><span class="name">value</span> <span class="operator">=</span> <span class="name">value</span>
     <span class="keyword">def</span> <span class="name function">__format__</span><span class="punctuation">(</span><span class="name builtin pseudo">self</span><span class="punctuation">,</span> <span class="name">fmt</span><span class="punctuation">):</span>
         <span class="keyword">return</span> <span class="name">fmt</span>
 
-<span class="literal string">'{0:short}'</span><span class="operator">.</span><span class="name">format</span><span class="punctuation">(</span><span class="name">A</span><span class="punctuation">(</span><span class="literal number integer">1</span><span class="punctuation">))</span>
+<span class="literal string single">'{0:short}'</span><span class="operator">.</span><span class="name">format</span><span class="punctuation">(</span><span class="name">A</span><span class="punctuation">(</span><span class="literal number integer">1</span><span class="punctuation">))</span>
 
-<span class="operator">&gt;</span> <span class="name">A</span><span class="punctuation">:</span> <span class="literal string">'short'</span>
-<span class="comment"># B: '1'</span>
-<span class="comment"># C: an exception is raised</span>
-<span class="comment"># D: '&lt;object&gt;'</span>
+<span class="operator">&gt;</span> <span class="name">A</span><span class="punctuation">:</span> <span class="literal string single">'short'</span>
+<span class="comment single"># B: '1'</span>
+<span class="comment single"># C: an exception is raised</span>
+<span class="comment single"># D: '&lt;object&gt;'</span>
 </pre>
 </div>
 <div class="slide" id="id79">
@@ -1400,10 +1422,10 @@ ul.auto-toc {
 <span class="name">a</span> <span class="operator">=</span> <span class="punctuation">(</span><span class="name">i</span> <span class="keyword">for</span> <span class="name">i</span> <span class="operator word">in</span> <span class="name builtin">range</span><span class="punctuation">(</span><span class="literal number integer">10</span><span class="punctuation">))</span>
 <span class="name">a</span><span class="punctuation">[</span><span class="literal number integer">0</span><span class="punctuation">]</span>
 
-<span class="comment"># A: 0</span>
-<span class="comment"># B: 1</span>
-<span class="comment"># C: an exception is raised</span>
-<span class="comment"># D: None</span>
+<span class="comment single"># A: 0</span>
+<span class="comment single"># B: 1</span>
+<span class="comment single"># C: an exception is raised</span>
+<span class="comment single"># D: None</span>
 </pre>
 </div>
 <div class="slide" id="id80">
@@ -1412,10 +1434,10 @@ ul.auto-toc {
 <span class="name">a</span> <span class="operator">=</span> <span class="punctuation">(</span><span class="name">i</span> <span class="keyword">for</span> <span class="name">i</span> <span class="operator word">in</span> <span class="name builtin">range</span><span class="punctuation">(</span><span class="literal number integer">10</span><span class="punctuation">))</span>
 <span class="name">a</span><span class="punctuation">[</span><span class="literal number integer">0</span><span class="punctuation">]</span>
 
-<span class="comment"># A: 0</span>
-<span class="comment"># B: 1</span>
+<span class="comment single"># A: 0</span>
+<span class="comment single"># B: 1</span>
 <span class="operator">&gt;</span> <span class="name">C</span><span class="punctuation">:</span> <span class="name">an</span> <span class="name">exception</span> <span class="operator word">is</span> <span class="name">raised</span>
-<span class="comment"># D: None</span>
+<span class="comment single"># D: None</span>
 </pre>
 </div>
 <div class="slide" id="id81">
@@ -1423,10 +1445,10 @@ ul.auto-toc {
 <pre class="code python literal-block">
 <span class="name builtin pseudo">False</span> <span class="operator">==</span> <span class="name builtin pseudo">False</span> <span class="operator word">in</span> <span class="punctuation">[</span><span class="name builtin pseudo">False</span><span class="punctuation">]</span>
 
-<span class="comment"># A: True</span>
-<span class="comment"># B: False</span>
-<span class="comment"># C: an exception is raised</span>
-<span class="comment"># D: None</span>
+<span class="comment single"># A: True</span>
+<span class="comment single"># B: False</span>
+<span class="comment single"># C: an exception is raised</span>
+<span class="comment single"># D: None</span>
 </pre>
 </div>
 <div class="slide" id="id82">
@@ -1435,110 +1457,110 @@ ul.auto-toc {
 <span class="name builtin pseudo">False</span> <span class="operator">==</span> <span class="name builtin pseudo">False</span> <span class="operator word">in</span> <span class="punctuation">[</span><span class="name builtin pseudo">False</span><span class="punctuation">]</span>
 
 <span class="operator">&gt;</span> <span class="name">A</span><span class="punctuation">:</span> <span class="name builtin pseudo">True</span>
-<span class="comment"># B: False</span>
-<span class="comment"># C: an exception is raised</span>
-<span class="comment"># D: None</span>
+<span class="comment single"># B: False</span>
+<span class="comment single"># C: an exception is raised</span>
+<span class="comment single"># D: None</span>
 </pre>
 </div>
 <div class="slide" id="id83">
 <h1>26</h1>
 <pre class="code python literal-block">
 <span class="keyword">class</span> <span class="name class">Obj</span><span class="punctuation">(</span><span class="name builtin">object</span><span class="punctuation">):</span>
-    <span class="keyword">def</span> <span class="name function">__init__</span><span class="punctuation">(</span><span class="name builtin pseudo">self</span><span class="punctuation">):</span>
+    <span class="keyword">def</span> <span class="name function magic">__init__</span><span class="punctuation">(</span><span class="name builtin pseudo">self</span><span class="punctuation">):</span>
         <span class="name builtin pseudo">self</span><span class="operator">.</span><span class="name">attr</span> <span class="operator">=</span> <span class="name builtin pseudo">None</span>
-    <span class="keyword">def</span> <span class="name function">__getattr__</span><span class="punctuation">(</span><span class="name builtin pseudo">self</span><span class="punctuation">,</span> <span class="name">name</span><span class="punctuation">):</span>
+    <span class="keyword">def</span> <span class="name function magic">__getattr__</span><span class="punctuation">(</span><span class="name builtin pseudo">self</span><span class="punctuation">,</span> <span class="name">name</span><span class="punctuation">):</span>
         <span class="keyword">return</span> <span class="literal number integer">0</span>
 
 <span class="name">o</span> <span class="operator">=</span> <span class="name">Obj</span><span class="punctuation">()</span>
 <span class="punctuation">(</span><span class="name">o</span><span class="operator">.</span><span class="name">titi</span><span class="punctuation">,</span> <span class="name">o</span><span class="operator">.</span><span class="name">attr</span><span class="punctuation">)</span>
-<span class="comment"># A: (None, 0)</span>
-<span class="comment"># B: (0, None)</span>
-<span class="comment"># C: (0, 0)</span>
-<span class="comment"># D: an exception is raised</span>
+<span class="comment single"># A: (None, 0)</span>
+<span class="comment single"># B: (0, None)</span>
+<span class="comment single"># C: (0, 0)</span>
+<span class="comment single"># D: an exception is raised</span>
 </pre>
 </div>
 <div class="slide" id="id84">
 <h1>26</h1>
 <pre class="code python literal-block">
 <span class="keyword">class</span> <span class="name class">Obj</span><span class="punctuation">(</span><span class="name builtin">object</span><span class="punctuation">):</span>
-    <span class="keyword">def</span> <span class="name function">__init__</span><span class="punctuation">(</span><span class="name builtin pseudo">self</span><span class="punctuation">):</span>
+    <span class="keyword">def</span> <span class="name function magic">__init__</span><span class="punctuation">(</span><span class="name builtin pseudo">self</span><span class="punctuation">):</span>
         <span class="name builtin pseudo">self</span><span class="operator">.</span><span class="name">attr</span> <span class="operator">=</span> <span class="name builtin pseudo">None</span>
-    <span class="keyword">def</span> <span class="name function">__getattr__</span><span class="punctuation">(</span><span class="name builtin pseudo">self</span><span class="punctuation">,</span> <span class="name">name</span><span class="punctuation">):</span>
+    <span class="keyword">def</span> <span class="name function magic">__getattr__</span><span class="punctuation">(</span><span class="name builtin pseudo">self</span><span class="punctuation">,</span> <span class="name">name</span><span class="punctuation">):</span>
         <span class="keyword">return</span> <span class="literal number integer">0</span>
 
 <span class="name">o</span> <span class="operator">=</span> <span class="name">Obj</span><span class="punctuation">()</span>
 <span class="punctuation">(</span><span class="name">o</span><span class="operator">.</span><span class="name">titi</span><span class="punctuation">,</span> <span class="name">o</span><span class="operator">.</span><span class="name">attr</span><span class="punctuation">)</span>
-<span class="comment"># A: (None, 0)</span>
+<span class="comment single"># A: (None, 0)</span>
 <span class="operator">&gt;</span> <span class="name">B</span><span class="punctuation">:</span> <span class="punctuation">(</span><span class="literal number integer">0</span><span class="punctuation">,</span> <span class="name builtin pseudo">None</span><span class="punctuation">)</span>
-<span class="comment"># C: (0, 0)</span>
-<span class="comment"># D: an exception is raised</span>
+<span class="comment single"># C: (0, 0)</span>
+<span class="comment single"># D: an exception is raised</span>
 </pre>
 </div>
 <div class="slide" id="id85">
 <h1>27</h1>
 <pre class="code python literal-block">
 <span class="keyword">class</span> <span class="name class">Obj</span><span class="punctuation">(</span><span class="name builtin">object</span><span class="punctuation">):</span>
-    <span class="keyword">def</span> <span class="name function">__init__</span><span class="punctuation">(</span><span class="name builtin pseudo">self</span><span class="punctuation">):</span>
+    <span class="keyword">def</span> <span class="name function magic">__init__</span><span class="punctuation">(</span><span class="name builtin pseudo">self</span><span class="punctuation">):</span>
         <span class="name builtin pseudo">self</span><span class="operator">.</span><span class="name">attr</span> <span class="operator">=</span> <span class="name builtin pseudo">None</span>
-    <span class="keyword">def</span> <span class="name function">__getattribute__</span><span class="punctuation">(</span><span class="name builtin pseudo">self</span><span class="punctuation">,</span> <span class="name">name</span><span class="punctuation">):</span>
+    <span class="keyword">def</span> <span class="name function magic">__getattribute__</span><span class="punctuation">(</span><span class="name builtin pseudo">self</span><span class="punctuation">,</span> <span class="name">name</span><span class="punctuation">):</span>
         <span class="keyword">return</span> <span class="literal number integer">0</span>
 
 <span class="name">o</span> <span class="operator">=</span> <span class="name">Obj</span><span class="punctuation">()</span>
 <span class="punctuation">(</span><span class="name">o</span><span class="operator">.</span><span class="name">titi</span><span class="punctuation">,</span> <span class="name">o</span><span class="operator">.</span><span class="name">attr</span><span class="punctuation">)</span>
-<span class="comment"># A: (None, 0)</span>
-<span class="comment"># B: (0, None)</span>
-<span class="comment"># C: (0, 0)</span>
-<span class="comment"># D: an exception is raised</span>
+<span class="comment single"># A: (None, 0)</span>
+<span class="comment single"># B: (0, None)</span>
+<span class="comment single"># C: (0, 0)</span>
+<span class="comment single"># D: an exception is raised</span>
 </pre>
 </div>
 <div class="slide" id="id86">
 <h1>27</h1>
 <pre class="code python literal-block">
 <span class="keyword">class</span> <span class="name class">Obj</span><span class="punctuation">(</span><span class="name builtin">object</span><span class="punctuation">):</span>
-    <span class="keyword">def</span> <span class="name function">__init__</span><span class="punctuation">(</span><span class="name builtin pseudo">self</span><span class="punctuation">):</span>
+    <span class="keyword">def</span> <span class="name function magic">__init__</span><span class="punctuation">(</span><span class="name builtin pseudo">self</span><span class="punctuation">):</span>
         <span class="name builtin pseudo">self</span><span class="operator">.</span><span class="name">attr</span> <span class="operator">=</span> <span class="name builtin pseudo">None</span>
-    <span class="keyword">def</span> <span class="name function">__getattribute__</span><span class="punctuation">(</span><span class="name builtin pseudo">self</span><span class="punctuation">,</span> <span class="name">name</span><span class="punctuation">):</span>
+    <span class="keyword">def</span> <span class="name function magic">__getattribute__</span><span class="punctuation">(</span><span class="name builtin pseudo">self</span><span class="punctuation">,</span> <span class="name">name</span><span class="punctuation">):</span>
         <span class="keyword">return</span> <span class="literal number integer">0</span>
 
 <span class="name">o</span> <span class="operator">=</span> <span class="name">Obj</span><span class="punctuation">()</span>
 <span class="punctuation">(</span><span class="name">o</span><span class="operator">.</span><span class="name">titi</span><span class="punctuation">,</span> <span class="name">o</span><span class="operator">.</span><span class="name">attr</span><span class="punctuation">)</span>
-<span class="comment"># A: (None, 0)</span>
-<span class="comment"># B: (0, None)</span>
+<span class="comment single"># A: (None, 0)</span>
+<span class="comment single"># B: (0, None)</span>
 <span class="operator">&gt;</span> <span class="name">C</span><span class="punctuation">:</span> <span class="punctuation">(</span><span class="literal number integer">0</span><span class="punctuation">,</span> <span class="literal number integer">0</span><span class="punctuation">)</span>
-<span class="comment"># D: an exception is raised</span>
+<span class="comment single"># D: an exception is raised</span>
 </pre>
 </div>
 <div class="slide" id="id87">
 <h1>28</h1>
 <pre class="code python literal-block">
 <span class="keyword">class</span> <span class="name class">Obj</span><span class="punctuation">(</span><span class="name builtin">object</span><span class="punctuation">):</span>
-    <span class="keyword">def</span> <span class="name function">__init__</span><span class="punctuation">(</span><span class="name builtin pseudo">self</span><span class="punctuation">):</span>
+    <span class="keyword">def</span> <span class="name function magic">__init__</span><span class="punctuation">(</span><span class="name builtin pseudo">self</span><span class="punctuation">):</span>
         <span class="name builtin pseudo">self</span><span class="operator">.</span><span class="name">attr</span> <span class="operator">=</span> <span class="name builtin pseudo">None</span>
-    <span class="keyword">def</span> <span class="name function">__getattribute__</span><span class="punctuation">(</span><span class="name builtin pseudo">self</span><span class="punctuation">,</span> <span class="name">name</span><span class="punctuation">):</span>
-        <span class="keyword">return</span> <span class="name builtin">object</span><span class="operator">.</span><span class="name">__getattribute__</span><span class="punctuation">(</span><span class="name">name</span><span class="punctuation">)</span>
+    <span class="keyword">def</span> <span class="name function magic">__getattribute__</span><span class="punctuation">(</span><span class="name builtin pseudo">self</span><span class="punctuation">,</span> <span class="name">name</span><span class="punctuation">):</span>
+        <span class="keyword">return</span> <span class="name builtin">object</span><span class="operator">.</span><span class="name function magic">__getattribute__</span><span class="punctuation">(</span><span class="name">name</span><span class="punctuation">)</span>
 
 <span class="name">o</span> <span class="operator">=</span> <span class="name">Obj</span><span class="punctuation">()</span>
 <span class="punctuation">(</span><span class="name">o</span><span class="operator">.</span><span class="name">titi</span><span class="punctuation">,</span> <span class="name">o</span><span class="operator">.</span><span class="name">attr</span><span class="punctuation">)</span>
-<span class="comment"># A: (None, 0)</span>
-<span class="comment"># B: (0, None)</span>
-<span class="comment"># C: (0, 0)</span>
-<span class="comment"># D: an exception is raised</span>
+<span class="comment single"># A: (None, 0)</span>
+<span class="comment single"># B: (0, None)</span>
+<span class="comment single"># C: (0, 0)</span>
+<span class="comment single"># D: an exception is raised</span>
 </pre>
 </div>
 <div class="slide" id="id88">
 <h1>28</h1>
 <pre class="code python literal-block">
 <span class="keyword">class</span> <span class="name class">Obj</span><span class="punctuation">(</span><span class="name builtin">object</span><span class="punctuation">):</span>
-    <span class="keyword">def</span> <span class="name function">__init__</span><span class="punctuation">(</span><span class="name builtin pseudo">self</span><span class="punctuation">):</span>
+    <span class="keyword">def</span> <span class="name function magic">__init__</span><span class="punctuation">(</span><span class="name builtin pseudo">self</span><span class="punctuation">):</span>
         <span class="name builtin pseudo">self</span><span class="operator">.</span><span class="name">attr</span> <span class="operator">=</span> <span class="name builtin pseudo">None</span>
-    <span class="keyword">def</span> <span class="name function">__getattribute__</span><span class="punctuation">(</span><span class="name builtin pseudo">self</span><span class="punctuation">,</span> <span class="name">name</span><span class="punctuation">):</span>
-        <span class="keyword">return</span> <span class="name builtin">object</span><span class="operator">.</span><span class="name">__getattribute__</span><span class="punctuation">(</span><span class="name">name</span><span class="punctuation">)</span>
+    <span class="keyword">def</span> <span class="name function magic">__getattribute__</span><span class="punctuation">(</span><span class="name builtin pseudo">self</span><span class="punctuation">,</span> <span class="name">name</span><span class="punctuation">):</span>
+        <span class="keyword">return</span> <span class="name builtin">object</span><span class="operator">.</span><span class="name function magic">__getattribute__</span><span class="punctuation">(</span><span class="name">name</span><span class="punctuation">)</span>
 
 <span class="name">o</span> <span class="operator">=</span> <span class="name">Obj</span><span class="punctuation">()</span>
 <span class="punctuation">(</span><span class="name">o</span><span class="operator">.</span><span class="name">titi</span><span class="punctuation">,</span> <span class="name">o</span><span class="operator">.</span><span class="name">attr</span><span class="punctuation">)</span>
-<span class="comment"># A: (None, 0)</span>
-<span class="comment"># B: (0, None)</span>
-<span class="comment"># C: (0, 0)</span>
+<span class="comment single"># A: (None, 0)</span>
+<span class="comment single"># B: (0, None)</span>
+<span class="comment single"># C: (0, 0)</span>
 <span class="operator">&gt;</span> <span class="name">D</span><span class="punctuation">:</span> <span class="name">an</span> <span class="name">exception</span> <span class="operator word">is</span> <span class="name">raised</span>
 </pre>
 </div>
@@ -1548,10 +1570,10 @@ ul.auto-toc {
 <span class="name">s</span> <span class="operator">=</span> <span class="name builtin">set</span><span class="punctuation">([</span><span class="literal number integer">1</span><span class="punctuation">,</span> <span class="name builtin pseudo">None</span><span class="punctuation">,</span> <span class="punctuation">[],</span> <span class="punctuation">()])</span>
 <span class="literal number integer">1</span> <span class="operator word">in</span> <span class="name">s</span>
 
-<span class="comment"># A: True</span>
-<span class="comment"># B: False</span>
-<span class="comment"># C: None</span>
-<span class="comment"># D: an exception is raised</span>
+<span class="comment single"># A: True</span>
+<span class="comment single"># B: False</span>
+<span class="comment single"># C: None</span>
+<span class="comment single"># D: an exception is raised</span>
 </pre>
 </div>
 <div class="slide" id="id90">
@@ -1560,9 +1582,9 @@ ul.auto-toc {
 <span class="name">s</span> <span class="operator">=</span> <span class="name builtin">set</span><span class="punctuation">([</span><span class="literal number integer">1</span><span class="punctuation">,</span> <span class="name builtin pseudo">None</span><span class="punctuation">,</span> <span class="punctuation">[],</span> <span class="punctuation">()])</span>
 <span class="literal number integer">1</span> <span class="operator word">in</span> <span class="name">s</span>
 
-<span class="comment"># A: True</span>
-<span class="comment"># B: False</span>
-<span class="comment"># C: None</span>
+<span class="comment single"># A: True</span>
+<span class="comment single"># B: False</span>
+<span class="comment single"># C: None</span>
 <span class="operator">&gt;</span> <span class="name">D</span><span class="punctuation">:</span> <span class="name">an</span> <span class="name">exception</span> <span class="operator word">is</span> <span class="name">raised</span>
 </pre>
 </div>
@@ -1572,10 +1594,10 @@ ul.auto-toc {
 <span class="name">l</span> <span class="operator">=</span> <span class="punctuation">[</span><span class="literal number integer">1</span><span class="punctuation">,</span> <span class="literal number integer">2</span><span class="punctuation">,</span> <span class="literal number integer">3</span><span class="punctuation">,</span> <span class="literal number integer">4</span><span class="punctuation">,</span> <span class="literal number integer">5</span><span class="punctuation">]</span>
 <span class="name">l</span><span class="punctuation">[:</span><span class="literal number integer">3</span><span class="punctuation">]</span> <span class="operator">+</span> <span class="name">l</span><span class="punctuation">[</span><span class="literal number integer">3</span><span class="punctuation">:</span><span class="operator">-</span><span class="literal number integer">1</span><span class="punctuation">]</span>
 
-<span class="comment"># A: [1, 2, 4, 5]</span>
-<span class="comment"># B: [1, 2, 3, 5]</span>
-<span class="comment"># C: [1, 2, 3, 4]</span>
-<span class="comment"># D: [1, 2, 3, 4, 5]</span>
+<span class="comment single"># A: [1, 2, 4, 5]</span>
+<span class="comment single"># B: [1, 2, 3, 5]</span>
+<span class="comment single"># C: [1, 2, 3, 4]</span>
+<span class="comment single"># D: [1, 2, 3, 4, 5]</span>
 </pre>
 </div>
 <div class="slide" id="id92">
@@ -1584,10 +1606,10 @@ ul.auto-toc {
 <span class="name">l</span> <span class="operator">=</span> <span class="punctuation">[</span><span class="literal number integer">1</span><span class="punctuation">,</span> <span class="literal number integer">2</span><span class="punctuation">,</span> <span class="literal number integer">3</span><span class="punctuation">,</span> <span class="literal number integer">4</span><span class="punctuation">,</span> <span class="literal number integer">5</span><span class="punctuation">]</span>
 <span class="name">l</span><span class="punctuation">[:</span><span class="literal number integer">3</span><span class="punctuation">]</span> <span class="operator">+</span> <span class="name">l</span><span class="punctuation">[</span><span class="literal number integer">3</span><span class="punctuation">:</span><span class="operator">-</span><span class="literal number integer">1</span><span class="punctuation">]</span>
 
-<span class="comment"># A: [1, 2, 4, 5]</span>
-<span class="comment"># B: [1, 2, 3, 5]</span>
+<span class="comment single"># A: [1, 2, 4, 5]</span>
+<span class="comment single"># B: [1, 2, 3, 5]</span>
 <span class="operator">&gt;</span> <span class="name">C</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="literal number integer">1</span><span class="punctuation">,</span> <span class="literal number integer">2</span><span class="punctuation">,</span> <span class="literal number integer">3</span><span class="punctuation">,</span> <span class="literal number integer">4</span><span class="punctuation">]</span>
-<span class="comment"># D: [1, 2, 3, 4, 5]</span>
+<span class="comment single"># D: [1, 2, 3, 4, 5]</span>
 </pre>
 </div>
 <div class="slide" id="id93">
@@ -1598,10 +1620,10 @@ ul.auto-toc {
 <span class="name">c</span> <span class="operator">=</span> <span class="name builtin">set</span><span class="punctuation">([</span><span class="literal number integer">1</span><span class="punctuation">,</span> <span class="literal number integer">5</span><span class="punctuation">])</span>
 <span class="name">a</span> <span class="operator">|</span> <span class="name">b</span> <span class="operator">&amp;</span> <span class="name">c</span>
 
-<span class="comment"># A: set([1, 5])</span>
-<span class="comment"># B: set([1, 2, 3, 5])</span>
-<span class="comment"># C: [1, 2, 3, 5]</span>
-<span class="comment"># D: an exception is raised</span>
+<span class="comment single"># A: set([1, 5])</span>
+<span class="comment single"># B: set([1, 2, 3, 5])</span>
+<span class="comment single"># C: [1, 2, 3, 5]</span>
+<span class="comment single"># D: an exception is raised</span>
 </pre>
 </div>
 <div class="slide" id="id94">
@@ -1612,10 +1634,10 @@ ul.auto-toc {
 <span class="name">c</span> <span class="operator">=</span> <span class="name builtin">set</span><span class="punctuation">([</span><span class="literal number integer">1</span><span class="punctuation">,</span> <span class="literal number integer">5</span><span class="punctuation">])</span>
 <span class="name">a</span> <span class="operator">|</span> <span class="name">b</span> <span class="operator">&amp;</span> <span class="name">c</span>
 
-<span class="comment"># A: set([1, 5])</span>
+<span class="comment single"># A: set([1, 5])</span>
 <span class="operator">&gt;</span> <span class="name">B</span><span class="punctuation">:</span> <span class="name builtin">set</span><span class="punctuation">([</span><span class="literal number integer">1</span><span class="punctuation">,</span> <span class="literal number integer">2</span><span class="punctuation">,</span> <span class="literal number integer">3</span><span class="punctuation">,</span> <span class="literal number integer">5</span><span class="punctuation">])</span>
-<span class="comment"># C: [1, 2, 3, 5]</span>
-<span class="comment"># D: an exception is raised</span>
+<span class="comment single"># C: [1, 2, 3, 5]</span>
+<span class="comment single"># D: an exception is raised</span>
 </pre>
 </div>
 <div class="slide" id="id95">
@@ -1624,10 +1646,10 @@ ul.auto-toc {
 <span class="name">f</span> <span class="operator">=</span> <span class="keyword">lambda</span> <span class="punctuation">(</span><span class="name">a</span><span class="punctuation">,</span> <span class="name">b</span><span class="punctuation">):</span> <span class="name builtin pseudo">NotImplemented</span>
 <span class="name">f</span><span class="punctuation">(</span><span class="literal number integer">1</span><span class="punctuation">,</span> <span class="literal number integer">2</span><span class="punctuation">)</span>
 
-<span class="comment"># A: None</span>
-<span class="comment"># B: NotImplemented</span>
-<span class="comment"># C: (1, 2)</span>
-<span class="comment"># D: an exception is raised</span>
+<span class="comment single"># A: None</span>
+<span class="comment single"># B: NotImplemented</span>
+<span class="comment single"># C: (1, 2)</span>
+<span class="comment single"># D: an exception is raised</span>
 </pre>
 </div>
 <div class="slide" id="id96">
@@ -1636,9 +1658,9 @@ ul.auto-toc {
 <span class="name">f</span> <span class="operator">=</span> <span class="keyword">lambda</span> <span class="punctuation">(</span><span class="name">a</span><span class="punctuation">,</span> <span class="name">b</span><span class="punctuation">):</span> <span class="name builtin pseudo">NotImplemented</span>
 <span class="name">f</span><span class="punctuation">(</span><span class="literal number integer">1</span><span class="punctuation">,</span> <span class="literal number integer">2</span><span class="punctuation">)</span>
 
-<span class="comment"># A: None</span>
-<span class="comment"># B: NotImplemented</span>
-<span class="comment"># C: (1, 2)</span>
+<span class="comment single"># A: None</span>
+<span class="comment single"># B: NotImplemented</span>
+<span class="comment single"># C: (1, 2)</span>
 <span class="operator">&gt;</span> <span class="name">D</span><span class="punctuation">:</span> <span class="name">an</span> <span class="name">exception</span> <span class="operator word">is</span> <span class="name">raised</span>
 </pre>
 </div>
