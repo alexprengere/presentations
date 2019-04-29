@@ -13,6 +13,8 @@ The code may raise exceptions, but never syntax errors, so do not look for missi
 
 Assume the code is Python3.8a3, but the answers would be the same with Python2.
 
+----
+
 --
 1
 --
@@ -30,6 +32,8 @@ Assume the code is Python3.8a3, but the answers would be the same with Python2.
     # B: [2, 3, 1, 1]
     # C: [1]
     # D: [1, 1]
+
+----
 
 --
 1
@@ -49,6 +53,8 @@ Assume the code is Python3.8a3, but the answers would be the same with Python2.
     # C: [1]
     > D: [1, 1]
 
+----
+
 --
 2
 --
@@ -64,6 +70,8 @@ Assume the code is Python3.8a3, but the answers would be the same with Python2.
     # C: an exception is raised
     # D: None
 
+----
+
 --
 2
 --
@@ -78,6 +86,8 @@ Assume the code is Python3.8a3, but the answers would be the same with Python2.
     > B: [1]
     # C: an exception is raised
     # D: None
+
+----
 
 --
 3
@@ -98,6 +108,8 @@ Assume the code is Python3.8a3, but the answers would be the same with Python2.
     # B: 1
     # C: None
     # D: an exception is raised
+
+----
 
 --
 3
@@ -119,6 +131,8 @@ Assume the code is Python3.8a3, but the answers would be the same with Python2.
     # C: None
     > D: an exception is raised
 
+----
+
 --
 4
 --
@@ -138,6 +152,8 @@ Assume the code is Python3.8a3, but the answers would be the same with Python2.
     # C: an exception is raised
     # D: None
 
+----
+
 --
 4
 --
@@ -156,6 +172,8 @@ Assume the code is Python3.8a3, but the answers would be the same with Python2.
     > B: 1
     # C: an exception is raised
     # D: None
+
+----
 
 --
 5
@@ -178,6 +196,8 @@ Assume the code is Python3.8a3, but the answers would be the same with Python2.
     # C: an exception is raised
     # D: None
 
+----
+
 --
 5
 --
@@ -198,6 +218,8 @@ Assume the code is Python3.8a3, but the answers would be the same with Python2.
     > B: 1
     # C: an exception is raised
     # D: None
+
+----
 
 --
 6
@@ -217,6 +239,8 @@ Assume the code is Python3.8a3, but the answers would be the same with Python2.
     # B: 1
     # C: an exception is raised
     # D: 2
+
+----
 
 --
 6
@@ -237,6 +261,8 @@ Assume the code is Python3.8a3, but the answers would be the same with Python2.
     > C: an exception is raised
     # D: 2
 
+----
+
 --
 7
 --
@@ -254,6 +280,8 @@ Assume the code is Python3.8a3, but the answers would be the same with Python2.
     # B: None
     # C: an exception is raised
     # D: 0
+
+----
 
 --
 7
@@ -273,6 +301,8 @@ Assume the code is Python3.8a3, but the answers would be the same with Python2.
     # C: an exception is raised
     # D: 0
 
+----
+
 --
 8
 --
@@ -286,6 +316,8 @@ Assume the code is Python3.8a3, but the answers would be the same with Python2.
     # C: True
     # D: False
 
+----
+
 --
 8
 --
@@ -298,6 +330,8 @@ Assume the code is Python3.8a3, but the answers would be the same with Python2.
     # B: 3
     # C: True
     # D: False
+
+----
 
 --
 9
@@ -312,6 +346,8 @@ Assume the code is Python3.8a3, but the answers would be the same with Python2.
     # C: 1
     # D: an exception is raised
 
+----
+
 --
 9
 --
@@ -324,6 +360,8 @@ Assume the code is Python3.8a3, but the answers would be the same with Python2.
     # B: False
     # C: 1
     # D: an exception is raised
+
+----
 
 --
 10
@@ -340,6 +378,8 @@ Assume the code is Python3.8a3, but the answers would be the same with Python2.
     # C: 0
     # D: 'cold'
 
+----
+
 --
 10
 --
@@ -355,6 +395,8 @@ Assume the code is Python3.8a3, but the answers would be the same with Python2.
     # C: 0
     > D: 'cold'
 
+----
+
 --
 11
 --
@@ -367,6 +409,8 @@ Assume the code is Python3.8a3, but the answers would be the same with Python2.
     # B: 2
     # C: 1
     # D: (2, 'B')
+
+----
 
 --
 11
@@ -381,6 +425,8 @@ Assume the code is Python3.8a3, but the answers would be the same with Python2.
     # C: 1
     > D: (2, 'B')
 
+----
+
 --
 12
 --
@@ -394,6 +440,8 @@ Assume the code is Python3.8a3, but the answers would be the same with Python2.
     # B: 1
     # C: an exception is raised
     # D: None
+
+----
 
 --
 12
@@ -409,6 +457,8 @@ Assume the code is Python3.8a3, but the answers would be the same with Python2.
     > C: an exception is raised
     # D: None
 
+----
+
 --
 13
 --
@@ -422,6 +472,8 @@ Assume the code is Python3.8a3, but the answers would be the same with Python2.
     # C: an exception is raised
     # D: None
 
+----
+
 --
 13
 --
@@ -434,6 +486,8 @@ Assume the code is Python3.8a3, but the answers would be the same with Python2.
     # B: False
     # C: an exception is raised
     # D: None
+
+----
 
 --
 14
@@ -449,6 +503,8 @@ Assume the code is Python3.8a3, but the answers would be the same with Python2.
     # C: [1, 2, 3, 4]
     # D: [1, 2, 3, 4, 5]
 
+----
+
 --
 14
 --
@@ -462,6 +518,8 @@ Assume the code is Python3.8a3, but the answers would be the same with Python2.
     # B: [1, 2, 3, 5]
     > C: [1, 2, 3, 4]
     # D: [1, 2, 3, 4, 5]
+
+----
 
 --
 15
@@ -479,6 +537,8 @@ Assume the code is Python3.8a3, but the answers would be the same with Python2.
     # C: [1, 2, 3, 5]
     # D: an exception is raised
 
+----
+
 --
 15
 --
@@ -495,6 +555,8 @@ Assume the code is Python3.8a3, but the answers would be the same with Python2.
     # C: [1, 2, 3, 5]
     # D: an exception is raised
 
+----
+
 --
 16
 --
@@ -509,6 +571,8 @@ Assume the code is Python3.8a3, but the answers would be the same with Python2.
     # C: 4
     # D: an exception is raised
 
+----
+
 --
 16
 --
@@ -522,6 +586,8 @@ Assume the code is Python3.8a3, but the answers would be the same with Python2.
     > B: -4
     # C: 4
     # D: an exception is raised
+
+----
 
 --
 17
@@ -540,6 +606,8 @@ Assume the code is Python3.8a3, but the answers would be the same with Python2.
     # C: {'a': 0}
     # D: an exception is raised
 
+----
+
 --
 17
 --
@@ -556,6 +624,8 @@ Assume the code is Python3.8a3, but the answers would be the same with Python2.
     # B: 0
     > C: {'a': 0}
     # D: an exception is raised
+
+----
 
 --
 18
@@ -575,6 +645,8 @@ Assume the code is Python3.8a3, but the answers would be the same with Python2.
     # B: 0
     # C: -1
     # D: an exception is raised
+
+----
 
 --
 18
@@ -595,6 +667,7 @@ Assume the code is Python3.8a3, but the answers would be the same with Python2.
     # C: -1
     # D: an exception is raised
 
+----
 
 --
 19
@@ -613,6 +686,8 @@ Assume the code is Python3.8a3, but the answers would be the same with Python2.
     # C: (None, 'Z')
     # D: an exception is raised
 
+----
+
 --
 19
 --
@@ -630,6 +705,7 @@ Assume the code is Python3.8a3, but the answers would be the same with Python2.
     > C: (None, 'Z')
     # D: an exception is raised
 
+----
 
 --
 20
@@ -646,6 +722,8 @@ Assume the code is Python3.8a3, but the answers would be the same with Python2.
     # C: None
     # D: an exception is raised
 
+----
+
 --
 20
 --
@@ -661,8 +739,10 @@ Assume the code is Python3.8a3, but the answers would be the same with Python2.
     # C: None
     # D: an exception is raised
 
+----
+
 --
-20
+21
 --
 
 .. code-block:: python
@@ -674,6 +754,8 @@ Assume the code is Python3.8a3, but the answers would be the same with Python2.
     # B: 'this is nice'
     # C: f'this is nice'
     # D: an exception is raised
+
+----
 
 --
 21
@@ -688,6 +770,8 @@ Assume the code is Python3.8a3, but the answers would be the same with Python2.
     # B: 'this is nice'
     # C: f'this is nice'
     # D: an exception is raised
+
+----
 
 --
 22
@@ -706,6 +790,8 @@ Assume the code is Python3.8a3, but the answers would be the same with Python2.
     # B: None
     # C: False
     # D: an exception is raised
+
+----
 
 --
 22

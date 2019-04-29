@@ -1,10 +1,10 @@
 
 TARGETS = slides.html
 
-RSTS5 = rst2s5.py
-RM = rm
+RSTS5 = landslide
+RSTFLAGS = -o
 
-#RSTFLAGS = --theme=small-black
+RM = rm
 
 # Make all
 all: $(TARGETS)
@@ -13,7 +13,7 @@ all: $(TARGETS)
 .SUFFIXES: .rst .html
 
 .rst.html:
-	@($(RSTS5) $(RSTFLAGS) $< $@ && echo "$@ is generated.")
+	@($(RSTS5) $(RSTFLAGS) $< > $@ && echo "$@ is generated.")
 
 clean:
 	@($(RM) $(TARGETS))
