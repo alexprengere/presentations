@@ -2,7 +2,7 @@
 TARGETS = slides.html
 
 RSTS5 = landslide
-RSTFLAGS = -o
+RSTFLAGS = -i -o
 
 RM = rm
 
