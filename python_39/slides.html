@@ -392,11 +392,11 @@ ul.auto-toc {
 <div class="presentation">
 <div class="slide" id="slide0">
 <h1 class="title">Python 3.9</h1>
+<h2 class="subtitle" id="id1">28/08/2020</h2>
 
 <ul class="simple">
-<li>3.9.0 rc1: 2020-08-11</li>
-<li>3.9.0 rc2: 2020-09-14</li>
-<li>3.9.0 final: 2020-10-05</li>
+<li>Current status: 3.9.0 rc1</li>
+<li>Final release: 2020-10-05</li>
 </ul>
 
 </div>
@@ -492,19 +492,101 @@ ul.auto-toc {
 <li>PEP 602: Python adopts a stable annual release cadence</li>
 <li>PEP 584: add Union Operators To dict</li>
 <li>PEP 585: type Hinting Generics In Standard Collections</li>
-<li>PEP 617: new parser</li>
+<li>PEP 617: new PEG parser for CPython</li>
 <li>PEP 616: new <cite>removeprefix()</cite> and <cite>removesuffix()</cite> string methods</li>
 <li>PEP 615: support for the IANA Time Zone Database in the Standard Library</li>
 <li><cite>graphlib</cite> that contains the graphlib.TopologicalSorter</li>
 </ul>
 </div>
-<div class="slide" id="id1">
-<h1>Python 3.9 (2020)</h1>
+<div class="slide" id="how-to-try-latest-cpython">
+<h1>How to try latest CPython</h1>
+<pre class="code bash literal-block">
+git clone https://github.com/python/cpython.git
+<span class="name builtin">cd</span> cpython
+git checkout v3.9.0rc1
+./configure <span class="operator">[</span>--enable-optimizations<span class="operator">]</span>
+make
+sudo make altinstall  <span class="comment single"># install to /usr/local/bin/</span>
+</pre>
+<p>Then add <cite>py39</cite> to your <cite>tox.ini</cite> <cite>envlist</cite>.</p>
+</div>
+<div class="slide" id="how-to-try-latest-pypy">
+<h1>How to try latest Pypy</h1>
+<p>No need to use portable-pypy binaries anymore.</p>
+<pre class="code bash literal-block">
+wget https://bitbucket.org/pypy/pypy/downloads/pypy3.6-v7.3.1-linux64.tar.bz2
+</pre>
+</div>
+<div class="slide" id="pep-8016-for-2020">
+<h1>PEP 8016 for 2020</h1>
+<p>New 2020 steering council:</p>
 <ul class="simple">
-<li>PEP 584: add Union Operators To dict</li>
+<li>Barry Warsaw (LinkedIn)</li>
+<li>Brett Cannon (Microsoft)</li>
+<li>Carol Willing (Noteable)</li>
+<li>Thomas Wouters (Google)</li>
+<li>Victor Stinner (RedHat)</li>
 </ul>
+<p>Release manager: Łukasz Langa (EdgeDB)</p>
+</div>
+<div class="slide" id="pep-602-annual-release-cadence">
+<h1>PEP 602: annual release cadence</h1>
+<ul class="simple">
+<li>One feature release every year</li>
+<li>Timing:<ul>
+<li>7 months alphas</li>
+<li>3 months betas (only bug fixes)</li>
+<li>2 months release candidates</li>
+<li>1.5 years of bug fixes updates</li>
+<li>3.5 years of security updates (source only)</li>
+</ul>
+</li>
+<li>a release manager is elected to manage 2 feature releases and their maintenance releases</li>
+</ul>
+</div>
+<div class="slide" id="id2">
+<h1>PEP 602: annual release cadence</h1>
+<img alt="pep_602.png" class="align-center" src="pep_602.png" style="width: 1728.0px; height: 913.5px;" />
+</div>
+<div class="slide" id="pep-584-add-union-operators-to-dict">
+<h1>PEP 584: add Union Operators To dict</h1>
+<p>Remember this?</p>
 <pre class="code python literal-block">
-<span class="comment single"># a and b are dicts</span>
+<span class="operator">&gt;&gt;&gt;</span> <span class="literal number integer">2</span> <span class="operator">|</span> <span class="literal number integer">5</span>
+<span class="literal number integer">7</span>
+<span class="operator">&gt;&gt;&gt;</span> <span class="name builtin">bin</span><span class="punctuation">(</span><span class="literal number integer">2</span><span class="punctuation">)</span>
+<span class="literal string single">'0b10'</span>
+<span class="operator">&gt;&gt;&gt;</span> <span class="name builtin">bin</span><span class="punctuation">(</span><span class="literal number integer">5</span><span class="punctuation">)</span>
+<span class="literal string single">'0b101'</span>
+<span class="operator">&gt;&gt;&gt;</span> <span class="name builtin">bin</span><span class="punctuation">(</span><span class="literal number integer">7</span><span class="punctuation">)</span>
+<span class="literal string single">'0b111'</span>
+</pre>
+</div>
+<div class="slide" id="id3">
+<h1>PEP 584: add Union Operators To dict</h1>
+<p>And that?</p>
+<pre class="code python literal-block">
+<span class="operator">&gt;&gt;&gt;</span> <span class="punctuation">{</span><span class="literal number integer">2</span><span class="punctuation">,</span> <span class="literal number integer">3</span><span class="punctuation">}</span> <span class="operator">|</span> <span class="punctuation">{</span><span class="literal number integer">3</span><span class="punctuation">,</span> <span class="literal number integer">4</span><span class="punctuation">}</span>
+<span class="punctuation">{</span><span class="literal number integer">2</span><span class="punctuation">,</span> <span class="literal number integer">3</span><span class="punctuation">,</span> <span class="literal number integer">4</span><span class="punctuation">}</span>
+
+<span class="operator">&gt;&gt;&gt;</span> <span class="punctuation">{</span><span class="literal number integer">2</span><span class="punctuation">,</span> <span class="literal number integer">3</span><span class="punctuation">}</span><span class="operator">.</span><span class="name">union</span><span class="punctuation">({</span><span class="literal number integer">3</span><span class="punctuation">,</span> <span class="literal number integer">4</span><span class="punctuation">})</span>
+<span class="punctuation">{</span><span class="literal number integer">2</span><span class="punctuation">,</span> <span class="literal number integer">3</span><span class="punctuation">,</span> <span class="literal number integer">4</span><span class="punctuation">}</span>
+</pre>
+</div>
+<div class="slide" id="id4">
+<h1>PEP 584: add Union Operators To dict</h1>
+<p>This is new.</p>
+<pre class="code python literal-block">
+<span class="operator">&gt;&gt;&gt;</span> <span class="name">d</span> <span class="operator">=</span> <span class="punctuation">{</span><span class="literal string single">'spam'</span><span class="punctuation">:</span> <span class="literal number integer">1</span><span class="punctuation">,</span> <span class="literal string single">'eggs'</span><span class="punctuation">:</span> <span class="literal number integer">2</span><span class="punctuation">,</span> <span class="literal string single">'cheese'</span><span class="punctuation">:</span> <span class="literal number integer">3</span><span class="punctuation">}</span>
+<span class="operator">&gt;&gt;&gt;</span> <span class="name">e</span> <span class="operator">=</span> <span class="punctuation">{</span><span class="literal string single">'cheese'</span><span class="punctuation">:</span> <span class="literal string single">'cheddar'</span><span class="punctuation">,</span> <span class="literal string single">'aardvark'</span><span class="punctuation">:</span> <span class="literal string single">'Ethel'</span><span class="punctuation">}</span>
+<span class="operator">&gt;&gt;&gt;</span> <span class="name">d</span> <span class="operator">|</span> <span class="name">e</span>
+<span class="punctuation">{</span><span class="literal string single">'spam'</span><span class="punctuation">:</span> <span class="literal number integer">1</span><span class="punctuation">,</span> <span class="literal string single">'eggs'</span><span class="punctuation">:</span> <span class="literal number integer">2</span><span class="punctuation">,</span> <span class="literal string single">'cheese'</span><span class="punctuation">:</span> <span class="literal string single">'cheddar'</span><span class="punctuation">,</span> <span class="literal string single">'aardvark'</span><span class="punctuation">:</span> <span class="literal string single">'Ethel'</span><span class="punctuation">}</span>
+</pre>
+</div>
+<div class="slide" id="id5">
+<h1>PEP 584: add Union Operators To dict</h1>
+<pre class="code python literal-block">
+<span class="comment single"># New syntax</span>
 <span class="name">merged</span> <span class="operator">=</span> <span class="name">a</span> <span class="operator">|</span> <span class="name">b</span>
 
 <span class="comment single"># Roughly equivalent to</span>
@@ -513,13 +595,13 @@ ul.auto-toc {
 
 <span class="comment single"># Inplace version</span>
 <span class="name">a</span> <span class="operator">|=</span> <span class="name">b</span>
+
+<span class="comment single"># The PEP is an implementation of __or__, __ror__, __ior__ for dicts</span>
 </pre>
 </div>
-<div class="slide" id="id2">
-<h1>Python 3.9 (2020)</h1>
-<ul class="simple">
-<li>PEP 585: type Hinting Generics In Standard Collections</li>
-</ul>
+<div class="slide" id="pep-585-type-hinting-generics">
+<h1>PEP 585: type Hinting Generics</h1>
+<p>No more <cite>List</cite> vs <cite>list</cite> for simple cases.</p>
 <pre class="code python literal-block">
 <span class="keyword namespace">from</span> <span class="name namespace">typing</span> <span class="keyword namespace">import</span> <span class="name">List</span><span class="punctuation">,</span> <span class="name">Dict</span><span class="punctuation">,</span> <span class="name">Tuple</span>
 
@@ -527,13 +609,11 @@ ul.auto-toc {
 <span class="name">d</span><span class="punctuation">:</span> <span class="name builtin">dict</span><span class="punctuation">[</span><span class="name builtin">tuple</span><span class="punctuation">,</span> <span class="name builtin">list</span><span class="punctuation">]</span> <span class="operator">=</span> <span class="punctuation">{}</span>  <span class="comment single"># after</span>
 </pre>
 </div>
-<div class="slide" id="id3">
-<h1>Python 3.9 (2020)</h1>
-<ul class="simple">
-<li>PEP 616: new <cite>removeprefix()</cite> and <cite>removesuffix()</cite> string methods</li>
-</ul>
+<div class="slide" id="pep-616-removeprefix">
+<h1>PEP 616: <cite>removeprefix()</cite></h1>
+<p>How to remove a prefix/suffix from a string?</p>
 <pre class="code python literal-block">
-<span class="comment single"># Never</span>
+<span class="comment single"># God no</span>
 <span class="name">name</span><span class="operator">.</span><span class="name">rstrip</span><span class="punctuation">(</span><span class="literal string double">&quot;test_&quot;</span><span class="punctuation">)</span>
 
 <span class="comment single"># Before</span>
@@ -544,25 +624,96 @@ ul.auto-toc {
 <span class="name">name</span><span class="operator">.</span><span class="name">removeprefix</span><span class="punctuation">(</span><span class="literal string double">&quot;test_&quot;</span><span class="punctuation">)</span>
 </pre>
 </div>
-<div class="slide" id="id4">
-<h1>Python 3.9 (2020)</h1>
-<ul class="simple">
-<li>PEP 615: support for the IANA Time Zone Database in the Standard Library</li>
-</ul>
+<div class="slide" id="id6">
+<h1>PEP 616: <cite>removeprefix()</cite></h1>
+<p>Not necessary for path manipulation.</p>
 <pre class="code python literal-block">
-<span class="comment single"># Before: install pytz or python-dateutil</span>
-<span class="comment single"># After: use zoneinfo</span>
-<span class="keyword namespace">from</span> <span class="name namespace">zoneinfo</span> <span class="keyword namespace">import</span> <span class="name">ZoneInfo</span>
+<span class="operator">&gt;&gt;&gt;</span> <span class="name">p</span> <span class="operator">=</span> <span class="literal string double">&quot;/home/osboxes/file.png&quot;</span>
 
-<span class="name">zone</span> <span class="operator">=</span> <span class="name">ZoneInfo</span><span class="punctuation">(</span><span class="literal string double">&quot;Pacific/Kwajalein&quot;</span><span class="punctuation">)</span>
-<span class="name">dt</span> <span class="operator">=</span> <span class="name">datetime</span><span class="punctuation">(</span><span class="literal number integer">2020</span><span class="punctuation">,</span> <span class="literal number integer">4</span><span class="punctuation">,</span> <span class="literal number integer">1</span><span class="punctuation">,</span> <span class="literal number integer">3</span><span class="punctuation">,</span> <span class="literal number integer">15</span><span class="punctuation">,</span> <span class="name">tzinfo</span><span class="operator">=</span><span class="name">zone</span><span class="punctuation">)</span>
+<span class="operator">&gt;&gt;&gt;</span> <span class="keyword namespace">import</span> <span class="name namespace">os.path</span> <span class="keyword">as</span> <span class="name namespace">op</span>
+<span class="operator">&gt;&gt;&gt;</span> <span class="name">op</span><span class="operator">.</span><span class="name">basename</span><span class="punctuation">(</span><span class="name">p</span><span class="punctuation">)</span>
+<span class="literal string single">'file.png'</span>
+<span class="operator">&gt;&gt;&gt;</span> <span class="name">op</span><span class="operator">.</span><span class="name">dirname</span><span class="punctuation">(</span><span class="name">p</span><span class="punctuation">)</span>
+<span class="literal string single">'/home/osboxes'</span>
+<span class="operator">&gt;&gt;&gt;</span> <span class="name">op</span><span class="operator">.</span><span class="name">splitext</span><span class="punctuation">(</span><span class="name">p</span><span class="punctuation">)</span>
+<span class="punctuation">(</span><span class="literal string single">'/home/osboxes/file'</span><span class="punctuation">,</span> <span class="literal string single">'.png'</span><span class="punctuation">)</span>
 </pre>
 </div>
-<div class="slide" id="id5">
+<div class="slide" id="id7">
+<h1>PEP 616: <cite>removeprefix()</cite></h1>
+<p>Even better, with Python 3.4+ (there is a Python2 backport):</p>
+<pre class="code python literal-block">
+<span class="operator">&gt;&gt;&gt;</span> <span class="keyword namespace">from</span> <span class="name namespace">pathlib</span> <span class="keyword namespace">import</span> <span class="name">Path</span>
+<span class="operator">&gt;&gt;&gt;</span> <span class="name">p</span> <span class="operator">=</span> <span class="name">Path</span><span class="punctuation">(</span><span class="literal string double">&quot;/home/osboxes/file.png&quot;</span><span class="punctuation">)</span>
+
+<span class="operator">&gt;&gt;&gt;</span> <span class="name">p</span><span class="operator">.</span><span class="name">parent</span>
+<span class="name">Path</span><span class="punctuation">(</span><span class="literal string single">'/home/osboxes'</span><span class="punctuation">)</span>
+<span class="operator">&gt;&gt;&gt;</span> <span class="name">p</span><span class="operator">.</span><span class="name">name</span>
+<span class="literal string single">'file.png'</span>
+<span class="operator">&gt;&gt;&gt;</span> <span class="name">p</span><span class="operator">.</span><span class="name">stem</span>
+<span class="literal string single">'file'</span>
+<span class="operator">&gt;&gt;&gt;</span> <span class="name">p</span><span class="operator">.</span><span class="name">suffix</span>
+<span class="literal string single">'.png'</span>
+<span class="operator">&gt;&gt;&gt;</span> <span class="name builtin">str</span><span class="punctuation">(</span><span class="name">p</span><span class="punctuation">)</span>
+<span class="literal string single">'/home/osboxes/file.png'</span>
+</pre>
+</div>
+<div class="slide" id="pep-617-new-peg-parser-for-cpython">
+<h1>PEP 617: new PEG parser for CPython</h1>
+<p>Goal: replace LL(1)-based parser of CPython with a new PEG-based parser.</p>
+<p>Will be useful for future developments of the language.</p>
+</div>
+<div class="slide" id="pep-615-iana-time-zone-database">
+<h1>PEP 615: IANA Time Zone Database</h1>
+<p>New module to create timezone-aware datetime objects.</p>
+<pre class="code python literal-block">
+<span class="keyword namespace">from</span> <span class="name namespace">zoneinfo</span> <span class="keyword namespace">import</span> <span class="name">ZoneInfo</span>
+<span class="name">dt</span> <span class="operator">=</span> <span class="name">datetime</span><span class="punctuation">(</span><span class="literal number integer">2020</span><span class="punctuation">,</span> <span class="literal number integer">4</span><span class="punctuation">,</span> <span class="literal number integer">1</span><span class="punctuation">,</span> <span class="literal number integer">3</span><span class="punctuation">,</span> <span class="literal number integer">15</span><span class="punctuation">,</span> <span class="name">tzinfo</span><span class="operator">=</span><span class="name">ZoneInfo</span><span class="punctuation">(</span><span class="literal string double">&quot;Pacific/Kwajalein&quot;</span><span class="punctuation">))</span>
+</pre>
+</div>
+<div class="slide" id="id8">
+<h1>PEP 615: IANA Time Zone Database</h1>
+<p>Backport for Python3.6+: <tt class="docutils literal">backports.zoneinfo[tzdata]</tt></p>
+<pre class="code python literal-block">
+<span class="keyword">try</span><span class="punctuation">:</span>
+    <span class="keyword namespace">from</span> <span class="name namespace">zoneinfo</span> <span class="keyword namespace">import</span> <span class="name">ZoneInfo</span>
+<span class="keyword">except</span> <span class="name exception">ImportError</span><span class="punctuation">:</span>
+    <span class="keyword namespace">from</span> <span class="name namespace">backports.zoneinfo</span> <span class="keyword namespace">import</span> <span class="name">ZoneInfo</span>
+</pre>
+</div>
+<div class="slide" id="pep-615-pytz-example">
+<h1>PEP 615: Pytz example</h1>
+<pre class="code python literal-block">
+<span class="keyword namespace">from</span> <span class="name namespace">datetime</span> <span class="keyword namespace">import</span> <span class="name">datetime</span><span class="punctuation">,</span> <span class="name">timedelta</span>
+<span class="keyword namespace">import</span> <span class="name namespace">pytz</span>
+<span class="name">NYC</span> <span class="operator">=</span> <span class="name">pytz</span><span class="operator">.</span><span class="name">timezone</span><span class="punctuation">(</span><span class="literal string single">'America/New_York'</span><span class="punctuation">)</span>
+
+<span class="name">dt</span> <span class="operator">=</span> <span class="name">NYC</span><span class="operator">.</span><span class="name">localize</span><span class="punctuation">(</span><span class="name">datetime</span><span class="punctuation">(</span><span class="literal number integer">2018</span><span class="punctuation">,</span> <span class="literal number integer">2</span><span class="punctuation">,</span> <span class="literal number integer">14</span><span class="punctuation">,</span> <span class="literal number integer">12</span><span class="punctuation">))</span>
+<span class="comment single"># 2018-02-14 12:00:00-05:00</span>
+
+<span class="name">dt_spring</span> <span class="operator">=</span> <span class="name">dt</span> <span class="operator">+</span> <span class="name">timedelta</span><span class="punctuation">(</span><span class="name">days</span><span class="operator">=</span><span class="literal number integer">60</span><span class="punctuation">)</span>
+<span class="comment single"># 2018-04-15 12:00:00-05:00</span>
+
+<span class="name">NYC</span><span class="operator">.</span><span class="name">normalize</span><span class="punctuation">(</span><span class="name">dt_spring</span><span class="punctuation">)</span>
+<span class="comment single"># 2018-04-15 13:00:00-04:00</span>
+</pre>
+</div>
+<div class="slide" id="pep-615-dateutil-example">
+<h1>PEP 615: dateutil example</h1>
+<pre class="code python literal-block">
+<span class="keyword namespace">from</span> <span class="name namespace">dateutil</span> <span class="keyword namespace">import</span> <span class="name">tz</span>
+<span class="name">NYC</span> <span class="operator">=</span> <span class="name">tz</span><span class="operator">.</span><span class="name">gettz</span><span class="punctuation">(</span><span class="literal string single">'America/New_York'</span><span class="punctuation">)</span>
+
+<span class="name">dt</span> <span class="operator">=</span> <span class="name">datetime</span><span class="punctuation">(</span><span class="literal number integer">2018</span><span class="punctuation">,</span> <span class="literal number integer">2</span><span class="punctuation">,</span> <span class="literal number integer">14</span><span class="punctuation">,</span> <span class="literal number integer">12</span><span class="punctuation">,</span> <span class="name">tzinfo</span><span class="operator">=</span><span class="name">NYC</span><span class="punctuation">)</span>
+<span class="comment single"># 2018-02-14 12:00:00-05:00</span>
+
+<span class="name">dt_spring</span> <span class="operator">=</span> <span class="name">dt</span> <span class="operator">+</span> <span class="name">timedelta</span><span class="punctuation">(</span><span class="name">days</span><span class="operator">=</span><span class="literal number integer">60</span><span class="punctuation">)</span>
+<span class="comment single"># 2018-04-15 13:00:00-04:00</span>
+</pre>
+</div>
+<div class="slide" id="id9">
 <h1>Python 3.9 (2020)</h1>
-<ul class="simple">
-<li><cite>graphlib</cite> that contains the graphlib.TopologicalSorter</li>
-</ul>
+<p>A new <cite>graphlib</cite> that contains the graphlib.TopologicalSorter</p>
 <pre class="code python literal-block">
 <span class="operator">&gt;&gt;&gt;</span> <span class="name">graph</span> <span class="operator">=</span> <span class="punctuation">{</span><span class="literal string double">&quot;D&quot;</span><span class="punctuation">:</span> <span class="punctuation">{</span><span class="literal string double">&quot;B&quot;</span><span class="punctuation">,</span> <span class="literal string double">&quot;C&quot;</span><span class="punctuation">},</span> <span class="literal string double">&quot;C&quot;</span><span class="punctuation">:</span> <span class="punctuation">{</span><span class="literal string double">&quot;A&quot;</span><span class="punctuation">},</span> <span class="literal string double">&quot;B&quot;</span><span class="punctuation">:</span> <span class="punctuation">{</span><span class="literal string double">&quot;A&quot;</span><span class="punctuation">}}</span>
 <span class="operator">&gt;&gt;&gt;</span> <span class="name">ts</span> <span class="operator">=</span> <span class="name">TopologicalSorter</span><span class="punctuation">(</span><span class="name">graph</span><span class="punctuation">)</span>
@@ -576,8 +727,11 @@ ul.auto-toc {
 <ul class="simple">
 <li>PEP 604: Complementary syntax for Union[]: <tt class="docutils literal">str|int</tt> vs <tt class="docutils literal">Union[int,str]</tt></li>
 <li>PEP 618: Add Optional Length-Checking To zip</li>
-<li><cite>int.bit_count()</cite></li>
+<li><cite>int.bit_count()</cite>: number of bits sets in binary</li>
 </ul>
+</div>
+<div class="slide" id="id10">
+<h1>Python 3.10 (2021)</h1>
 <p>Under review by the steering council:</p>
 <ul class="simple">
 <li>PEP 622: Structural Pattern Matching</li>
