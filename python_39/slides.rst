@@ -8,6 +8,7 @@ Python 3.9
 
 + Current status: 3.9.0 rc1
 + Final release: 2020-10-05
++ https://docs.python.org/3.9/whatsnew/3.9.html
 
 ----------
 Vocabulary
@@ -401,3 +402,4 @@ Under review by the steering council:
 
 + PEP 622: Structural Pattern Matching
 + PEP 603: Adding a frozenmap type to collections
++ PEP 554: Multiple Interpreters in the Stdlib
