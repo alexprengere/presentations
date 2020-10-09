@@ -1,0 +1,6 @@
+pytest
+pytest-coverage
+pytest-bdd
+mutmut
+hypothesis
+python-dateutil

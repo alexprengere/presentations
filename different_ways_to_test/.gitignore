@@ -1,0 +1,7 @@
+*.sw[po]
+__pycache__
+*.pyc
+/.coverage
+/.hypothesis/
+/.mutmut-cache
+/htmlcov/
