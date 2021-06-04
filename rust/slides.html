@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+<meta name="generator" content="Docutils 0.16: http://docutils.sourceforge.net/" />
 <meta name="version" content="S5 1.1" />
 <title>Rust</title>
 <style type="text/css">
@@ -429,25 +429,9 @@ ul.auto-toc {
 </div>
 <div class="slide" id="ownership">
 <h1>Ownership</h1>
-<p>Each value in Rust has a variable thatâ€™s called its owner.
+<p>Each value in Rust has a variable that's called its owner.
 There can only be one owner at a time.
 When the owner goes out of scope, the value will be dropped.</p>
-</div>
-<div class="slide" id="id4">
-<h1>1</h1>
-<pre class="code rust literal-block">
-<span class="name">def</span><span class="whitespace"> </span><span class="name">f</span><span class="punctuation">(</span><span class="name">a</span><span class="operator">=</span><span class="punctuation">[])</span>:
-    <span class="name class">a</span><span class="punctuation">.</span><span class="name">append</span><span class="punctuation">(</span><span class="literal number integer">1</span><span class="punctuation">)</span><span class="whitespace">
-    </span><span class="keyword">return</span><span class="whitespace"> </span><span class="name">a</span><span class="whitespace">
-
-</span><span class="name">f</span><span class="punctuation">([</span><span class="literal number integer">2</span><span class="punctuation">,</span><span class="whitespace"> </span><span class="literal number integer">3</span><span class="punctuation">])</span><span class="whitespace">
-</span><span class="name">f</span><span class="punctuation">()</span><span class="whitespace">
-</span><span class="name">f</span><span class="punctuation">()</span><span class="whitespace">
-</span><span class="error">#</span><span class="whitespace"> </span><span class="name">A</span>: <span class="punctuation">[]</span><span class="whitespace">
-</span><span class="error">#</span><span class="whitespace"> </span><span class="name">B</span>: <span class="punctuation">[</span><span class="literal number integer">2</span><span class="punctuation">,</span><span class="whitespace"> </span><span class="literal number integer">3</span><span class="punctuation">,</span><span class="whitespace"> </span><span class="literal number integer">1</span><span class="punctuation">,</span><span class="whitespace"> </span><span class="literal number integer">1</span><span class="punctuation">]</span><span class="whitespace">
-</span><span class="error">#</span><span class="whitespace"> </span><span class="name">C</span>: <span class="punctuation">[</span><span class="literal number integer">1</span><span class="punctuation">]</span><span class="whitespace">
-</span><span class="error">#</span><span class="whitespace"> </span><span class="name">D</span>: <span class="punctuation">[</span><span class="literal number integer">1</span><span class="punctuation">,</span><span class="whitespace"> </span><span class="literal number integer">1</span><span class="punctuation">]</span>
-</pre>
 </div>
 </div>
 </body>
