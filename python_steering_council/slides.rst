@@ -1,7 +1,7 @@
 
-==================
-Python: what's up?
-==================
+============================
+Python: the Steering Council
+============================
 
 ----------
 Vocabulary
@@ -124,13 +124,13 @@ Python 3.8 (2019)
 PEP 8016: Core developers
 -------------------------
 
-+ elected for life by 2/3 of positive votes and no veto by steering council
++ elected for life by 2/3 of positive votes and no veto by Steering Council
 + can modify PEP8016 by 2/3 of the vote
 + can be declared inactive after 2 years of inactivity, and loose nomination, voting, and committing rights
 + can regain their active status
 
 --------------------------
-PEP 8016: Steering council
+PEP 8016: Steering Council
 --------------------------
 
 + 5 people elected using Condorcet method, by the core developers
@@ -142,7 +142,7 @@ PEP 8016: Steering council
 + vote of no confidence can happen by a 2/3 vote from the core developers
 
 ---------------------------------
-PEP 8016: Steering council powers
+PEP 8016: Steering Council powers
 ---------------------------------
 
 + Accept or reject PEPs
