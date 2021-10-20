@@ -1,0 +1,1115 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+<meta name="version" content="S5 1.1" />
+<title>Python 3.10 and beyond</title>
+<style type="text/css">
+
+/*
+:Author: David Goodger (goodger@python.org)
+:Id: $Id: html4css1.css 7952 2016-07-26 18:15:59Z milde $
+:Copyright: This stylesheet has been placed in the public domain.
+
+Default cascading style sheet for the HTML output of Docutils.
+
+See http://docutils.sf.net/docs/howto/html-stylesheets.html for how to
+customize this style sheet.
+*/
+
+/* used to remove borders from tables and images */
+.borderless, table.borderless td, table.borderless th {
+  border: 0 }
+
+table.borderless td, table.borderless th {
+  /* Override padding for "table.docutils td" with "! important".
+     The right padding separates the table cells. */
+  padding: 0 0.5em 0 0 ! important }
+
+.first {
+  /* Override more specific margin styles with "! important". */
+  margin-top: 0 ! important }
+
+.last, .with-subtitle {
+  margin-bottom: 0 ! important }
+
+.hidden {
+  display: none }
+
+.subscript {
+  vertical-align: sub;
+  font-size: smaller }
+
+.superscript {
+  vertical-align: super;
+  font-size: smaller }
+
+a.toc-backref {
+  text-decoration: none ;
+  color: black }
+
+blockquote.epigraph {
+  margin: 2em 5em ; }
+
+dl.docutils dd {
+  margin-bottom: 0.5em }
+
+object[type="image/svg+xml"], object[type="application/x-shockwave-flash"] {
+  overflow: hidden;
+}
+
+/* Uncomment (and remove this text!) to get bold-faced definition list terms
+dl.docutils dt {
+  font-weight: bold }
+*/
+
+div.abstract {
+  margin: 2em 5em }
+
+div.abstract p.topic-title {
+  font-weight: bold ;
+  text-align: center }
+
+div.admonition, div.attention, div.caution, div.danger, div.error,
+div.hint, div.important, div.note, div.tip, div.warning {
+  margin: 2em ;
+  border: medium outset ;
+  padding: 1em }
+
+div.admonition p.admonition-title, div.hint p.admonition-title,
+div.important p.admonition-title, div.note p.admonition-title,
+div.tip p.admonition-title {
+  font-weight: bold ;
+  font-family: sans-serif }
+
+div.attention p.admonition-title, div.caution p.admonition-title,
+div.danger p.admonition-title, div.error p.admonition-title,
+div.warning p.admonition-title, .code .error {
+  color: red ;
+  font-weight: bold ;
+  font-family: sans-serif }
+
+/* Uncomment (and remove this text!) to get reduced vertical space in
+   compound paragraphs.
+div.compound .compound-first, div.compound .compound-middle {
+  margin-bottom: 0.5em }
+
+div.compound .compound-last, div.compound .compound-middle {
+  margin-top: 0.5em }
+*/
+
+div.dedication {
+  margin: 2em 5em ;
+  text-align: center ;
+  font-style: italic }
+
+div.dedication p.topic-title {
+  font-weight: bold ;
+  font-style: normal }
+
+div.figure {
+  margin-left: 2em ;
+  margin-right: 2em }
+
+div.footer, div.header {
+  clear: both;
+  font-size: smaller }
+
+div.line-block {
+  display: block ;
+  margin-top: 1em ;
+  margin-bottom: 1em }
+
+div.line-block div.line-block {
+  margin-top: 0 ;
+  margin-bottom: 0 ;
+  margin-left: 1.5em }
+
+div.sidebar {
+  margin: 0 0 0.5em 1em ;
+  border: medium outset ;
+  padding: 1em ;
+  background-color: #ffffee ;
+  width: 40% ;
+  float: right ;
+  clear: right }
+
+div.sidebar p.rubric {
+  font-family: sans-serif ;
+  font-size: medium }
+
+div.system-messages {
+  margin: 5em }
+
+div.system-messages h1 {
+  color: red }
+
+div.system-message {
+  border: medium outset ;
+  padding: 1em }
+
+div.system-message p.system-message-title {
+  color: red ;
+  font-weight: bold }
+
+div.topic {
+  margin: 2em }
+
+h1.section-subtitle, h2.section-subtitle, h3.section-subtitle,
+h4.section-subtitle, h5.section-subtitle, h6.section-subtitle {
+  margin-top: 0.4em }
+
+h1.title {
+  text-align: center }
+
+h2.subtitle {
+  text-align: center }
+
+hr.docutils {
+  width: 75% }
+
+img.align-left, .figure.align-left, object.align-left, table.align-left {
+  clear: left ;
+  float: left ;
+  margin-right: 1em }
+
+img.align-right, .figure.align-right, object.align-right, table.align-right {
+  clear: right ;
+  float: right ;
+  margin-left: 1em }
+
+img.align-center, .figure.align-center, object.align-center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+table.align-center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.align-left {
+  text-align: left }
+
+.align-center {
+  clear: both ;
+  text-align: center }
+
+.align-right {
+  text-align: right }
+
+/* reset inner alignment in figures */
+div.align-right {
+  text-align: inherit }
+
+/* div.align-center * { */
+/*   text-align: left } */
+
+.align-top    {
+  vertical-align: top }
+
+.align-middle {
+  vertical-align: middle }
+
+.align-bottom {
+  vertical-align: bottom }
+
+ol.simple, ul.simple {
+  margin-bottom: 1em }
+
+ol.arabic {
+  list-style: decimal }
+
+ol.loweralpha {
+  list-style: lower-alpha }
+
+ol.upperalpha {
+  list-style: upper-alpha }
+
+ol.lowerroman {
+  list-style: lower-roman }
+
+ol.upperroman {
+  list-style: upper-roman }
+
+p.attribution {
+  text-align: right ;
+  margin-left: 50% }
+
+p.caption {
+  font-style: italic }
+
+p.credits {
+  font-style: italic ;
+  font-size: smaller }
+
+p.label {
+  white-space: nowrap }
+
+p.rubric {
+  font-weight: bold ;
+  font-size: larger ;
+  color: maroon ;
+  text-align: center }
+
+p.sidebar-title {
+  font-family: sans-serif ;
+  font-weight: bold ;
+  font-size: larger }
+
+p.sidebar-subtitle {
+  font-family: sans-serif ;
+  font-weight: bold }
+
+p.topic-title {
+  font-weight: bold }
+
+pre.address {
+  margin-bottom: 0 ;
+  margin-top: 0 ;
+  font: inherit }
+
+pre.literal-block, pre.doctest-block, pre.math, pre.code {
+  margin-left: 2em ;
+  margin-right: 2em }
+
+pre.code .ln { color: grey; } /* line numbers */
+pre.code, code { background-color: #eeeeee }
+pre.code .comment, code .comment { color: #5C6576 }
+pre.code .keyword, code .keyword { color: #3B0D06; font-weight: bold }
+pre.code .literal.string, code .literal.string { color: #0C5404 }
+pre.code .name.builtin, code .name.builtin { color: #352B84 }
+pre.code .deleted, code .deleted { background-color: #DEB0A1}
+pre.code .inserted, code .inserted { background-color: #A3D289}
+
+span.classifier {
+  font-family: sans-serif ;
+  font-style: oblique }
+
+span.classifier-delimiter {
+  font-family: sans-serif ;
+  font-weight: bold }
+
+span.interpreted {
+  font-family: sans-serif }
+
+span.option {
+  white-space: nowrap }
+
+span.pre {
+  white-space: pre }
+
+span.problematic {
+  color: red }
+
+span.section-subtitle {
+  /* font-size relative to parent (h1..h6 element) */
+  font-size: 80% }
+
+table.citation {
+  border-left: solid 1px gray;
+  margin-left: 1px }
+
+table.docinfo {
+  margin: 2em 4em }
+
+table.docutils {
+  margin-top: 0.5em ;
+  margin-bottom: 0.5em }
+
+table.footnote {
+  border-left: solid 1px black;
+  margin-left: 1px }
+
+table.docutils td, table.docutils th,
+table.docinfo td, table.docinfo th {
+  padding-left: 0.5em ;
+  padding-right: 0.5em ;
+  vertical-align: top }
+
+table.docutils th.field-name, table.docinfo th.docinfo-name {
+  font-weight: bold ;
+  text-align: left ;
+  white-space: nowrap ;
+  padding-left: 0 }
+
+/* "booktabs" style (no vertical lines) */
+table.docutils.booktabs {
+  border: 0px;
+  border-top: 2px solid;
+  border-bottom: 2px solid;
+  border-collapse: collapse;
+}
+table.docutils.booktabs * {
+  border: 0px;
+}
+table.docutils.booktabs th {
+  border-bottom: thin solid;
+  text-align: left;
+}
+
+h1 tt.docutils, h2 tt.docutils, h3 tt.docutils,
+h4 tt.docutils, h5 tt.docutils, h6 tt.docutils {
+  font-size: 100% }
+
+ul.auto-toc {
+  list-style-type: none }
+
+</style>
+<!-- configuration parameters -->
+<meta name="defaultView" content="slideshow" />
+<meta name="controlVis" content="visible" />
+<!-- style sheet links -->
+<script src="ui/default/slides.js" type="text/javascript"></script>
+<link rel="stylesheet" href="ui/default/slides.css"
+      type="text/css" media="projection" id="slideProj" />
+<link rel="stylesheet" href="ui/default/outline.css"
+      type="text/css" media="screen" id="outlineStyle" />
+<link rel="stylesheet" href="ui/default/print.css"
+      type="text/css" media="print" id="slidePrint" />
+<link rel="stylesheet" href="ui/default/opera.css"
+      type="text/css" media="projection" id="operaFix" />
+
+<style type="text/css">
+#currentSlide {display: none;}
+</style>
+</head>
+<body>
+<div class="layout">
+<div id="controls"></div>
+<div id="currentSlide"></div>
+<div id="header">
+
+</div>
+<div id="footer">
+<h1>Python 3.10 and beyond</h1>
+
+</div>
+</div>
+<div class="presentation">
+<div class="slide" id="slide0">
+<h1 class="title">Python 3.10 and beyond</h1>
+<h2 class="subtitle" id="alex-prengere">Alex PRENGERE</h2>
+
+<img alt="310_logo.png" class="align-center" src="310_logo.png" style="width: 30%;" />
+
+</div>
+<div class="slide" id="introduction">
+<h1>Introduction</h1>
+<ul class="simple">
+<li>Python is the language, created in 1991 by Guido Van Rossum</li>
+<li>CPython is the reference interpreter (a C program that executes Python code)</li>
+<li>Many independent Python interpreters: PyPy, MicroPython, IronPython, Jython</li>
+</ul>
+<p>Also, Python is now ranked #1 in the Tiobe index :P</p>
+</div>
+<div class="slide" id="organization-since-2019">
+<h1>Organization (since 2019)</h1>
+<p>Big changes require a <em>PEP</em>: <em>Python Enhancement Proposal</em>.</p>
+<ul class="simple">
+<li><em>Core developers</em> develop CPython and manage Python</li>
+<li>A steering council of 5 people make final decisions (elected for each release)</li>
+<li>A release manager is elected, and manages 2 releases</li>
+</ul>
+</div>
+<div class="slide" id="steering-council">
+<h1>2021 Steering Council</h1>
+<ul class="simple">
+<li>Barry Warsaw (LinkedIn)</li>
+<li>Brett Cannon (Microsoft)</li>
+<li>Carol Willing (Noteable)</li>
+<li>Pablo Galindo Salgado (Bloomberg)</li>
+<li>Thomas Wouters (Google)</li>
+</ul>
+<p>Release manager: Pablo Galindo Salgado</p>
+</div>
+<div class="slide" id="other-important-bodies">
+<h1>Other important bodies</h1>
+</div>
+<div class="slide" id="pypa">
+<h1>PyPA</h1>
+<p>The Python Packaging Authority (PyPA) is a working group that maintains a core set of software projects used in Python packaging.</p>
+</div>
+<div class="slide" id="psf">
+<h1>PSF</h1>
+<p>The Python Software Foundation (PSF) is a non-profit corporation that holds the intellectual property rights behind the Python programming language.</p>
+<p>Also: organizes PyCon US, support other Python conferences, funding.</p>
+</div>
+<div class="slide" id="releasing">
+<h1>Releasing</h1>
+<p>A new release every year.</p>
+</div>
+<div class="slide" id="annual-release-cadence-since-2019">
+<h1>Annual release cadence (since 2019)</h1>
+<p>A release branch is created in May, the release is in October.</p>
+<img alt="pep_602.png" class="align-center" src="pep_602.png" style="width: 70%;" />
+</div>
+<div class="slide" id="how-to-try-python3-10">
+<h1>How to try Python3.10</h1>
+<p>Compile it from sources!</p>
+<pre class="code bash literal-block">
+git clone https://github.com/python/cpython.git
+<span class="name builtin">cd</span> cpython
+git checkout v3.10.0
+./configure <span class="operator">[</span>--enable-optimizations<span class="operator">]</span>
+make
+sudo make altinstall  <span class="comment single"># install python3.10 to /usr/local/bin/</span>
+</pre>
+</div>
+<div class="slide" id="how-to-use-python3-10-in-your-ci">
+<h1>How to use Python3.10 in your CI</h1>
+<p>To test Python3.10 with tox, add <tt class="docutils literal">py310</tt> to your tox.ini</p>
+<p>For GitHub actions: <tt class="docutils literal"><span class="pre">python-version:</span> [&quot;3.10&quot;]</tt>.</p>
+</div>
+<div class="slide" id="new-features-of-python-3-10">
+<h1>New features of Python 3.10</h1>
+<ul class="simple">
+<li>performance improvements</li>
+<li>improved error messages</li>
+<li>structural pattern matching</li>
+<li>typing improvements</li>
+<li><em>many</em> other things</li>
+</ul>
+</div>
+<div class="slide" id="improved-error-messages">
+<h1>Improved error messages</h1>
+<p>Pre-3.10, most syntax errors produce a useless:</p>
+<pre class="literal-block">
+SyntaxError: EOL while scanning string literal
+</pre>
+<p>Now, any unclosed <tt class="docutils literal"><span class="pre">&quot;{([</span></tt> produce a clear error:</p>
+<pre class="literal-block">
+print(&quot;Hello, World!)
+      ^
+SyntaxError: unterminated string literal (detected at line 3)
+</pre>
+</div>
+<div class="slide" id="id1">
+<h1>Improved error messages</h1>
+<p>Another example: missing commas.</p>
+<pre class="literal-block">
+months = {
+    10: &quot;October&quot;
+    11: &quot;November&quot;,
+    12: &quot;December&quot;,
+}
+</pre>
+<p>This will produce a clear error:</p>
+<pre class="literal-block">
+10: &quot;October&quot;
+    ^^^^^^^^^
+SyntaxError: invalid syntax. Perhaps you forgot a comma?
+</pre>
+</div>
+<div class="slide" id="id2">
+<h1>Improved error messages</h1>
+<p>Another example: typos.</p>
+<pre class="literal-block">
+&gt;&gt;&gt; pint
+NameError: name 'pint' is not defined. Did you mean: 'print'?
+</pre>
+</div>
+<div class="slide" id="structural-pattern-matching">
+<h1>Structural Pattern Matching</h1>
+<p>New syntax!</p>
+<p>This means you cannot use it in libraries that need to support pre-3.10.</p>
+</div>
+<div class="slide" id="id3">
+<h1>Structural Pattern Matching</h1>
+<p>Literal pattern and capture patterns.</p>
+<pre class="code python literal-block">
+<span class="name">command</span> <span class="operator">=</span> <span class="literal string double">&quot;mv&quot;</span>
+
+<span class="name">match</span> <span class="name">command</span><span class="punctuation">:</span>
+    <span class="name">case</span> <span class="literal string double">&quot;cp&quot;</span><span class="punctuation">:</span>
+        <span class="name builtin">print</span><span class="punctuation">(</span><span class="literal string double">&quot;Executing copy&quot;</span><span class="punctuation">)</span>
+    <span class="name">case</span> <span class="literal string double">&quot;mv&quot;</span><span class="punctuation">:</span>
+        <span class="name builtin">print</span><span class="punctuation">(</span><span class="literal string double">&quot;Executing move&quot;</span><span class="punctuation">)</span>
+    <span class="name">case</span> <span class="name">another</span><span class="punctuation">:</span>
+        <span class="name builtin">print</span><span class="punctuation">(</span><span class="literal string affix">f</span><span class="literal string double">&quot;Executing </span><span class="literal string interpol">{</span><span class="name">another</span><span class="literal string interpol">}</span><span class="literal string double">&quot;</span><span class="punctuation">)</span>
+</pre>
+</div>
+<div class="slide" id="id4">
+<h1>Structural Pattern Matching</h1>
+<p>Sequence pattern.</p>
+<pre class="code python literal-block">
+<span class="name">command</span> <span class="operator">=</span> <span class="literal string double">&quot;mv src dst&quot;</span>
+
+<span class="name">match</span> <span class="name">command</span><span class="operator">.</span><span class="name">split</span><span class="punctuation">():</span>
+    <span class="name">case</span> <span class="punctuation">[</span><span class="name">action</span><span class="punctuation">]:</span>
+        <span class="operator">...</span>
+    <span class="name">case</span> <span class="punctuation">[</span><span class="name">action</span><span class="punctuation">,</span> <span class="name">obj</span><span class="punctuation">]:</span>
+        <span class="operator">...</span>
+    <span class="name">case</span> <span class="punctuation">[</span><span class="name">action</span><span class="punctuation">,</span> <span class="name">arg1</span><span class="punctuation">,</span> <span class="name">arg2</span><span class="punctuation">]:</span>  <span class="comment single"># matches!</span>
+        <span class="operator">...</span>
+</pre>
+</div>
+<div class="slide" id="id5">
+<h1>Structural Pattern Matching</h1>
+<p>Wildcard pattern.</p>
+<pre class="code python literal-block">
+<span class="name">command</span> <span class="operator">=</span> <span class="literal string double">&quot;ls src dst&quot;</span>
+
+<span class="name">match</span> <span class="name">command</span><span class="operator">.</span><span class="name">split</span><span class="punctuation">():</span>
+    <span class="name">case</span> <span class="punctuation">[</span><span class="literal string double">&quot;ls&quot;</span><span class="punctuation">]:</span>
+        <span class="operator">...</span>
+    <span class="name">case</span> <span class="punctuation">[</span><span class="literal string double">&quot;mv&quot;</span><span class="punctuation">,</span> <span class="name">src</span><span class="punctuation">,</span> <span class="name">dst</span><span class="punctuation">]:</span>
+        <span class="operator">...</span>
+    <span class="name">case</span> <span class="name">_</span><span class="punctuation">:</span>  <span class="comment single"># matches!</span>
+        <span class="operator">...</span>
+</pre>
+</div>
+<div class="slide" id="id6">
+<h1>Structural Pattern Matching</h1>
+<p>OR pattern.</p>
+<pre class="code python literal-block">
+<span class="name">command</span> <span class="operator">=</span> <span class="literal string double">&quot;ls&quot;</span>
+
+<span class="name">match</span> <span class="name">command</span><span class="operator">.</span><span class="name">split</span><span class="punctuation">():</span>
+    <span class="name">case</span> <span class="punctuation">[</span><span class="literal string double">&quot;ls&quot;</span><span class="punctuation">]</span> <span class="operator">|</span> <span class="punctuation">[</span><span class="literal string double">&quot;cd&quot;</span><span class="punctuation">]:</span>  <span class="comment single"># matches!</span>
+        <span class="operator">...</span>
+    <span class="name">case</span> <span class="punctuation">[</span><span class="literal string double">&quot;mv&quot;</span><span class="punctuation">,</span> <span class="name">src</span><span class="punctuation">,</span> <span class="name">dst</span><span class="punctuation">]:</span>
+        <span class="operator">...</span>
+    <span class="name">case</span> <span class="name">_</span><span class="punctuation">:</span>
+        <span class="operator">...</span>
+</pre>
+</div>
+<div class="slide" id="id7">
+<h1>Structural Pattern Matching</h1>
+<p>Sub-patterns.</p>
+<pre class="code python literal-block">
+<span class="name">command</span> <span class="operator">=</span> <span class="literal string double">&quot;cd west&quot;</span>
+
+<span class="name">match</span> <span class="name">command</span><span class="operator">.</span><span class="name">split</span><span class="punctuation">():</span>
+    <span class="name">case</span> <span class="punctuation">[</span><span class="literal string double">&quot;cd&quot;</span><span class="punctuation">,</span> <span class="punctuation">(</span><span class="literal string double">&quot;north&quot;</span> <span class="operator">|</span> <span class="literal string double">&quot;south&quot;</span> <span class="operator">|</span> <span class="literal string double">&quot;east&quot;</span> <span class="operator">|</span> <span class="literal string double">&quot;west&quot;</span><span class="punctuation">)]:</span>
+        <span class="operator">...</span>
+</pre>
+</div>
+<div class="slide" id="id8">
+<h1>Structural Pattern Matching</h1>
+<p>AS pattern.</p>
+<pre class="code python literal-block">
+<span class="name">command</span> <span class="operator">=</span> <span class="literal string double">&quot;cd west&quot;</span>
+
+<span class="name">match</span> <span class="name">command</span><span class="operator">.</span><span class="name">split</span><span class="punctuation">():</span>
+    <span class="name">case</span> <span class="punctuation">[</span><span class="literal string double">&quot;cd&quot;</span><span class="punctuation">,</span> <span class="punctuation">(</span><span class="literal string double">&quot;north&quot;</span> <span class="operator">|</span> <span class="literal string double">&quot;south&quot;</span> <span class="operator">|</span> <span class="literal string double">&quot;east&quot;</span> <span class="operator">|</span> <span class="literal string double">&quot;west&quot;</span><span class="punctuation">)</span> <span class="keyword">as</span> <span class="name">direction</span><span class="punctuation">]:</span>
+        <span class="name builtin">print</span><span class="punctuation">(</span><span class="name">direction</span><span class="punctuation">)</span>
+</pre>
+</div>
+<div class="slide" id="id9">
+<h1>Structural Pattern Matching</h1>
+<p>Conditions.</p>
+<pre class="code python literal-block">
+<span class="name">command</span> <span class="operator">=</span> <span class="literal string double">&quot;cd WEST&quot;</span>
+
+<span class="name">match</span> <span class="name">command</span><span class="operator">.</span><span class="name">split</span><span class="punctuation">():</span>
+    <span class="name">case</span> <span class="punctuation">[</span><span class="literal string double">&quot;cd&quot;</span><span class="punctuation">,</span> <span class="name">direction</span><span class="punctuation">]</span> <span class="keyword">if</span> <span class="name">direction</span><span class="operator">.</span><span class="name">isupper</span><span class="punctuation">():</span>
+        <span class="name builtin">print</span><span class="punctuation">(</span><span class="name">direction</span><span class="punctuation">)</span>
+</pre>
+</div>
+<div class="slide" id="id10">
+<h1>Structural Pattern Matching</h1>
+<p>Value pattern (careful here, <em>dotted</em> names are necessary).</p>
+<pre class="code python literal-block">
+<span class="keyword">class</span> <span class="name class">Alias</span><span class="punctuation">:</span>
+    <span class="name">copy</span> <span class="operator">=</span> <span class="literal string double">&quot;cp&quot;</span>
+    <span class="name">move</span> <span class="operator">=</span> <span class="literal string double">&quot;mv&quot;</span>
+
+
+<span class="name">command</span> <span class="operator">=</span> <span class="literal string double">&quot;cp&quot;</span>
+
+<span class="name">match</span> <span class="name">command</span><span class="punctuation">:</span>
+    <span class="name">case</span> <span class="name">Alias</span><span class="operator">.</span><span class="name">move</span><span class="punctuation">:</span>
+        <span class="operator">...</span>
+    <span class="name">case</span> <span class="name">Alias</span><span class="operator">.</span><span class="name">copy</span><span class="punctuation">:</span>  <span class="comment single"># matches!</span>
+        <span class="operator">...</span>
+    <span class="name">case</span> <span class="name">_</span><span class="punctuation">:</span>
+        <span class="operator">...</span>
+</pre>
+</div>
+<div class="slide" id="id11">
+<h1>Structural Pattern Matching</h1>
+<p>Mapping pattern.</p>
+<pre class="code python literal-block">
+<span class="name">action</span> <span class="operator">=</span> <span class="punctuation">{</span><span class="literal string double">&quot;sleep&quot;</span><span class="punctuation">:</span> <span class="literal number integer">1</span><span class="punctuation">,</span> <span class="literal string double">&quot;text&quot;</span><span class="punctuation">:</span> <span class="literal string double">&quot;Hello&quot;</span><span class="punctuation">}</span>
+
+<span class="name">match</span> <span class="name">action</span><span class="punctuation">:</span>
+    <span class="name">case</span> <span class="punctuation">{</span><span class="literal string double">&quot;text&quot;</span><span class="punctuation">:</span> <span class="name">message</span><span class="punctuation">,</span> <span class="literal string double">&quot;color&quot;</span><span class="punctuation">:</span> <span class="name">c</span><span class="punctuation">}:</span>
+        <span class="operator">...</span>
+    <span class="name">case</span> <span class="punctuation">{</span><span class="literal string double">&quot;sleep&quot;</span><span class="punctuation">:</span> <span class="name">duration</span><span class="punctuation">}:</span>  <span class="comment single"># matches</span>
+        <span class="operator">...</span>
+</pre>
+</div>
+<div class="slide" id="id12">
+<h1>Structural Pattern Matching</h1>
+<p>Class pattern.</p>
+<pre class="code python literal-block">
+<span class="name">obj</span> <span class="operator">=</span> <span class="literal number integer">1</span> <span class="operator">/</span> <span class="literal number integer">3</span>
+
+<span class="name">match</span> <span class="name">obj</span><span class="punctuation">:</span>
+    <span class="name">case</span> <span class="name builtin">str</span><span class="punctuation">():</span>
+        <span class="operator">...</span>
+    <span class="name">case</span> <span class="name builtin">int</span><span class="punctuation">():</span>
+        <span class="operator">...</span>
+    <span class="name">case</span> <span class="name builtin">float</span><span class="punctuation">():</span>  <span class="comment single"># matches</span>
+        <span class="operator">...</span>
+    <span class="name">case</span> <span class="name">CustomClass</span><span class="punctuation">():</span>
+        <span class="operator">...</span>
+</pre>
+</div>
+<div class="slide" id="id13">
+<h1>Structural Pattern Matching</h1>
+<ul class="simple">
+<li>Capture patterns bind values to names.</li>
+<li>Wildcard patterns match anything.</li>
+<li>Literal patterns match literal values.</li>
+<li>OR patterns match one of several different subpatterns.</li>
+<li>AS patterns bind the value of subpatterns to names.</li>
+<li>Sequence patterns match sequence structures like tuples and lists.</li>
+<li>Value patterns match values stored in attributes.</li>
+<li>Mapping patterns match mapping structures like dictionaries.</li>
+<li>Class patterns match class structures.</li>
+</ul>
+</div>
+<div class="slide" id="typing-improvements">
+<h1>Typing improvements</h1>
+<p>Optional static typing are &quot;comments&quot; that have (almost) no effect on the runtime.</p>
+<p>Useful for static analysis tools like <tt class="docutils literal">mypy</tt>, <tt class="docutils literal"><span class="pre">pyre-check</span></tt> (Facebook), <tt class="docutils literal">pytype</tt> (Google).</p>
+<pre class="code python literal-block">
+<span class="keyword">def</span> <span class="name function">show_total</span><span class="punctuation">(</span><span class="name">a</span><span class="punctuation">:</span> <span class="name builtin">int</span><span class="punctuation">,</span> <span class="name">b</span><span class="punctuation">:</span> <span class="name builtin">int</span><span class="punctuation">)</span> <span class="operator">-&gt;</span> <span class="name builtin">str</span><span class="punctuation">:</span>
+    <span class="name">total</span><span class="punctuation">:</span> <span class="name builtin">int</span> <span class="operator">=</span> <span class="name">a</span> <span class="operator">+</span> <span class="name">b</span>
+    <span class="keyword">return</span> <span class="literal string affix">f</span><span class="literal string double">&quot;</span><span class="literal string interpol">{</span><span class="name">a</span><span class="literal string interpol">}</span><span class="literal string double"> + </span><span class="literal string interpol">{</span><span class="name">b</span><span class="literal string interpol">}</span><span class="literal string double"> = </span><span class="literal string interpol">{</span><span class="name">total</span><span class="literal string interpol">}</span><span class="literal string double">&quot;</span>
+
+<span class="name">show_total</span><span class="punctuation">(</span><span class="literal number integer">1</span><span class="punctuation">,</span> <span class="literal number float">2.5</span><span class="punctuation">)</span>  <span class="comment single"># runs fine, but is a mypy error</span>
+</pre>
+</div>
+<div class="slide" id="type-unions">
+<h1>Type Unions</h1>
+<p><tt class="docutils literal">typing.Union</tt> is no longer needed: replaced by a pipe.</p>
+<pre class="code python literal-block">
+<span class="comment single"># Before</span>
+<span class="comment single">#</span>
+<span class="keyword namespace">from</span> <span class="name namespace">typing</span> <span class="keyword namespace">import</span> <span class="name">Union</span>
+
+<span class="keyword">def</span> <span class="name function">mean</span><span class="punctuation">(</span><span class="name">numbers</span><span class="punctuation">:</span> <span class="name builtin">list</span><span class="punctuation">[</span><span class="name">Union</span><span class="punctuation">[</span><span class="name builtin">float</span><span class="punctuation">,</span> <span class="name builtin">int</span><span class="punctuation">]])</span> <span class="operator">-&gt;</span> <span class="name builtin">float</span><span class="punctuation">:</span>
+    <span class="keyword">return</span> <span class="name builtin">sum</span><span class="punctuation">(</span><span class="name">numbers</span><span class="punctuation">)</span> <span class="operator">/</span> <span class="name builtin">len</span><span class="punctuation">(</span><span class="name">numbers</span><span class="punctuation">)</span>
+
+
+<span class="comment single"># After</span>
+<span class="comment single">#</span>
+<span class="keyword">def</span> <span class="name function">mean</span><span class="punctuation">(</span><span class="name">numbers</span><span class="punctuation">:</span> <span class="name builtin">list</span><span class="punctuation">[</span><span class="name builtin">float</span> <span class="operator">|</span> <span class="name builtin">int</span><span class="punctuation">])</span> <span class="operator">-&gt;</span> <span class="name builtin">float</span><span class="punctuation">:</span>
+    <span class="keyword">return</span> <span class="name builtin">sum</span><span class="punctuation">(</span><span class="name">numbers</span><span class="punctuation">)</span> <span class="operator">/</span> <span class="name builtin">len</span><span class="punctuation">(</span><span class="name">numbers</span><span class="punctuation">)</span>
+</pre>
+</div>
+<div class="slide" id="id14">
+<h1>Type Unions</h1>
+<p>Bonus, this works too.</p>
+<pre class="code python literal-block">
+<span class="name builtin">isinstance</span><span class="punctuation">(</span><span class="name">number</span><span class="punctuation">,</span> <span class="name builtin">float</span> <span class="operator">|</span> <span class="name builtin">int</span><span class="punctuation">)</span>
+<span class="name builtin">issubclass</span><span class="punctuation">(</span><span class="name builtin">str</span><span class="punctuation">,</span> <span class="name builtin">int</span> <span class="operator">|</span> <span class="name builtin">float</span> <span class="operator">|</span> <span class="name builtin">bytes</span><span class="punctuation">)</span>
+</pre>
+</div>
+<div class="slide" id="id15">
+<h1>Type Unions</h1>
+<p><tt class="docutils literal">Optional</tt> is no longer needed.</p>
+<pre class="code python literal-block">
+<span class="comment single"># Before</span>
+<span class="comment single">#</span>
+<span class="keyword namespace">from</span> <span class="name namespace">typing</span> <span class="keyword namespace">import</span> <span class="name">Optional</span>
+<span class="name">Optional</span><span class="punctuation">[</span><span class="name builtin">str</span><span class="punctuation">]</span>
+
+
+<span class="comment single"># After</span>
+<span class="comment single">#</span>
+<span class="name builtin">str</span> <span class="operator">|</span> <span class="keyword constant">None</span>
+</pre>
+</div>
+<div class="slide" id="id16">
+<h1>Typing improvements</h1>
+<ul class="simple">
+<li><tt class="docutils literal">typing.TypeAlias</tt> to signal an alias for a type</li>
+<li><tt class="docutils literal">typing.TypeGuard</tt> to help with narrowing union types</li>
+<li><tt class="docutils literal">typing.ParamSpec</tt> to represent a callable arguments</li>
+</ul>
+<p>stdlib <tt class="docutils literal">typing</tt> has a backport for Python3.5+ available on PyPI: <tt class="docutils literal">typing_extensions</tt></p>
+</div>
+<div class="slide" id="and-the-rest">
+<h1>And the rest</h1>
+<p>The smaller stuff.</p>
+</div>
+<div class="slide" id="strict-zip">
+<h1>Strict zip</h1>
+<p><tt class="docutils literal">zip</tt> has a new <tt class="docutils literal">strict</tt> option, raising <tt class="docutils literal">ValueError</tt> when input have different lengths.</p>
+<pre class="code python literal-block">
+<span class="operator">&gt;&gt;&gt;</span> <span class="name builtin">list</span><span class="punctuation">(</span><span class="name builtin">zip</span><span class="punctuation">([</span><span class="literal number integer">1</span><span class="punctuation">,</span> <span class="literal number integer">2</span><span class="punctuation">,</span> <span class="literal number integer">3</span><span class="punctuation">],</span> <span class="punctuation">[</span><span class="literal string double">&quot;A&quot;</span><span class="punctuation">,</span> <span class="literal string double">&quot;B&quot;</span><span class="punctuation">],</span> <span class="name">strict</span><span class="operator">=</span><span class="keyword constant">True</span><span class="punctuation">))</span>
+<span class="name">Traceback</span> <span class="punctuation">(</span><span class="name">most</span> <span class="name">recent</span> <span class="name">call</span> <span class="name">last</span><span class="punctuation">):</span>
+  <span class="name">File</span> <span class="literal string double">&quot;&lt;stdin&gt;&quot;</span><span class="punctuation">,</span> <span class="name">line</span> <span class="literal number integer">1</span><span class="punctuation">,</span> <span class="operator word">in</span> <span class="operator">&lt;</span><span class="name">module</span><span class="operator">&gt;</span>
+<span class="name exception">ValueError</span><span class="punctuation">:</span> <span class="name builtin">zip</span><span class="punctuation">()</span> <span class="name">argument</span> <span class="literal number integer">2</span> <span class="operator word">is</span> <span class="name">shorter</span> <span class="name">than</span> <span class="name">argument</span> <span class="literal number integer">1</span>
+</pre>
+</div>
+<div class="slide" id="new-functions-in-statistics">
+<h1>New functions in <cite>statistics</cite></h1>
+<p><tt class="docutils literal">statistics</tt> was introduced in 3.4, contains stats functions like mean, median, stdev.</p>
+<p>New additions:</p>
+<ul class="simple">
+<li><tt class="docutils literal">correlation()</tt> to calculate Pearson’s correlation coefficient for two variables</li>
+<li><tt class="docutils literal">covariance()</tt> to calculate sample covariance for two variables</li>
+<li><tt class="docutils literal">linear_regression()</tt> to calculate the slope and intercept in a linear regression</li>
+</ul>
+</div>
+<div class="slide" id="text-encodings">
+<h1>Text Encodings</h1>
+<p>You should always specify explicit encodings.</p>
+<pre class="code python literal-block">
+<span class="keyword">with</span> <span class="name builtin">open</span><span class="punctuation">(</span><span class="literal string double">&quot;file.txt&quot;</span><span class="punctuation">,</span> <span class="name">encoding</span><span class="operator">=</span><span class="literal string double">&quot;utf-8&quot;</span><span class="punctuation">)</span> <span class="keyword">as</span> <span class="name">file</span><span class="punctuation">:</span>
+    <span class="operator">...</span>
+</pre>
+<p>To check this, there is a new warning that you can enable.</p>
+<pre class="literal-block">
+$ python -X warn_default_encoding
+&gt;&gt;&gt; open(&quot;file.txt&quot;)
+&lt;stdin&gt;:1: EncodingWarning: 'encoding' argument not specified
+</pre>
+</div>
+<div class="slide" id="sys-orig-argv">
+<h1>sys.orig_argv</h1>
+<p><tt class="docutils literal">sys.orig_argv</tt> keeps the options passed to the interpreter.</p>
+<pre class="literal-block">
+$ python -X utf8 -O argvs.py 3.10 --upgrade
+#
+# sys.argv:
+# ['argvs.py', '3.10', '--upgrade']
+#
+# sys.orig_argv:
+# ['python', '-X', 'utf8', '-O', 'argvs.py', '3.10', '--upgrade']
+</pre>
+</div>
+<div class="slide" id="and-beyond">
+<h1>And beyond!</h1>
+<p>Let's talk about the future (3.11+).</p>
+</div>
+<div class="slide" id="id17">
+<h1>And beyond!</h1>
+<ul class="simple">
+<li>enhanced error locations in tracebacks</li>
+<li>PEP 654: exception groups</li>
+<li><tt class="docutils literal">from __future__ import annotations</tt> by default</li>
+<li>the Mark Shannon plan for faster CPython</li>
+<li>the Sam Gross no-GIL proof of concept</li>
+</ul>
+</div>
+<div class="slide" id="improved-tracebacks">
+<h1>Improved tracebacks</h1>
+<p>Even better error messages with improved tracebacks.</p>
+<pre class="code python literal-block">
+<span class="name">Traceback</span> <span class="punctuation">(</span><span class="name">most</span> <span class="name">recent</span> <span class="name">call</span> <span class="name">last</span><span class="punctuation">):</span>
+  <span class="name">File</span> <span class="literal string double">&quot;calculation.py&quot;</span><span class="punctuation">,</span> <span class="name">line</span> <span class="literal number integer">54</span><span class="punctuation">,</span> <span class="operator word">in</span> <span class="operator">&lt;</span><span class="name">module</span><span class="operator">&gt;</span>
+    <span class="name">result</span> <span class="operator">=</span> <span class="punctuation">(</span><span class="name">x</span> <span class="operator">/</span> <span class="name">y</span> <span class="operator">/</span> <span class="name">z</span><span class="punctuation">)</span> <span class="operator">*</span> <span class="punctuation">(</span><span class="name">a</span> <span class="operator">/</span> <span class="name">b</span> <span class="operator">/</span> <span class="name">c</span><span class="punctuation">)</span>
+              <span class="operator">~~~~~~^~~</span>
+<span class="name exception">ZeroDivisionError</span><span class="punctuation">:</span> <span class="name">division</span> <span class="name">by</span> <span class="name">zero</span>
+</pre>
+</div>
+<div class="slide" id="exception-groups">
+<h1>Exception groups</h1>
+<p>Exception groups: raising and catching multiple exceptions at once.</p>
+<pre class="code python literal-block">
+<span class="keyword">try</span><span class="punctuation">:</span>
+    <span class="keyword">raise</span> <span class="name">ExceptionGroup</span><span class="punctuation">(</span><span class="literal string double">&quot;msg&quot;</span><span class="punctuation">,</span> <span class="punctuation">[</span><span class="name exception">ValueError</span><span class="punctuation">,</span> <span class="name exception">TypeError</span><span class="punctuation">])</span>
+<span class="comment single"># BOTH clause will be executed, unlike regular 'except'</span>
+<span class="keyword">except</span><span class="operator">*</span> <span class="name exception">ValueError</span><span class="punctuation">:</span>
+    <span class="operator">...</span>
+<span class="keyword">except</span><span class="operator">*</span> <span class="name exception">TypeError</span><span class="punctuation">:</span>
+    <span class="operator">...</span>
+</pre>
+</div>
+<div class="slide" id="type-annotations">
+<h1>Type annotations</h1>
+<p>Example of <em>forward reference</em> issue:</p>
+<pre class="code python literal-block">
+<span class="keyword">class</span> <span class="name class">A</span><span class="punctuation">:</span>
+    <span class="keyword">def</span> <span class="name function">f</span><span class="punctuation">(</span><span class="name builtin pseudo">self</span><span class="punctuation">:</span> <span class="name">A</span><span class="punctuation">):</span>  <span class="comment single"># &lt;- A is not yet defined</span>
+        <span class="keyword">pass</span>
+</pre>
+<p>With <tt class="docutils literal">&quot;from __future__ import annotations&quot;</tt>, annotations are stored as strings.</p>
+</div>
+<div class="slide" id="faster-cpython">
+<h1>Faster CPython</h1>
+<p>Performance is now a hot topic.</p>
+<p>Microsoft has recruited Guido and several others to work on this.</p>
+</div>
+<div class="slide" id="id18">
+<h1>Faster CPython</h1>
+<ul class="simple">
+<li>Stage 1 -- Python 3.10: adaptive, specializing interpreter</li>
+<li>Stage 2 -- Python 3.11: improvements to the runtime and key objects</li>
+<li>Stage 3 -- Python 3.12: simple &quot;JIT&quot; compiler for small regions</li>
+<li>Stage 4 -- Python 3.13: extend regions for compilation</li>
+</ul>
+<p>Goal: 5x performance in 4 years</p>
+</div>
+<div class="slide" id="sam-gross-no-gil">
+<h1>Sam Gross no-GIL</h1>
+<p>The Python <em>Global Interpreter Lock</em> or GIL, in simple words, is a mutex (or a lock) that allows only one thread to hold the control of the Python interpreter.</p>
+<p>This means that only one thread can be in a state of execution at any point in time.</p>
+</div>
+<div class="slide" id="id19">
+<h1>Sam Gross no-GIL</h1>
+<p>CPython experiment by Sam Gross who:</p>
+<ul class="simple">
+<li>reworked the reference counting</li>
+<li>changed the memory allocator</li>
+<li>reworked the garbage collection to be thread-safe</li>
+<li>changed list &amp; dict implementations to be thread-safe</li>
+<li>removed the GIL (!)</li>
+</ul>
+<p>No major performance hit on single-thread workloads.</p>
+<p>Some impressive benchmarks: 18.1x speed-up on &quot;pi calculation&quot;.</p>
+</div>
+<div class="slide" id="questions">
+<h1>Questions?</h1>
+</div>
+<div class="slide" id="backup">
+<h1>Backup</h1>
+</div>
+<div class="slide" id="pep-8016-core-developers">
+<h1>PEP 8016: Core developers</h1>
+<ul class="simple">
+<li>elected for life by 2/3 of positive votes and no veto by Steering Council</li>
+<li>can modify PEP 8016 by 2/3 of the vote</li>
+<li>can be declared inactive after 2 years of inactivity, and loose nomination, voting, and committing rights</li>
+<li>can regain their active status</li>
+</ul>
+</div>
+<div class="slide" id="pep-8016-steering-council">
+<h1>PEP 8016: Steering Council</h1>
+<ul class="simple">
+<li>5 people elected using Condorcet method, by the core developers</li>
+<li>candidates must be nominated by a core developer, and can themselves be core developer or not</li>
+<li>a term last for a feature release</li>
+<li>no more than 2 people working for the same employer</li>
+</ul>
+</div>
+<div class="slide" id="pep-8016-steering-council-powers">
+<h1>PEP 8016: Steering Council powers</h1>
+<ul class="simple">
+<li>Accept or reject PEPs</li>
+<li>Enforce or update the project's code of conduct</li>
+<li>Work with the PSF to manage any project assets</li>
+<li>Delegate parts of their authority to other subcommittees or processes</li>
+</ul>
+</div>
+<div class="slide" id="pep-602-annual-release-cadence">
+<h1>PEP 602: annual release cadence</h1>
+<ul class="simple">
+<li>One feature release every year</li>
+<li>7 months alphas, 3 months betas (only bug fixes), 2 months release candidates</li>
+<li>1.5 years of bug fixes updates, 3.5 years of security updates (source only)</li>
+<li>a release manager is elected to manage 2 feature releases and their maintenance releases</li>
+</ul>
+</div>
+<div class="slide" id="id20">
+<h1>PEP 602: annual release cadence</h1>
+<ul class="simple">
+<li>makes releases smaller</li>
+<li>puts features and bug fixes in hands of users sooner</li>
+<li>creates a more gradual upgrade path for users</li>
+<li>creates a predictable calendar for releases where the final release is always in October</li>
+<li>increases the explicit alpha release phase, which provides meaningful snapshots of progress on new features</li>
+</ul>
+</div>
+<div class="slide" id="communication-channels">
+<h1>Communication channels</h1>
+<ul class="simple">
+<li>python-committers, python-dev, python-ideas, typing-sig mailing lists</li>
+<li><em>discuss.python.org</em> forum (more recently)</li>
+<li>CPython sources are now on GitHub</li>
+<li>Bug tracker is at <em>bugs.python.org</em> aka &quot;bpo&quot;</li>
+</ul>
+</div>
+<div class="slide" id="history-of-changes">
+<h1>History of changes</h1>
+</div>
+<div class="slide" id="python-3-5-2015">
+<h1>Python 3.5 (2015)</h1>
+<ul class="simple">
+<li>PEP 492: <tt class="docutils literal">async</tt> and <tt class="docutils literal">await</tt> are new keywords</li>
+<li>PEP 465: <tt class="docutils literal">&#64;</tt> is new operator for matrix multiplication: <tt class="docutils literal">a &#64; b</tt> (<tt class="docutils literal">__matmul__</tt>)</li>
+<li>PEP 484: new <tt class="docutils literal">typing</tt> module</li>
+</ul>
+</div>
+<div class="slide" id="python-3-6-2016">
+<h1>Python 3.6 (2016)</h1>
+<ul class="simple">
+<li>PEP 506: new <tt class="docutils literal">secrets</tt> module</li>
+<li>PEP 498: formatted string literals: <tt class="docutils literal">f'Next year is {1 + <span class="pre">today().year}'</span></tt></li>
+<li>PEP 515: underscores in numeric literals: <tt class="docutils literal">1_000_000</tt></li>
+<li>PEP 526: syntax for variable annotations: <tt class="docutils literal">a: Dict[int, int] = {}</tt></li>
+<li>PEP 525: asynchronous generators: <tt class="docutils literal">async</tt> in generators</li>
+<li>PEP 530: asynchronous comprehensions: <tt class="docutils literal">async</tt> in comprehensions</li>
+<li>Multiple speed optimizations</li>
+</ul>
+</div>
+<div class="slide" id="python-3-7-2018">
+<h1>Python 3.7 (2018)</h1>
+<ul class="simple">
+<li>PEP 563: postponed evaluation of type annotations</li>
+<li>PEP 567: Context Variables</li>
+<li>PEP 557: Data Classes</li>
+<li>PEP 553: the new breakpoint() function.</li>
+<li>PEP 562: customization of access to module attributes.</li>
+<li>PEP 560: core support for typing module and generic types.</li>
+<li>dicts are sorted</li>
+</ul>
+</div>
+<div class="slide" id="python-3-8-2019">
+<h1>Python 3.8 (2019)</h1>
+<ul class="simple">
+<li>PEP 8016: the Steering Council model</li>
+<li>PEP 572: assignment expressions: <tt class="docutils literal">while block := f.read(256):</tt></li>
+<li>PEP 570: positional only parameters <tt class="docutils literal">def f(a, /, b, *, c):</tt></li>
+<li>PEP 578: Python Runtime Audit Hooks</li>
+<li>PEP 587: Python Initialization Configuration</li>
+<li>PEP 574: pickle protocol 5 with out-of-band data</li>
+<li>multiple speed optimizations (C API, global variables access)</li>
+<li>stdlib additions: <tt class="docutils literal">statistics</tt>, <tt class="docutils literal">math</tt>, <tt class="docutils literal">functools</tt>, <tt class="docutils literal">asyncio</tt>, <tt class="docutils literal">importlib</tt></li>
+</ul>
+</div>
+<div class="slide" id="python-3-9-2020">
+<h1>Python 3.9 (2020)</h1>
+<ul class="simple">
+<li>PEP 602: Python adopts a stable annual release cadence</li>
+<li>PEP 584: add Union Operators To dict</li>
+<li>PEP 585: type Hinting Generics In Standard Collections</li>
+<li>PEP 617: new PEG parser for CPython</li>
+<li>PEP 616: new <tt class="docutils literal">removeprefix()</tt> and <tt class="docutils literal">removesuffix()</tt> string methods</li>
+<li>PEP 615: support for the IANA Time Zone Database in the Standard Library</li>
+<li><tt class="docutils literal">graphlib</tt> that contains the graphlib.TopologicalSorter</li>
+</ul>
+</div>
+<div class="slide" id="python-3-10-2021">
+<h1>Python 3.10 (2021)</h1>
+<ul class="simple">
+<li>PEP 626: precise line numbers for debugging and other tools</li>
+<li>PEP 634-636: Structural Pattern Matching</li>
+<li>PEP 604: allow writing union types as <tt class="docutils literal">X | Y</tt></li>
+<li>PEP 613: explicit type aliases</li>
+<li>PEP 647: user-defined type guards</li>
+<li>PEP 612: parameter specification variables</li>
+<li>PEP 618: add optional length-checking to <tt class="docutils literal">zip</tt></li>
+</ul>
+</div>
+<div class="slide" id="type-aliases">
+<h1>Type Aliases</h1>
+<p><tt class="docutils literal">TypeAlias</tt> signals to type checker that a variable is a type alias.</p>
+<pre class="code python literal-block">
+<span class="comment single"># Before</span>
+<span class="comment single">#</span>
+<span class="name">Card</span> <span class="operator">=</span> <span class="name builtin">tuple</span><span class="punctuation">[</span><span class="name builtin">str</span><span class="punctuation">,</span> <span class="name builtin">str</span><span class="punctuation">]</span>
+<span class="name">Deck</span> <span class="operator">=</span> <span class="name builtin">list</span><span class="punctuation">[</span><span class="name">Card</span><span class="punctuation">]</span>
+
+
+<span class="comment single"># After</span>
+<span class="comment single">#</span>
+<span class="keyword namespace">from</span> <span class="name namespace">typing</span> <span class="keyword namespace">import</span> <span class="name">TypeAlias</span>
+
+<span class="name">Card</span><span class="punctuation">:</span> <span class="name">TypeAlias</span> <span class="operator">=</span> <span class="name builtin">tuple</span><span class="punctuation">[</span><span class="name builtin">str</span><span class="punctuation">,</span> <span class="name builtin">str</span><span class="punctuation">]</span>
+<span class="name">Deck</span><span class="punctuation">:</span> <span class="name">TypeAlias</span> <span class="operator">=</span> <span class="name builtin">list</span><span class="punctuation">[</span><span class="name">Card</span><span class="punctuation">]</span>
+</pre>
+</div>
+<div class="slide" id="type-guards">
+<h1>Type Guards</h1>
+<p><tt class="docutils literal">mypy</tt> understands this.</p>
+<pre class="code python literal-block">
+<span class="keyword">def</span> <span class="name function">get_ace</span><span class="punctuation">(</span><span class="name">suit</span><span class="punctuation">:</span> <span class="name builtin">str</span> <span class="operator">|</span> <span class="keyword constant">None</span><span class="punctuation">)</span> <span class="operator">-&gt;</span> <span class="name builtin">tuple</span><span class="punctuation">[</span><span class="name builtin">str</span><span class="punctuation">,</span> <span class="name builtin">str</span><span class="punctuation">]:</span>
+    <span class="comment single"># here suit can be either str or None</span>
+    <span class="keyword">if</span> <span class="name">suit</span> <span class="operator word">is</span> <span class="keyword constant">None</span><span class="punctuation">:</span>  <span class="comment single"># narrowing the union type</span>
+        <span class="name">suit</span> <span class="operator">=</span> <span class="literal string double">&quot;DIAMOND&quot;</span>
+    <span class="comment single"># here the type checker knows that suit has to be a string,</span>
+    <span class="comment single"># so the return type is OK</span>
+    <span class="keyword">return</span> <span class="punctuation">(</span><span class="name">suit</span><span class="punctuation">,</span> <span class="literal string double">&quot;ACE&quot;</span><span class="punctuation">)</span>
+</pre>
+</div>
+<div class="slide" id="id21">
+<h1>Type Guards</h1>
+<p><tt class="docutils literal">mypy</tt> not happy: <tt class="docutils literal">got &quot;Tuple[Optional[str], <span class="pre">str]&quot;,</span> expected &quot;Tuple[str, <span class="pre">str]&quot;)</span></tt></p>
+<pre class="code python literal-block">
+<span class="keyword">def</span> <span class="name function">is_a_str</span><span class="punctuation">(</span><span class="name">suit</span><span class="punctuation">:</span> <span class="name builtin">str</span> <span class="operator">|</span> <span class="keyword constant">None</span><span class="punctuation">)</span> <span class="operator">-&gt;</span> <span class="name builtin">bool</span><span class="punctuation">:</span>
+    <span class="comment single"># This function acts as a guard, it return True if input is a str.</span>
+    <span class="keyword">return</span> <span class="name">suit</span> <span class="operator word">is</span> <span class="operator word">not</span> <span class="keyword constant">None</span>
+
+<span class="keyword">def</span> <span class="name function">get_ace</span><span class="punctuation">(</span><span class="name">suit</span><span class="punctuation">:</span> <span class="name builtin">str</span> <span class="operator">|</span> <span class="keyword constant">None</span><span class="punctuation">)</span> <span class="operator">-&gt;</span> <span class="name builtin">tuple</span><span class="punctuation">[</span><span class="name builtin">str</span><span class="punctuation">,</span> <span class="name builtin">str</span><span class="punctuation">]:</span>
+    <span class="keyword">if</span> <span class="operator word">not</span> <span class="name">is_a_str</span><span class="punctuation">(</span><span class="name">suit</span><span class="punctuation">):</span>
+        <span class="name">suit</span> <span class="operator">=</span> <span class="literal string double">&quot;DIAMOND&quot;</span>
+    <span class="keyword">return</span> <span class="punctuation">(</span><span class="name">suit</span><span class="punctuation">,</span> <span class="literal string double">&quot;ACE&quot;</span><span class="punctuation">)</span>
+</pre>
+</div>
+<div class="slide" id="id22">
+<h1>Type Guards</h1>
+<p><tt class="docutils literal">mypy</tt> now happy because <tt class="docutils literal">TypeGuard</tt> explains the output semantics.</p>
+<pre class="code python literal-block">
+<span class="keyword">def</span> <span class="name function">is_a_str</span><span class="punctuation">(</span><span class="name">suit</span><span class="punctuation">:</span> <span class="name builtin">str</span> <span class="operator">|</span> <span class="keyword constant">None</span><span class="punctuation">)</span> <span class="operator">-&gt;</span> <span class="name">TypeGuard</span><span class="punctuation">[</span><span class="name builtin">str</span><span class="punctuation">]:</span>
+    <span class="comment single"># This function acts as a guard, it return True if input is a str.</span>
+    <span class="keyword">return</span> <span class="name">suit</span> <span class="operator word">is</span> <span class="operator word">not</span> <span class="keyword constant">None</span>
+
+<span class="keyword">def</span> <span class="name function">get_ace</span><span class="punctuation">(</span><span class="name">suit</span><span class="punctuation">:</span> <span class="name builtin">str</span> <span class="operator">|</span> <span class="keyword constant">None</span><span class="punctuation">)</span> <span class="operator">-&gt;</span> <span class="name builtin">tuple</span><span class="punctuation">[</span><span class="name builtin">str</span><span class="punctuation">,</span> <span class="name builtin">str</span><span class="punctuation">]:</span>
+    <span class="keyword">if</span> <span class="operator word">not</span> <span class="name">is_a_str</span><span class="punctuation">(</span><span class="name">suit</span><span class="punctuation">):</span>
+        <span class="name">suit</span> <span class="operator">=</span> <span class="literal string double">&quot;DIAMOND&quot;</span>
+    <span class="keyword">return</span> <span class="punctuation">(</span><span class="name">suit</span><span class="punctuation">,</span> <span class="literal string double">&quot;ACE&quot;</span><span class="punctuation">)</span>
+</pre>
+</div>
+<div class="slide" id="paramspec">
+<h1>ParamSpec</h1>
+<p>Imprecise annotation of a decorator.</p>
+<pre class="code python literal-block">
+<span class="keyword namespace">import</span> <span class="name namespace">functools</span>
+<span class="keyword namespace">from</span> <span class="name namespace">typing</span> <span class="keyword namespace">import</span> <span class="name">Any</span><span class="punctuation">,</span> <span class="name">Callable</span><span class="punctuation">,</span> <span class="name">TypeVar</span>
+
+<span class="name">R</span> <span class="operator">=</span> <span class="name">TypeVar</span><span class="punctuation">(</span><span class="literal string double">&quot;R&quot;</span><span class="punctuation">)</span>
+
+<span class="keyword">def</span> <span class="name function">decorator</span><span class="punctuation">(</span><span class="name">func</span><span class="punctuation">:</span> <span class="name">Callable</span><span class="punctuation">[</span><span class="operator">...</span><span class="punctuation">,</span> <span class="name">R</span><span class="punctuation">])</span> <span class="operator">-&gt;</span> <span class="name">Callable</span><span class="punctuation">[</span><span class="operator">...</span><span class="punctuation">,</span> <span class="name">R</span><span class="punctuation">]:</span>
+    <span class="name decorator">&#64;functools</span><span class="operator">.</span><span class="name">wraps</span><span class="punctuation">(</span><span class="name">func</span><span class="punctuation">)</span>
+    <span class="keyword">def</span> <span class="name function">wrapper</span><span class="punctuation">(</span><span class="operator">*</span><span class="name">args</span><span class="punctuation">:</span> <span class="name">Any</span><span class="punctuation">,</span> <span class="operator">**</span><span class="name">kwargs</span><span class="punctuation">:</span> <span class="name">Any</span><span class="punctuation">)</span> <span class="operator">-&gt;</span> <span class="name">R</span><span class="punctuation">:</span>
+        <span class="operator">...</span>
+    <span class="keyword">return</span> <span class="name">wrapper</span>
+</pre>
+</div>
+<div class="slide" id="id23">
+<h1>ParamSpec</h1>
+<p>Correct annotation of a decorator.</p>
+<pre class="code python literal-block">
+<span class="keyword namespace">import</span> <span class="name namespace">functools</span>
+<span class="keyword namespace">from</span> <span class="name namespace">typing</span> <span class="keyword namespace">import</span> <span class="name">Callable</span><span class="punctuation">,</span> <span class="name">ParamSpec</span><span class="punctuation">,</span> <span class="name">TypeVar</span>
+
+<span class="name">P</span> <span class="operator">=</span> <span class="name">ParamSpec</span><span class="punctuation">(</span><span class="literal string double">&quot;P&quot;</span><span class="punctuation">)</span>
+<span class="name">R</span> <span class="operator">=</span> <span class="name">TypeVar</span><span class="punctuation">(</span><span class="literal string double">&quot;R&quot;</span><span class="punctuation">)</span>
+
+<span class="keyword">def</span> <span class="name function">decorator</span><span class="punctuation">(</span><span class="name">func</span><span class="punctuation">:</span> <span class="name">Callable</span><span class="punctuation">[</span><span class="name">P</span><span class="punctuation">,</span> <span class="name">R</span><span class="punctuation">])</span> <span class="operator">-&gt;</span> <span class="name">Callable</span><span class="punctuation">[</span><span class="name">P</span><span class="punctuation">,</span> <span class="name">R</span><span class="punctuation">]:</span>
+    <span class="name decorator">&#64;functools</span><span class="operator">.</span><span class="name">wraps</span><span class="punctuation">(</span><span class="name">func</span><span class="punctuation">)</span>
+    <span class="keyword">def</span> <span class="name function">wrapper</span><span class="punctuation">(</span><span class="operator">*</span><span class="name">args</span><span class="punctuation">:</span> <span class="name">P</span><span class="operator">.</span><span class="name">args</span><span class="punctuation">,</span> <span class="operator">**</span><span class="name">kwargs</span><span class="punctuation">:</span> <span class="name">P</span><span class="operator">.</span><span class="name">kwargs</span><span class="punctuation">)</span> <span class="operator">-&gt;</span> <span class="name">R</span><span class="punctuation">:</span>
+        <span class="operator">...</span>
+    <span class="keyword">return</span> <span class="name">wrapper</span>
+</pre>
+</div>
+<div class="slide" id="context-managers">
+<h1>Context managers</h1>
+<p>You can put parenthesis when using multiple context managers.</p>
+<pre class="code python literal-block">
+<span class="comment single"># Before</span>
+<span class="keyword">with</span> <span class="name">read_path</span><span class="operator">.</span><span class="name">open</span><span class="punctuation">(</span><span class="name">mode</span><span class="operator">=</span><span class="literal string double">&quot;r&quot;</span><span class="punctuation">,</span> <span class="name">encoding</span><span class="operator">=</span><span class="literal string double">&quot;utf-8&quot;</span><span class="punctuation">)</span> <span class="keyword">as</span> <span class="name">read_file</span><span class="punctuation">,</span> \
+     <span class="name">write_path</span><span class="operator">.</span><span class="name">open</span><span class="punctuation">(</span><span class="name">mode</span><span class="operator">=</span><span class="literal string double">&quot;w&quot;</span><span class="punctuation">,</span> <span class="name">encoding</span><span class="operator">=</span><span class="literal string double">&quot;utf-8&quot;</span><span class="punctuation">)</span> <span class="keyword">as</span> <span class="name">write_file</span><span class="punctuation">:</span>
+    <span class="operator">...</span>
+
+
+<span class="comment single"># After</span>
+<span class="keyword">with</span> <span class="punctuation">(</span>
+    <span class="name">read_path</span><span class="operator">.</span><span class="name">open</span><span class="punctuation">(</span><span class="name">mode</span><span class="operator">=</span><span class="literal string double">&quot;r&quot;</span><span class="punctuation">,</span> <span class="name">encoding</span><span class="operator">=</span><span class="literal string double">&quot;utf-8&quot;</span><span class="punctuation">)</span> <span class="keyword">as</span> <span class="name">read_file</span><span class="punctuation">,</span>
+    <span class="name">write_path</span><span class="operator">.</span><span class="name">open</span><span class="punctuation">(</span><span class="name">mode</span><span class="operator">=</span><span class="literal string double">&quot;w&quot;</span><span class="punctuation">,</span> <span class="name">encoding</span><span class="operator">=</span><span class="literal string double">&quot;utf-8&quot;</span><span class="punctuation">)</span> <span class="keyword">as</span> <span class="name">write_file</span><span class="punctuation">,</span>
+<span class="punctuation">):</span>
+</pre>
+</div>
+</div>
+</body>
+</html>
