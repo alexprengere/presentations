@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+<meta name="generator" content="Docutils 0.18: http://docutils.sourceforge.net/" />
 <meta name="version" content="S5 1.1" />
 <title>Python 3.10 and beyond</title>
 <style type="text/css">
@@ -415,20 +415,6 @@ ul.auto-toc {
 <li>A release manager is elected, and manages 2 releases</li>
 </ul>
 </div>
-<div class="slide" id="steering-council">
-<h1>2021 Steering Council</h1>
-<ul class="simple">
-<li>Barry Warsaw (LinkedIn)</li>
-<li>Brett Cannon (Microsoft)</li>
-<li>Carol Willing (Noteable)</li>
-<li>Pablo Galindo Salgado (Bloomberg)</li>
-<li>Thomas Wouters (Google)</li>
-</ul>
-<p>Release manager: Pablo Galindo Salgado</p>
-</div>
-<div class="slide" id="other-important-bodies">
-<h1>Other important bodies</h1>
-</div>
 <div class="slide" id="pypa">
 <h1>PyPA</h1>
 <p>The Python Packaging Authority (PyPA) is a working group that maintains a core set of software projects used in Python packaging.</p>
@@ -440,11 +426,11 @@ ul.auto-toc {
 </div>
 <div class="slide" id="releasing">
 <h1>Releasing</h1>
-<p>A new release every year.</p>
+<p>A new release every year in October.</p>
 </div>
 <div class="slide" id="annual-release-cadence-since-2019">
 <h1>Annual release cadence (since 2019)</h1>
-<p>A release branch is created in May, the release is in October.</p>
+<p>A release branch is created in May, stabilized for 6 months.</p>
 <img alt="pep_602.png" class="align-center" src="pep_602.png" style="width: 70%;" />
 </div>
 <div class="slide" id="how-to-try-python3-10">
@@ -487,7 +473,7 @@ print(&quot;Hello, World!)
 SyntaxError: unterminated string literal (detected at line 3)
 </pre>
 </div>
-<div class="slide" id="id1">
+<div class="slide" id="improved-error-messages-1">
 <h1>Improved error messages</h1>
 <p>Another example: missing commas.</p>
 <pre class="literal-block">
@@ -504,7 +490,7 @@ months = {
 SyntaxError: invalid syntax. Perhaps you forgot a comma?
 </pre>
 </div>
-<div class="slide" id="id2">
+<div class="slide" id="improved-error-messages-2">
 <h1>Improved error messages</h1>
 <p>Another example: typos.</p>
 <pre class="literal-block">
@@ -517,7 +503,7 @@ NameError: name 'pint' is not defined. Did you mean: 'print'?
 <p>New syntax!</p>
 <p>This means you cannot use it in libraries that need to support pre-3.10.</p>
 </div>
-<div class="slide" id="id3">
+<div class="slide" id="structural-pattern-matching-1">
 <h1>Structural Pattern Matching</h1>
 <p>Literal pattern and capture patterns.</p>
 <pre class="code python literal-block">
@@ -532,7 +518,7 @@ NameError: name 'pint' is not defined. Did you mean: 'print'?
         <span class="name builtin">print</span><span class="punctuation">(</span><span class="literal string affix">f</span><span class="literal string double">&quot;Executing </span><span class="literal string interpol">{</span><span class="name">another</span><span class="literal string interpol">}</span><span class="literal string double">&quot;</span><span class="punctuation">)</span>
 </pre>
 </div>
-<div class="slide" id="id4">
+<div class="slide" id="structural-pattern-matching-2">
 <h1>Structural Pattern Matching</h1>
 <p>Sequence pattern.</p>
 <pre class="code python literal-block">
@@ -547,7 +533,7 @@ NameError: name 'pint' is not defined. Did you mean: 'print'?
         <span class="operator">...</span>
 </pre>
 </div>
-<div class="slide" id="id5">
+<div class="slide" id="structural-pattern-matching-3">
 <h1>Structural Pattern Matching</h1>
 <p>Wildcard pattern.</p>
 <pre class="code python literal-block">
@@ -562,7 +548,7 @@ NameError: name 'pint' is not defined. Did you mean: 'print'?
         <span class="operator">...</span>
 </pre>
 </div>
-<div class="slide" id="id6">
+<div class="slide" id="structural-pattern-matching-4">
 <h1>Structural Pattern Matching</h1>
 <p>OR pattern.</p>
 <pre class="code python literal-block">
@@ -577,7 +563,7 @@ NameError: name 'pint' is not defined. Did you mean: 'print'?
         <span class="operator">...</span>
 </pre>
 </div>
-<div class="slide" id="id7">
+<div class="slide" id="structural-pattern-matching-5">
 <h1>Structural Pattern Matching</h1>
 <p>Sub-patterns.</p>
 <pre class="code python literal-block">
@@ -588,7 +574,7 @@ NameError: name 'pint' is not defined. Did you mean: 'print'?
         <span class="operator">...</span>
 </pre>
 </div>
-<div class="slide" id="id8">
+<div class="slide" id="structural-pattern-matching-6">
 <h1>Structural Pattern Matching</h1>
 <p>AS pattern.</p>
 <pre class="code python literal-block">
@@ -599,7 +585,7 @@ NameError: name 'pint' is not defined. Did you mean: 'print'?
         <span class="name builtin">print</span><span class="punctuation">(</span><span class="name">direction</span><span class="punctuation">)</span>
 </pre>
 </div>
-<div class="slide" id="id9">
+<div class="slide" id="structural-pattern-matching-7">
 <h1>Structural Pattern Matching</h1>
 <p>Conditions.</p>
 <pre class="code python literal-block">
@@ -610,7 +596,7 @@ NameError: name 'pint' is not defined. Did you mean: 'print'?
         <span class="name builtin">print</span><span class="punctuation">(</span><span class="name">direction</span><span class="punctuation">)</span>
 </pre>
 </div>
-<div class="slide" id="id10">
+<div class="slide" id="structural-pattern-matching-8">
 <h1>Structural Pattern Matching</h1>
 <p>Value pattern (careful here, <em>dotted</em> names are necessary).</p>
 <pre class="code python literal-block">
@@ -630,7 +616,7 @@ NameError: name 'pint' is not defined. Did you mean: 'print'?
         <span class="operator">...</span>
 </pre>
 </div>
-<div class="slide" id="id11">
+<div class="slide" id="structural-pattern-matching-9">
 <h1>Structural Pattern Matching</h1>
 <p>Mapping pattern.</p>
 <pre class="code python literal-block">
@@ -643,7 +629,7 @@ NameError: name 'pint' is not defined. Did you mean: 'print'?
         <span class="operator">...</span>
 </pre>
 </div>
-<div class="slide" id="id12">
+<div class="slide" id="structural-pattern-matching-10">
 <h1>Structural Pattern Matching</h1>
 <p>Class pattern.</p>
 <pre class="code python literal-block">
@@ -660,7 +646,7 @@ NameError: name 'pint' is not defined. Did you mean: 'print'?
         <span class="operator">...</span>
 </pre>
 </div>
-<div class="slide" id="id13">
+<div class="slide" id="structural-pattern-matching-11">
 <h1>Structural Pattern Matching</h1>
 <ul class="simple">
 <li>Capture patterns bind values to names.</li>
@@ -704,7 +690,7 @@ NameError: name 'pint' is not defined. Did you mean: 'print'?
     <span class="keyword">return</span> <span class="name builtin">sum</span><span class="punctuation">(</span><span class="name">numbers</span><span class="punctuation">)</span> <span class="operator">/</span> <span class="name builtin">len</span><span class="punctuation">(</span><span class="name">numbers</span><span class="punctuation">)</span>
 </pre>
 </div>
-<div class="slide" id="id14">
+<div class="slide" id="type-unions-1">
 <h1>Type Unions</h1>
 <p>Bonus, this works too.</p>
 <pre class="code python literal-block">
@@ -712,9 +698,9 @@ NameError: name 'pint' is not defined. Did you mean: 'print'?
 <span class="name builtin">issubclass</span><span class="punctuation">(</span><span class="name builtin">str</span><span class="punctuation">,</span> <span class="name builtin">int</span> <span class="operator">|</span> <span class="name builtin">float</span> <span class="operator">|</span> <span class="name builtin">bytes</span><span class="punctuation">)</span>
 </pre>
 </div>
-<div class="slide" id="id15">
+<div class="slide" id="type-unions-2">
 <h1>Type Unions</h1>
-<p><tt class="docutils literal">Optional</tt> is no longer needed.</p>
+<p><tt class="docutils literal">typing.Optional</tt> is no longer needed.</p>
 <pre class="code python literal-block">
 <span class="comment single"># Before</span>
 <span class="comment single">#</span>
@@ -727,7 +713,7 @@ NameError: name 'pint' is not defined. Did you mean: 'print'?
 <span class="name builtin">str</span> <span class="operator">|</span> <span class="keyword constant">None</span>
 </pre>
 </div>
-<div class="slide" id="id16">
+<div class="slide" id="typing-improvements-1">
 <h1>Typing improvements</h1>
 <ul class="simple">
 <li><tt class="docutils literal">typing.TypeAlias</tt> to signal an alias for a type</li>
@@ -774,32 +760,30 @@ $ python -X warn_default_encoding
 &lt;stdin&gt;:1: EncodingWarning: 'encoding' argument not specified
 </pre>
 </div>
-<div class="slide" id="sys-orig-argv">
-<h1>sys.orig_argv</h1>
-<p><tt class="docutils literal">sys.orig_argv</tt> keeps the options passed to the interpreter.</p>
-<pre class="literal-block">
-$ python -X utf8 -O argvs.py 3.10 --upgrade
-#
-# sys.argv:
-# ['argvs.py', '3.10', '--upgrade']
-#
-# sys.orig_argv:
-# ['python', '-X', 'utf8', '-O', 'argvs.py', '3.10', '--upgrade']
-</pre>
-</div>
 <div class="slide" id="and-beyond">
 <h1>And beyond!</h1>
 <p>Let's talk about the future (3.11+).</p>
 </div>
-<div class="slide" id="id17">
+<div class="slide" id="and-beyond-1">
 <h1>And beyond!</h1>
 <ul class="simple">
+<li>hopefully fixing forward references in annotations</li>
 <li>enhanced error locations in tracebacks</li>
 <li>PEP 654: exception groups</li>
-<li><tt class="docutils literal">from __future__ import annotations</tt> by default</li>
 <li>the Mark Shannon plan for faster CPython</li>
 <li>the Sam Gross no-GIL proof of concept</li>
 </ul>
+</div>
+<div class="slide" id="type-annotations">
+<h1>Type annotations</h1>
+<p>Example of <em>forward reference</em> issue:</p>
+<pre class="code python literal-block">
+<span class="keyword">class</span> <span class="name class">A</span><span class="punctuation">:</span>
+    <span class="keyword">def</span> <span class="name function">f</span><span class="punctuation">(</span><span class="name builtin pseudo">self</span><span class="punctuation">:</span> <span class="name">A</span><span class="punctuation">):</span>  <span class="comment single"># &lt;- A is not yet defined</span>
+        <span class="keyword">pass</span>
+</pre>
+<p>With <tt class="docutils literal">&quot;from __future__ import annotations&quot;</tt>, annotations are stored as strings.
+This <em>should</em> become the default.</p>
 </div>
 <div class="slide" id="improved-tracebacks">
 <h1>Improved tracebacks</h1>
@@ -825,22 +809,12 @@ $ python -X utf8 -O argvs.py 3.10 --upgrade
     <span class="operator">...</span>
 </pre>
 </div>
-<div class="slide" id="type-annotations">
-<h1>Type annotations</h1>
-<p>Example of <em>forward reference</em> issue:</p>
-<pre class="code python literal-block">
-<span class="keyword">class</span> <span class="name class">A</span><span class="punctuation">:</span>
-    <span class="keyword">def</span> <span class="name function">f</span><span class="punctuation">(</span><span class="name builtin pseudo">self</span><span class="punctuation">:</span> <span class="name">A</span><span class="punctuation">):</span>  <span class="comment single"># &lt;- A is not yet defined</span>
-        <span class="keyword">pass</span>
-</pre>
-<p>With <tt class="docutils literal">&quot;from __future__ import annotations&quot;</tt>, annotations are stored as strings.</p>
-</div>
 <div class="slide" id="faster-cpython">
 <h1>Faster CPython</h1>
 <p>Performance is now a hot topic.</p>
 <p>Microsoft has recruited Guido and several others to work on this.</p>
 </div>
-<div class="slide" id="id18">
+<div class="slide" id="faster-cpython-1">
 <h1>Faster CPython</h1>
 <ul class="simple">
 <li>Stage 1 -- Python 3.10: adaptive, specializing interpreter</li>
@@ -855,7 +829,7 @@ $ python -X utf8 -O argvs.py 3.10 --upgrade
 <p>The Python <em>Global Interpreter Lock</em> or GIL, in simple words, is a mutex (or a lock) that allows only one thread to hold the control of the Python interpreter.</p>
 <p>This means that only one thread can be in a state of execution at any point in time.</p>
 </div>
-<div class="slide" id="id19">
+<div class="slide" id="sam-gross-no-gil-1">
 <h1>Sam Gross no-GIL</h1>
 <p>CPython experiment by Sam Gross who:</p>
 <ul class="simple">
@@ -910,7 +884,7 @@ $ python -X utf8 -O argvs.py 3.10 --upgrade
 <li>a release manager is elected to manage 2 feature releases and their maintenance releases</li>
 </ul>
 </div>
-<div class="slide" id="id20">
+<div class="slide" id="pep-602-annual-release-cadence-1">
 <h1>PEP 602: annual release cadence</h1>
 <ul class="simple">
 <li>makes releases smaller</li>
@@ -1001,6 +975,17 @@ $ python -X utf8 -O argvs.py 3.10 --upgrade
 <li>PEP 618: add optional length-checking to <tt class="docutils literal">zip</tt></li>
 </ul>
 </div>
+<div class="slide" id="steering-council">
+<h1>2021 Steering Council</h1>
+<ul class="simple">
+<li>Barry Warsaw (LinkedIn)</li>
+<li>Brett Cannon (Microsoft)</li>
+<li>Carol Willing (Noteable)</li>
+<li>Pablo Galindo Salgado (Bloomberg)</li>
+<li>Thomas Wouters (Google)</li>
+</ul>
+<p>Release manager: Pablo Galindo Salgado</p>
+</div>
 <div class="slide" id="type-aliases">
 <h1>Type Aliases</h1>
 <p><tt class="docutils literal">TypeAlias</tt> signals to type checker that a variable is a type alias.</p>
@@ -1032,7 +1017,7 @@ $ python -X utf8 -O argvs.py 3.10 --upgrade
     <span class="keyword">return</span> <span class="punctuation">(</span><span class="name">suit</span><span class="punctuation">,</span> <span class="literal string double">&quot;ACE&quot;</span><span class="punctuation">)</span>
 </pre>
 </div>
-<div class="slide" id="id21">
+<div class="slide" id="type-guards-1">
 <h1>Type Guards</h1>
 <p><tt class="docutils literal">mypy</tt> not happy: <tt class="docutils literal">got &quot;Tuple[Optional[str], <span class="pre">str]&quot;,</span> expected &quot;Tuple[str, <span class="pre">str]&quot;)</span></tt></p>
 <pre class="code python literal-block">
@@ -1046,7 +1031,7 @@ $ python -X utf8 -O argvs.py 3.10 --upgrade
     <span class="keyword">return</span> <span class="punctuation">(</span><span class="name">suit</span><span class="punctuation">,</span> <span class="literal string double">&quot;ACE&quot;</span><span class="punctuation">)</span>
 </pre>
 </div>
-<div class="slide" id="id22">
+<div class="slide" id="type-guards-2">
 <h1>Type Guards</h1>
 <p><tt class="docutils literal">mypy</tt> now happy because <tt class="docutils literal">TypeGuard</tt> explains the output semantics.</p>
 <pre class="code python literal-block">
@@ -1076,7 +1061,7 @@ $ python -X utf8 -O argvs.py 3.10 --upgrade
     <span class="keyword">return</span> <span class="name">wrapper</span>
 </pre>
 </div>
-<div class="slide" id="id23">
+<div class="slide" id="paramspec-1">
 <h1>ParamSpec</h1>
 <p>Correct annotation of a decorator.</p>
 <pre class="code python literal-block">
@@ -1108,6 +1093,19 @@ $ python -X utf8 -O argvs.py 3.10 --upgrade
     <span class="name">read_path</span><span class="operator">.</span><span class="name">open</span><span class="punctuation">(</span><span class="name">mode</span><span class="operator">=</span><span class="literal string double">&quot;r&quot;</span><span class="punctuation">,</span> <span class="name">encoding</span><span class="operator">=</span><span class="literal string double">&quot;utf-8&quot;</span><span class="punctuation">)</span> <span class="keyword">as</span> <span class="name">read_file</span><span class="punctuation">,</span>
     <span class="name">write_path</span><span class="operator">.</span><span class="name">open</span><span class="punctuation">(</span><span class="name">mode</span><span class="operator">=</span><span class="literal string double">&quot;w&quot;</span><span class="punctuation">,</span> <span class="name">encoding</span><span class="operator">=</span><span class="literal string double">&quot;utf-8&quot;</span><span class="punctuation">)</span> <span class="keyword">as</span> <span class="name">write_file</span><span class="punctuation">,</span>
 <span class="punctuation">):</span>
+</pre>
+</div>
+<div class="slide" id="sys-orig-argv">
+<h1>sys.orig_argv</h1>
+<p><tt class="docutils literal">sys.orig_argv</tt> keeps the options passed to the interpreter.</p>
+<pre class="literal-block">
+$ python -X utf8 -O argvs.py 3.10 --upgrade
+#
+# sys.argv:
+# ['argvs.py', '3.10', '--upgrade']
+#
+# sys.orig_argv:
+# ['python', '-X', 'utf8', '-O', 'argvs.py', '3.10', '--upgrade']
 </pre>
 </div>
 </div>

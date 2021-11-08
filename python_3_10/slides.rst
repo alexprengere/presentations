@@ -30,22 +30,6 @@ Big changes require a *PEP*: *Python Enhancement Proposal*.
 + A steering council of 5 people make final decisions (elected for each release)
 + A release manager is elected, and manages 2 releases
 
----------------------
-2021 Steering Council
----------------------
-
-+ Barry Warsaw (LinkedIn)
-+ Brett Cannon (Microsoft)
-+ Carol Willing (Noteable)
-+ Pablo Galindo Salgado (Bloomberg)
-+ Thomas Wouters (Google)
-
-Release manager: Pablo Galindo Salgado
-
-----------------------
-Other important bodies
-----------------------
-
 ----
 PyPA
 ----
@@ -64,13 +48,13 @@ Also: organizes PyCon US, support other Python conferences, funding.
 Releasing
 ---------
 
-A new release every year.
+A new release every year in October.
 
 -----------------------------------
 Annual release cadence (since 2019)
 -----------------------------------
 
-A release branch is created in May, the release is in October.
+A release branch is created in May, stabilized for 6 months.
 
 .. image:: pep_602.png
    :width: 70 %
@@ -407,7 +391,7 @@ Bonus, this works too.
 Type Unions
 -----------
 
-``Optional`` is no longer needed.
+``typing.Optional`` is no longer needed.
 
 .. code:: python
 
@@ -481,23 +465,6 @@ To check this, there is a new warning that you can enable.
     >>> open("file.txt")
     <stdin>:1: EncodingWarning: 'encoding' argument not specified
 
--------------
-sys.orig_argv
--------------
-
-``sys.orig_argv`` keeps the options passed to the interpreter.
-
-::
-
-    $ python -X utf8 -O argvs.py 3.10 --upgrade
-    #
-    # sys.argv:
-    # ['argvs.py', '3.10', '--upgrade']
-    #
-    # sys.orig_argv:
-    # ['python', '-X', 'utf8', '-O', 'argvs.py', '3.10', '--upgrade']
-
-
 -----------
 And beyond!
 -----------
@@ -508,11 +475,26 @@ Let's talk about the future (3.11+).
 And beyond!
 -----------
 
++ hopefully fixing forward references in annotations
 + enhanced error locations in tracebacks
 + PEP 654: exception groups
-+ ``from __future__ import annotations`` by default
 + the Mark Shannon plan for faster CPython
 + the Sam Gross no-GIL proof of concept
+
+----------------
+Type annotations
+----------------
+
+Example of *forward reference* issue:
+
+.. code:: python
+
+    class A:
+        def f(self: A):  # <- A is not yet defined
+            pass
+
+With ``"from __future__ import annotations"``, annotations are stored as strings.
+This *should* become the default.
 
 -------------------
 Improved tracebacks
@@ -543,20 +525,6 @@ Exception groups: raising and catching multiple exceptions at once.
         ...
     except* TypeError:
         ...
-
-----------------
-Type annotations
-----------------
-
-Example of *forward reference* issue:
-
-.. code:: python
-
-    class A:
-        def f(self: A):  # <- A is not yet defined
-            pass
-
-With ``"from __future__ import annotations"``, annotations are stored as strings.
 
 --------------
 Faster CPython
@@ -737,6 +705,18 @@ Python 3.10 (2021)
 + PEP 612: parameter specification variables
 + PEP 618: add optional length-checking to ``zip``
 
+---------------------
+2021 Steering Council
+---------------------
+
++ Barry Warsaw (LinkedIn)
++ Brett Cannon (Microsoft)
++ Carol Willing (Noteable)
++ Pablo Galindo Salgado (Bloomberg)
++ Thomas Wouters (Google)
+
+Release manager: Pablo Galindo Salgado
+
 ------------
 Type Aliases
 ------------
@@ -866,3 +846,19 @@ You can put parenthesis when using multiple context managers.
         read_path.open(mode="r", encoding="utf-8") as read_file,
         write_path.open(mode="w", encoding="utf-8") as write_file,
     ):
+
+-------------
+sys.orig_argv
+-------------
+
+``sys.orig_argv`` keeps the options passed to the interpreter.
+
+::
+
+    $ python -X utf8 -O argvs.py 3.10 --upgrade
+    #
+    # sys.argv:
+    # ['argvs.py', '3.10', '--upgrade']
+    #
+    # sys.orig_argv:
+    # ['python', '-X', 'utf8', '-O', 'argvs.py', '3.10', '--upgrade']
