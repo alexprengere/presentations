@@ -3,7 +3,7 @@
 Setup:
 
 ```
-virtualenv .env
+virtualenv .env -p py39
 source .env/bin/activate
 pip install -r requirements.txt
 ```
@@ -12,7 +12,7 @@ Run the tests:
 
 ```
 pytest -v
-pytest --cov --cov-report html
+pytest --cov --cov-report term-missing
 pytest --hypothesis-show-statistics
 pytest --gherkin-terminal-reporter
 ```
