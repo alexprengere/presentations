@@ -11,10 +11,10 @@ pip install -r requirements.txt
 Run the tests:
 
 ```
-pytest -v
-pytest --cov --cov-report term-missing
-pytest --hypothesis-show-statistics
-pytest --gherkin-terminal-reporter
+py.test -v
+py.test --cov --cov-report term-missing
+py.test --hypothesis-show-statistics
+py.test --gherkin-terminal-reporter
 ```
 
 Run `mutmut` to test the tests:
