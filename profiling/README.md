@@ -1,11 +1,11 @@
-# Different ways of testing
+# Profilers
 
 ## Line profiler
 
 ```
 pip install line_profiler
 # Then add “@profile” to the functions you want to profile
-cat data | kernprof --line-by-line --view main.py
+kernprof --line-by-line --view main.py data
 ```
 
 ## Memory profiler
@@ -13,23 +13,22 @@ cat data | kernprof --line-by-line --view main.py
 ```
 pip install memory_profiler
 # Then add “@profile” to the functions you want to profile
-cat data | python -m memory_profiler main.py
-```
-
-## VMProf
-
-```
-pip install vmprof
-# You need to set up the backend on 0.0.0.0:8000
-cat data | python -m vmprof --web --web-url 0.0.0.0:8000 main.py
-cat data | python -m vmprof --web --web-url --mem 0.0.0.0:8000 main.py
+python -m memory_profiler main.py data
 ```
 
 ## Py-spy
 
 ```
-# First find the PID, then
-py-spy --pid 26234 --flame main.svg
+pip install py-spy
+py-spy record -o profile.svg -- python main.py data
+```
+
+## Memray
+
+```
+pip install memray
+memray run -o output.bin main.py data
+memray flamegraph output.bin
 ```
 
 ### IPython
